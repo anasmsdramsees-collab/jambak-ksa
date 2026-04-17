@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>التكاملات | جمبك</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="base.css"/>
+
+  <svg style="display:none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="ic-check"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
+      <symbol id="ic-bag"    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"   stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
+      <symbol id="ic-cart"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"   stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></symbol>
+      <symbol id="ic-box"    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"   stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/></symbol>
+      <symbol id="ic-store"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"   stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><rect x="9" y="14" width="6" height="8"/></symbol>
+      <symbol id="ic-code"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"   stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+      <symbol id="ic-plugin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"   stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L11 6.67l-1.06-1.06A5.5 5.5 0 0 0 2.16 13.4l9.9 9.9 9.9-9.9a5.5 5.5 0 0 0-.12-8.79z"/></symbol>
+      <symbol id="ic-zap"    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"   stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+      <symbol id="ic-arrow"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+      <symbol id="ic-x"  viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></symbol>
+      <symbol id="ic-fb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+      <symbol id="ic-li" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7H10v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+      <symbol id="ic-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></symbol>
+    </defs>
+  </svg>
+
+  <style>
+    .page-hero {
+      background: linear-gradient(135deg, var(--purple) 0%, var(--purple-mid) 100%);
+      padding: 80px 64px; text-align: center;
+    }
+    .page-hero h1 { font-size: 44px; font-weight: 900; color: var(--white); margin-bottom: 16px; }
+    .page-hero p  { font-size: 18px; color: rgba(255,255,255,.75); max-width: 540px; margin: 0 auto; line-height: 1.75; }
+
+    /* FILTER TABS */
+    .filter-bar { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; padding: 40px 64px 0; }
+    .filter-btn {
+      padding: 9px 22px; border-radius: 30px; font-family: 'Cairo', sans-serif;
+      font-size: 14px; font-weight: 600; cursor: pointer; border: 2px solid var(--gray-mid);
+      background: var(--white); color: var(--text-mid); transition: var(--transition);
+    }
+    .filter-btn:hover, .filter-btn.active { background: var(--purple); color: var(--white); border-color: var(--purple); }
+
+    /* INTEGRATIONS GRID */
+    .integ-section { padding: 40px 64px 88px; }
+    .integ-big-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+
+    .integ-big-card {
+      background: var(--white); border: 2px solid var(--gray-mid);
+      border-radius: 20px; padding: 32px 28px;
+      transition: var(--transition); cursor: pointer;
+    }
+    .integ-big-card:hover { border-color: var(--orange); box-shadow: 0 8px 32px rgba(255,69,0,.12); transform: translateY(-4px); }
+
+    .icard-head { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+    .icard-logo { width: 54px; height: 54px; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .icard-logo svg { width: 26px; height: 26px; }
+    .icard-head-text h3 { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+    .icard-head-text .cat { font-size: 12px; color: var(--text-light); font-weight: 600; }
+    .icard-desc { font-size: 14px; color: var(--text-mid); line-height: 1.7; margin-bottom: 20px; }
+    .icard-features { display: flex; flex-direction: column; gap: 8px; margin-bottom: 22px; }
+    .icard-feat { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-mid); }
+    .icard-feat svg { width: 15px; height: 15px; color: var(--purple); flex-shrink: 0; }
+    .icard-footer { display: flex; align-items: center; justify-content: space-between; }
+    .icard-status { font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; }
+    .icard-status.ready  { background: var(--green-light); color: var(--green); }
+    .icard-status.soon   { background: #fff8e1; color: #e65100; }
+    .connect-link { font-size: 13px; font-weight: 700; color: var(--orange); display: flex; align-items: center; gap: 4px; transition: gap var(--transition); }
+    .connect-link:hover { gap: 8px; }
+    .connect-link svg { width: 14px; height: 14px; }
+
+    /* API SECTION */
+    .api-box {
+      background: var(--purple); border-radius: 24px; padding: 56px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+    }
+    .api-box h2 { font-size: 32px; font-weight: 900; color: var(--white); margin-bottom: 14px; }
+    .api-box p  { font-size: 15px; color: rgba(255,255,255,.75); line-height: 1.75; margin-bottom: 28px; }
+    .api-box .feat-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+    .api-box .feat-list li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: rgba(255,255,255,.85); }
+    .api-box .feat-list li svg { width: 16px; height: 16px; color: var(--yellow); }
+    .code-block {
+      background: rgba(0,0,0,.35); border-radius: 16px; padding: 28px;
+      font-family: 'Courier New', monospace; font-size: 13px; color: #e0e0e0;
+      line-height: 1.8; overflow-x: auto;
+    }
+    .code-block .kw  { color: #c792ea; }
+    .code-block .str { color: #c3e88d; }
+    .code-block .key { color: #82aaff; }
+    .code-block .num { color: #f78c6c; }
+
+    /* STEPS */
+    .steps-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; }
+    .step-item {
+      padding: 36px 28px; text-align: center;
+      border-left: 1px solid var(--gray-mid);
+      position: relative;
+    }
+    .step-item:last-child { border-left: none; }
+    .step-item:first-child { border-left: none; }
+    .step-num-circle { width: 48px; height: 48px; border-radius: 50%; background: var(--purple-light); color: var(--purple); font-size: 20px; font-weight: 900; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+    .step-item h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+    .step-item p  { font-size: 13px; color: var(--text-mid); line-height: 1.65; }
+
+    @media(max-width:1024px){
+      .page-hero { padding: 56px 28px; }
+      .filter-bar { padding: 32px 28px 0; }
+      .integ-section { padding: 32px 28px 60px; }
+      .integ-big-grid { grid-template-columns: 1fr; }
+      .api-box { grid-template-columns: 1fr; padding: 32px; }
+      .steps-row { grid-template-columns: repeat(2,1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav">
+  <div class="nav-logo"><img src="جمبك.jpg" alt="جمبك"/></div>
+  <ul class="nav-links">
+    <li><a href="index.html">الرئيسية</a></li>
+    <li><a href="merchant.html">نوع التاجر</a></li>
+    <li><a href="integrations.html" class="active">التكاملات</a></li>
+    <li><a href="pricing.html">التسعير</a></li>
+    <li><a href="tracking.html" class="highlight">تتبع شحنتك</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn btn-ghost btn-sm">سجل دخول</button>
+    <a href="#" class="btn btn-primary btn-sm btn-pill">اشترك الآن</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <h1>اربط متجرك بجمبك بضغطة واحدة</h1>
+  <p>تكاملات سلسة مع أشهر منصات التجارة الإلكترونية — بدون خبرة تقنية</p>
+</div>
+
+<!-- FILTER TABS -->
+<div class="filter-bar">
+  <button class="filter-btn active">الكل</button>
+  <button class="filter-btn">متاجر إلكترونية</button>
+  <button class="filter-btn">ERP & إدارة</button>
+  <button class="filter-btn">دفع إلكتروني</button>
+  <button class="filter-btn">API</button>
+</div>
+
+<!-- INTEGRATIONS GRID -->
+<div class="integ-section">
+  <div class="integ-big-grid">
+
+    <!-- Shopify -->
+    <div class="integ-big-card">
+      <div class="icard-head">
+        <div class="icard-logo" style="background:#f0f9eb;color:#5a8a1e"><svg><use href="#ic-bag"/></svg></div>
+        <div class="icard-head-text"><h3>Shopify</h3><span class="cat">منصة متجر إلكتروني</span></div>
+      </div>
+      <p class="icard-desc">اربط متجرك الشوبيفاي بجمبك تلقائياً وتحول طلبات العملاء مباشرة لشحنات دون أي تدخل يدوي.</p>
+      <div class="icard-features">
+        <div class="icard-feat"><svg><use href="#ic-check"/></svg>مزامنة الطلبات تلقائياً</div>
+        <div class="icard-feat"><svg><use href="#ic-check"/></svg>تحديث حالة الشحن في المتجر</div>
+        <div class="icard-feat"><svg><use href="#ic-check"/></svg>إدارة المرتجعات</div>
+      </div>
+      <div class="icard-footer">
+        <span class="icard-status ready">متاح الآن</span>
+        <a href="#" class="connect-link">ربط الآن <svg><use href="#ic-arrow"/></svg></a>
+      </div>
+    </div>
+
+    <!-- WooCommerce -->
+    <div class="integ-big-card">
+      <div class="icard-head">
+        <div class="icard-logo" style="background:#f4f0f9;color:#7f54b3"><svg><use href="#ic-cart"/></svg></div>
+        <div class="icard-head-text"><h3>WooCommerce</h3><span class="cat">إضافة ووردبريس</span></div>
+      </div>
+      <p class="icard-desc">ثبّت إضافة جمبك على ووكومرس بنقرة واحدة وابدأ الشحن من لوحة تحكم ووردبريس مباشرة.</p>
+      <div class="icard-features">
+        <div class="icard-feat"><svg><use href="#ic-check"/></svg>تثبيت بنقرة واحدة</div>
+        <div class="icard-feat"><svg><use href="#ic-check"/></svg>لوحة تحكم مدمجة</div>
+        <div class="icard-feat"><svg><use href="#ic-check"/></svg>تتبع تلقائي للعملاء</div>
+      </div>
+      <div class="icard-footer">
+        <span class="icard-status ready">متاح الآن</span>
+        <a href="#" class="connect-link">ربط الآن <svg><use href="#ic-arrow"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Amazon -->
+    <div class="integ-big-card">
+      <div class="icard-head">
+        <div class="icard-logo" style="background:#fff8ed;color:#c07200"><svg><use href="#ic-box"/></svg></div>
+        <div class="icard-head-text"><h3>Amazon</h3><span class="cat">سوق إلكتروني</span></div>
+      </div>
+      <p class="icard-desc">اربط حساب أمازون بائع وأتمت شحن طلباتك الواردة من السوق مباشرة عبر شبكة جمبك.</p>
+      <div class="icard-features">
+        <div class="icard-feat"><svg><use href="#ic-check"/></svg>مزامنة طلبات أمازون</div>
+        <div class="icard-feat"><svg><use href="#ic-check"/></svg>إدارة متعددة المستودعات</div>
+        <div class="icard-feat"><svg><use href="#ic-check"/></svg>تقارير مبيعات مدمجة</div>
+      </div>
+      <div class="icard-footer">
+        <span class="icard-status ready">متاح الآن</span>
+        <a href="#" class="connect-link">ربط الآن <svg><use href="#ic-arrow"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Salla -->
+    <div class="integ-big-card">
+      <div class="icard-head">
+        <div class="icard-logo" style="background:#fff0f5;color:#e0005a"><svg><use href="#ic-store"/></svg></div>
+        <div class="icard-head-text"><h3>سلة Salla</h3><span class="cat">منصة متجر عربي</span></div>
+      </div>
+      <p class="icard-desc">أضف جمبك كشريك شحن في متجر سلة وابدأ توصيل الطلبات لعملائك في السودان فوراً.</p>
+      <div class="icard-features">
+        <div class="icard-feat"><svg><use href="#ic-check"/></svg>ربط مباشر من لوحة سلة</div>
+        <div class="icard-feat"><svg><use href="#ic-check"/></svg>أسعار شحن ديناميكية</div>
+        <div class="icard-feat"><svg><use href="#ic-check"/></svg>إشعارات فورية للعملاء</div>
+      </div>
+      <div class="icard-footer">
+        <span class="icard-status ready">متاح الآن</span>
+        <a href="#" class="connect-link">ربط الآن <svg><use href="#ic-arrow"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Zid -->
+    <div class="integ-big-card">
+      <div class="icard-head">
+        <div class="icard-logo" style="background:#f0f5ff;color:#2255cc"><svg><use href="#ic-store"/></svg></div>
+        <div class="icard-head-text"><h3>زد Zid</h3><span class="cat">منصة متجر عربي</span></div>
+      </div>
+      <p class="icard-desc">وصّل منصة زد بجمبك بكل سهولة وأتمت عمليات الشحن والتوصيل لعملائك عبر السودان.</p>
+      <div class="icard-features">
+        <div class="icard-feat"><svg><use href="#ic-check"/></svg>تكامل رسمي معتمد</div>
+        <div class="icard-feat"><svg><use href="#ic-check"/></svg>تتبع حالة الشحن المباشر</div>
+        <div class="icard-feat"><svg><use href="#ic-check"/></svg>إدارة المرتجعات</div>
+      </div>
+      <div class="icard-footer">
+        <span class="icard-status ready">متاح الآن</span>
+        <a href="#" class="connect-link">ربط الآن <svg><use href="#ic-arrow"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Custom API -->
+    <div class="integ-big-card">
+      <div class="icard-head">
+        <div class="icard-logo" style="background:#f0faf5;color:#00875a"><svg><use href="#ic-code"/></svg></div>
+        <div class="icard-head-text"><h3>API مخصص</h3><span class="cat">للمطورين</span></div>
+      </div>
+      <p class="icard-desc">استخدم API جمبك القوي لبناء تكاملات مخصصة كاملة مع أي نظام أو تطبيق تمتلكه.</p>
+      <div class="icard-features">
+        <div class="icard-feat"><svg><use href="#ic-check"/></svg>REST API كاملة الوثائق</div>
+        <div class="icard-feat"><svg><use href="#ic-check"/></svg>Webhooks في الوقت الفعلي</div>
+        <div class="icard-feat"><svg><use href="#ic-check"/></svg>Sandbox للاختبار</div>
+      </div>
+      <div class="icard-footer">
+        <span class="icard-status ready">متاح الآن</span>
+        <a href="#" class="connect-link">وثائق API <svg><use href="#ic-arrow"/></svg></a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- HOW TO CONNECT -->
+<section class="section bg-gray">
+  <div class="sec-header center">
+    <span class="sec-tag orange">كيف تربط متجرك؟</span>
+    <h2 class="sec-title">4 خطوات فقط للربط الكامل</h2>
+  </div>
+  <div class="steps-row card" style="border-radius:var(--radius-xl);overflow:hidden">
+    <div class="step-item">
+      <div class="step-num-circle">1</div>
+      <h3>سجّل في جمبك</h3>
+      <p>أنشئ حساباً مجانياً واحصل على مفاتيح API الخاصة بك</p>
+    </div>
+    <div class="step-item">
+      <div class="step-num-circle">2</div>
+      <h3>اختر المنصة</h3>
+      <p>اختر منصة متجرك من القائمة وانقر على "ربط الآن"</p>
+    </div>
+    <div class="step-item">
+      <div class="step-num-circle">3</div>
+      <h3>أدخل مفتاح API</h3>
+      <p>الصق مفتاح API في إعدادات المنصة — العملية تستغرق دقيقة</p>
+    </div>
+    <div class="step-item">
+      <div class="step-num-circle">4</div>
+      <h3>ابدأ الشحن</h3>
+      <p>طلباتك تتحول تلقائياً لشحنات جمبك — استمتع بالأتمتة الكاملة!</p>
+    </div>
+  </div>
+</section>
+
+<!-- API SECTION -->
+<section class="section">
+  <div class="api-box">
+    <div>
+      <span class="sec-tag white">للمطورين</span>
+      <h2>API جمبك القوي</h2>
+      <p>ابنِ تكاملات مخصصة كاملة مع أي نظام باستخدام REST API الموثقة بالكامل.</p>
+      <ul class="feat-list">
+        <li><svg><use href="#ic-check"/></svg>وثائق تفاعلية كاملة</li>
+        <li><svg><use href="#ic-check"/></svg>Webhooks للأحداث الفورية</li>
+        <li><svg><use href="#ic-check"/></svg>بيئة Sandbox للاختبار</li>
+        <li><svg><use href="#ic-check"/></svg>SDKs لـ PHP، Python، Node.js</li>
+      </ul>
+      <a href="#" class="btn btn-white">استعرض التوثيق <svg><use href="#ic-arrow"/></svg></a>
+    </div>
+    <div class="code-block">
+<span class="kw">POST</span> /api/v1/shipments<br/>
+<span class="key">Authorization:</span> <span class="str">Bearer YOUR_API_KEY</span><br/>
+<br/>
+{<br/>
+&nbsp;&nbsp;<span class="key">"recipient"</span>: {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"name"</span>: <span class="str">"محمد عبدالله"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"phone"</span>: <span class="str">"0912345678"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"city"</span>: <span class="str">"الخرطوم"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"address"</span>: <span class="str">"حي الرياض"</span><br/>
+&nbsp;&nbsp;},<br/>
+&nbsp;&nbsp;<span class="key">"cod"</span>: <span class="num">1500</span>,<br/>
+&nbsp;&nbsp;<span class="key">"weight"</span>: <span class="num">2.5</span><br/>
+}<br/>
+<br/>
+<span class="kw">→</span> <span class="str">201 Created</span><br/>
+{ <span class="key">"tracking_id"</span>: <span class="str">"JMB-2025-01234"</span> }
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band">
+  <div>
+    <h2>لا تجد منصتك في القائمة؟</h2>
+    <p>تواصل مع فريقنا التقني وسنبني تكاملاً مخصصاً لمنصتك خلال 48 ساعة</p>
+  </div>
+  <a href="#" class="btn btn-primary btn-lg btn-pill" style="flex-shrink:0">تواصل مع الفريق التقني</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="جمبك.jpg" alt="جمبك"/>
+      <p>جمبك هي شركة الشحن الداخلي الأسرع والأكثر موثوقية في السودان.</p>
+      <div class="social-row">
+        <a href="#" class="social-btn"><svg><use href="#ic-x"/></svg></a>
+        <a href="#" class="social-btn"><svg><use href="#ic-fb"/></svg></a>
+        <a href="#" class="social-btn"><svg><use href="#ic-li"/></svg></a>
+        <a href="#" class="social-btn"><svg><use href="#ic-ig"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col"><h4>منتجات</h4><ul><li><a href="#">الحلول</a></li><li><a href="#">تطبيق الموبايل</a></li><li><a href="#">لوحة التحكم</a></li></ul></div>
+    <div class="footer-col"><h4>نوع التاجر</h4><ul><li><a href="merchant.html">شركات صغيرة ومتوسطة</a></li><li><a href="merchant.html">شركات كبيرة</a></li></ul></div>
+    <div class="footer-col"><h4>الشركة</h4><ul><li><a href="#">عن جمبك</a></li><li><a href="#">وظائف</a></li><li><a href="pricing.html">التسعير</a></li><li><a href="#">أسئلة متكررة</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 جمبك. جميع الحقوق محفوظة.</p>
+    <div class="footer-btm-links"><a href="#">سياسة الخصوصية</a><a href="#">الشروط والأحكام</a><a href="tracking.html">تتبع شحنتك</a></div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

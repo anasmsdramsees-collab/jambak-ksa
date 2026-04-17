@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>لوحة التحكم | جمبك</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
+
+  <!-- hidden SVG icons -->
+  <svg style="display:none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="ic-grid"      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></symbol>
+      <symbol id="ic-truck"     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></symbol>
+      <symbol id="ic-package"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 9.4l-9-5.19"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></symbol>
+      <symbol id="ic-wallet"    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 3H8a2 2 0 0 0-2 2v2h12V5a2 2 0 0 0-2-2z"/><circle cx="16" cy="13" r="1" fill="currentColor"/></symbol>
+      <symbol id="ic-users"     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+      <symbol id="ic-map-pin"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+      <symbol id="ic-settings"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a9.95 9.95 0 0 1 0 14.14M4.93 4.93a9.95 9.95 0 0 0 0 14.14"/><path d="M17.66 6.34a8 8 0 0 1 0 11.32M6.34 6.34a8 8 0 0 0 0 11.32"/></symbol>
+      <symbol id="ic-bell"      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></symbol>
+      <symbol id="ic-plus"      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></symbol>
+      <symbol id="ic-check"     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
+      <symbol id="ic-x"         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+      <symbol id="ic-clock"     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+      <symbol id="ic-arrow-up"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></symbol>
+      <symbol id="ic-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></symbol>
+      <symbol id="ic-logout"    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></symbol>
+      <symbol id="ic-menu"      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></symbol>
+      <symbol id="ic-refresh"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></symbol>
+      <symbol id="ic-download"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+      <symbol id="ic-search"    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+      <symbol id="ic-chart"     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></symbol>
+      <symbol id="ic-integration" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="9" height="9" rx="1"/><rect x="13" y="2" width="9" height="9" rx="1"/><rect x="2" y="13" width="9" height="9" rx="1"/><path d="M17 13v4M15 17h4"/></symbol>
+    </defs>
+  </svg>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple:       #3D007A;
+      --purple-mid:   #5a0fbf;
+      --purple-light: #f3eaff;
+      --orange:       #FF4500;
+      --orange-dim:   #e03d00;
+      --yellow:       #FFA500;
+      --green:        #00a86b;
+      --red:          #e53935;
+      --white:        #ffffff;
+      --bg:           #f5f5f8;
+      --text:         #1a1a2e;
+      --text-mid:     #555570;
+      --text-light:   #9999b0;
+      --gray-mid:     #e0e0ef;
+      --sidebar-w:    260px;
+      --topbar-h:     64px;
+      --radius:       12px;
+      --shadow:       0 2px 16px rgba(61,0,122,.08);
+      --transition:   .18s ease;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ─── SIDEBAR ─── */
+    .sidebar {
+      width: var(--sidebar-w);
+      min-height: 100vh;
+      background: var(--purple);
+      display: flex; flex-direction: column;
+      position: fixed; top: 0; right: 0; bottom: 0;
+      z-index: 100;
+      transition: transform var(--transition);
+    }
+    .sidebar-logo {
+      padding: 22px 24px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .sidebar-logo img {
+      height: 38px; object-fit: contain; filter: brightness(10);
+    }
+
+    .sidebar-nav { flex: 1; padding: 16px 0; overflow-y: auto; }
+    .nav-section { padding: 8px 16px 4px; }
+    .nav-section-label {
+      font-size: 10px; font-weight: 700; letter-spacing: .08em;
+      color: rgba(255,255,255,.35); text-transform: uppercase; margin-bottom: 6px;
+    }
+    .nav-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 16px; border-radius: 10px;
+      color: rgba(255,255,255,.72); font-size: 14px; font-weight: 600;
+      cursor: pointer; transition: var(--transition);
+      position: relative;
+    }
+    .nav-item:hover { background: rgba(255,255,255,.1); color: var(--white); }
+    .nav-item.active {
+      background: rgba(255,255,255,.15); color: var(--white);
+    }
+    .nav-item.active::before {
+      content: '';
+      position: absolute; right: 0; top: 20%; bottom: 20%;
+      width: 3px; background: var(--orange); border-radius: 2px 0 0 2px;
+    }
+    .nav-item svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .nav-badge {
+      margin-right: auto; background: var(--orange);
+      color: var(--white); font-size: 10px; font-weight: 900;
+      padding: 2px 7px; border-radius: 99px; min-width: 20px; text-align: center;
+    }
+
+    .sidebar-footer {
+      padding: 16px;
+      border-top: 1px solid rgba(255,255,255,.1);
+    }
+    .sidebar-user {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 12px; border-radius: 10px;
+      transition: var(--transition); cursor: pointer;
+    }
+    .sidebar-user:hover { background: rgba(255,255,255,.08); }
+    .user-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--orange); color: var(--white);
+      font-size: 14px; font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .user-info { overflow: hidden; }
+    .user-info strong { display: block; font-size: 13px; color: var(--white); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .user-info span   { font-size: 11px; color: rgba(255,255,255,.5); }
+    .logout-btn {
+      margin-right: auto; background: none; border: none; cursor: pointer;
+      color: rgba(255,255,255,.4); transition: color var(--transition);
+    }
+    .logout-btn:hover { color: var(--white); }
+    .logout-btn svg { width: 16px; height: 16px; }
+
+    /* ─── MAIN ─── */
+    .main {
+      margin-right: var(--sidebar-w);
+      flex: 1; display: flex; flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* ─── TOPBAR ─── */
+    .topbar {
+      height: var(--topbar-h);
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-mid);
+      display: flex; align-items: center;
+      padding: 0 28px; gap: 16px;
+      position: sticky; top: 0; z-index: 50;
+    }
+    .topbar-title { font-size: 18px; font-weight: 900; color: var(--text); flex: 1; }
+    .topbar-search {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 14px;
+      background: var(--bg); border: 1.5px solid var(--gray-mid);
+      border-radius: 99px; transition: var(--transition);
+      min-width: 220px;
+    }
+    .topbar-search:focus-within { border-color: var(--purple); background: var(--white); }
+    .topbar-search svg { width: 15px; height: 15px; color: var(--text-light); flex-shrink: 0; }
+    .topbar-search input {
+      border: none; background: none; outline: none;
+      font-family: 'Cairo', sans-serif; font-size: 13px; color: var(--text);
+      width: 100%;
+    }
+    .topbar-search input::placeholder { color: var(--text-light); }
+
+    .notif-btn {
+      position: relative; width: 38px; height: 38px;
+      border-radius: 10px; border: 1.5px solid var(--gray-mid);
+      background: var(--white); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-mid); transition: var(--transition);
+    }
+    .notif-btn:hover { border-color: var(--purple); color: var(--purple); }
+    .notif-btn svg { width: 18px; height: 18px; }
+    .notif-dot {
+      position: absolute; top: 6px; left: 6px;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--orange); border: 2px solid var(--white);
+    }
+
+    .new-shipment-btn {
+      display: flex; align-items: center; gap: 8px;
+      padding: 9px 18px; background: var(--orange);
+      color: var(--white); border: none; border-radius: 10px;
+      font-family: 'Cairo', sans-serif; font-size: 13px; font-weight: 700;
+      cursor: pointer; transition: var(--transition);
+      box-shadow: 0 4px 14px rgba(255,69,0,.3);
+    }
+    .new-shipment-btn:hover { background: var(--orange-dim); transform: translateY(-1px); }
+    .new-shipment-btn svg { width: 16px; height: 16px; }
+
+    /* ─── PAGE CONTENT ─── */
+    .page-content { padding: 28px; flex: 1; }
+    .page-section { display: none; }
+    .page-section.active { display: block; }
+
+    /* ─── GREETING ─── */
+    .greeting { margin-bottom: 28px; }
+    .greeting h1 { font-size: 22px; font-weight: 900; color: var(--text); margin-bottom: 4px; }
+    .greeting p  { font-size: 14px; color: var(--text-mid); }
+
+    /* ─── STAT CARDS ─── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px; margin-bottom: 24px;
+    }
+    .stat-card {
+      background: var(--white); border-radius: var(--radius);
+      padding: 20px 22px; box-shadow: var(--shadow);
+      display: flex; flex-direction: column; gap: 10px;
+      position: relative; overflow: hidden;
+      transition: transform var(--transition);
+    }
+    .stat-card:hover { transform: translateY(-2px); }
+    .stat-card::before {
+      content: ''; position: absolute; top: 0; right: 0;
+      width: 4px; height: 100%;
+    }
+    .stat-card.purple::before { background: var(--purple); }
+    .stat-card.orange::before { background: var(--orange); }
+    .stat-card.green::before  { background: var(--green); }
+    .stat-card.yellow::before { background: var(--yellow); }
+
+    .stat-top { display: flex; align-items: center; justify-content: space-between; }
+    .stat-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .stat-icon.purple { background: var(--purple-light); color: var(--purple); }
+    .stat-icon.orange { background: rgba(255,69,0,.1);    color: var(--orange); }
+    .stat-icon.green  { background: rgba(0,168,107,.1);   color: var(--green); }
+    .stat-icon.yellow { background: rgba(255,165,0,.12);  color: #b07800; }
+    .stat-icon svg { width: 20px; height: 20px; }
+
+    .stat-trend {
+      display: flex; align-items: center; gap: 3px;
+      font-size: 11px; font-weight: 700; padding: 3px 8px;
+      border-radius: 99px;
+    }
+    .stat-trend.up   { background: rgba(0,168,107,.1); color: var(--green); }
+    .stat-trend.down { background: rgba(229,57,53,.1);  color: var(--red); }
+    .stat-trend svg  { width: 11px; height: 11px; }
+
+    .stat-value { font-size: 28px; font-weight: 900; color: var(--text); line-height: 1; }
+    .stat-label { font-size: 13px; color: var(--text-mid); font-weight: 600; }
+
+    /* ─── ROW: chart + activity ─── */
+    .dashboard-row { display: grid; grid-template-columns: 1fr 340px; gap: 16px; margin-bottom: 24px; }
+    .card {
+      background: var(--white); border-radius: var(--radius);
+      padding: 22px; box-shadow: var(--shadow);
+    }
+    .card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+    .card-header h3 { font-size: 15px; font-weight: 900; color: var(--text); }
+    .card-actions { display: flex; align-items: center; gap: 8px; }
+    .btn-ghost {
+      background: none; border: 1.5px solid var(--gray-mid);
+      border-radius: 8px; padding: 6px 12px;
+      font-family: 'Cairo', sans-serif; font-size: 12px; font-weight: 700;
+      color: var(--text-mid); cursor: pointer; transition: var(--transition);
+      display: flex; align-items: center; gap: 5px;
+    }
+    .btn-ghost:hover { border-color: var(--purple); color: var(--purple); }
+    .btn-ghost svg { width: 13px; height: 13px; }
+
+    /* mini chart bars */
+    .mini-chart { display: flex; align-items: flex-end; gap: 6px; height: 120px; margin-bottom: 12px; }
+    .chart-col  { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .chart-bar  {
+      width: 100%; border-radius: 4px 4px 0 0;
+      transition: opacity var(--transition);
+    }
+    .chart-bar:hover { opacity: .8; }
+    .chart-bar.delivered { background: var(--purple); }
+    .chart-bar.returned  { background: var(--orange); opacity: .6; }
+    .chart-lbl  { font-size: 10px; color: var(--text-light); font-weight: 600; }
+
+    .chart-legend { display: flex; gap: 16px; }
+    .legend-item  { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-mid); font-weight: 600; }
+    .legend-dot   { width: 10px; height: 10px; border-radius: 50%; }
+
+    /* activity feed */
+    .activity-list { display: flex; flex-direction: column; gap: 0; }
+    .activity-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 12px 0; border-bottom: 1px solid var(--gray-mid);
+    }
+    .activity-item:last-child { border-bottom: none; }
+    .activity-dot {
+      width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .activity-dot svg { width: 15px; height: 15px; }
+    .activity-dot.green  { background: rgba(0,168,107,.12); color: var(--green); }
+    .activity-dot.orange { background: rgba(255,69,0,.1);   color: var(--orange); }
+    .activity-dot.purple { background: var(--purple-light); color: var(--purple); }
+    .activity-dot.red    { background: rgba(229,57,53,.1);  color: var(--red); }
+    .activity-body  { flex: 1; min-width: 0; }
+    .activity-body strong { display: block; font-size: 13px; font-weight: 700; color: var(--text); }
+    .activity-body span   { font-size: 11px; color: var(--text-light); }
+
+    /* ─── SHIPMENTS TABLE ─── */
+    .table-wrap { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+    .table-topbar {
+      display: flex; align-items: center; gap: 12px;
+      padding: 16px 20px; border-bottom: 1px solid var(--gray-mid);
+    }
+    .table-topbar h3 { font-size: 15px; font-weight: 900; flex: 1; }
+    .filter-tabs-sm { display: flex; gap: 6px; }
+    .ftab {
+      padding: 5px 14px; border-radius: 99px;
+      font-family: 'Cairo', sans-serif; font-size: 12px; font-weight: 700;
+      background: none; border: 1.5px solid var(--gray-mid); color: var(--text-mid);
+      cursor: pointer; transition: var(--transition);
+    }
+    .ftab.active { background: var(--purple); border-color: var(--purple); color: var(--white); }
+    .ftab:hover:not(.active) { border-color: var(--purple); color: var(--purple); }
+
+    table { width: 100%; border-collapse: collapse; }
+    thead th {
+      padding: 12px 20px; text-align: right;
+      font-size: 12px; font-weight: 700; color: var(--text-light);
+      background: var(--bg); border-bottom: 1px solid var(--gray-mid);
+    }
+    tbody tr { border-bottom: 1px solid var(--gray-mid); transition: background var(--transition); }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: rgba(61,0,122,.025); }
+    tbody td { padding: 14px 20px; font-size: 13px; color: var(--text); vertical-align: middle; }
+
+    .tracking-num { font-weight: 700; color: var(--purple); font-size: 12px; font-family: monospace; direction: ltr; text-align: right; }
+    .status-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 4px 10px; border-radius: 99px; font-size: 11px; font-weight: 700;
+    }
+    .status-badge svg { width: 11px; height: 11px; }
+    .status-badge.delivered { background: rgba(0,168,107,.1);  color: var(--green); }
+    .status-badge.in-transit { background: rgba(61,0,122,.1);  color: var(--purple); }
+    .status-badge.pending    { background: rgba(255,165,0,.12); color: #b07800; }
+    .status-badge.returned   { background: rgba(229,57,53,.1);  color: var(--red); }
+    .status-badge.out-for-delivery { background: rgba(255,69,0,.1); color: var(--orange); }
+
+    .row-actions { display: flex; align-items: center; gap: 6px; }
+    .row-btn {
+      padding: 5px 10px; border-radius: 7px; font-size: 11px; font-weight: 700;
+      font-family: 'Cairo', sans-serif; cursor: pointer; transition: var(--transition);
+      border: 1.5px solid var(--gray-mid); background: var(--white); color: var(--text-mid);
+    }
+    .row-btn:hover { border-color: var(--purple); color: var(--purple); }
+
+    /* pagination */
+    .pagination {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 20px; border-top: 1px solid var(--gray-mid);
+    }
+    .pagination span { font-size: 12px; color: var(--text-light); }
+    .page-btns { display: flex; gap: 4px; }
+    .page-btn {
+      width: 32px; height: 32px; border-radius: 8px;
+      border: 1.5px solid var(--gray-mid); background: var(--white);
+      font-family: 'Cairo', sans-serif; font-size: 12px; font-weight: 700;
+      cursor: pointer; color: var(--text-mid); transition: var(--transition);
+    }
+    .page-btn.active { background: var(--purple); border-color: var(--purple); color: var(--white); }
+    .page-btn:hover:not(.active) { border-color: var(--purple); color: var(--purple); }
+
+    /* ─── QUICK ACTIONS ─── */
+    .quick-actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 24px; }
+    .quick-action {
+      background: var(--white); border-radius: var(--radius); padding: 18px;
+      box-shadow: var(--shadow); cursor: pointer; transition: var(--transition);
+      display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center;
+      border: 2px solid transparent;
+    }
+    .quick-action:hover { transform: translateY(-3px); border-color: var(--purple-light); }
+    .quick-action .qa-icon {
+      width: 48px; height: 48px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .quick-action .qa-icon svg { width: 22px; height: 22px; }
+    .quick-action .qa-icon.purple { background: var(--purple-light); color: var(--purple); }
+    .quick-action .qa-icon.orange { background: rgba(255,69,0,.1); color: var(--orange); }
+    .quick-action .qa-icon.green  { background: rgba(0,168,107,.1); color: var(--green); }
+    .quick-action .qa-icon.yellow { background: rgba(255,165,0,.12); color: #b07800; }
+    .quick-action span { font-size: 13px; font-weight: 700; color: var(--text); }
+
+    /* ─── EMPTY STATE ─── */
+    .empty-section {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 80px 24px; text-align: center;
+      background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow);
+    }
+    .empty-section svg { width: 64px; height: 64px; color: var(--gray-mid); margin-bottom: 20px; }
+    .empty-section h3 { font-size: 18px; font-weight: 900; color: var(--text); margin-bottom: 8px; }
+    .empty-section p  { font-size: 14px; color: var(--text-mid); margin-bottom: 24px; }
+
+    /* ─── NOTIFICATION PANEL ─── */
+    .notif-panel {
+      position: fixed; top: var(--topbar-h); left: 28px;
+      width: 340px; background: var(--white); border-radius: var(--radius);
+      box-shadow: 0 8px 40px rgba(61,0,122,.15); z-index: 200;
+      display: none; overflow: hidden;
+    }
+    .notif-panel.open { display: block; }
+    .notif-panel-header {
+      padding: 16px 18px; border-bottom: 1px solid var(--gray-mid);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .notif-panel-header h4 { font-size: 14px; font-weight: 900; }
+    .notif-panel-header button { background: none; border: none; cursor: pointer; color: var(--text-light); font-family: 'Cairo', sans-serif; font-size: 12px; }
+    .notif-item {
+      display: flex; gap: 12px; padding: 14px 18px;
+      border-bottom: 1px solid var(--gray-mid); transition: background var(--transition);
+    }
+    .notif-item:last-child { border-bottom: none; }
+    .notif-item:hover { background: var(--bg); }
+    .notif-item.unread { background: rgba(61,0,122,.03); }
+    .notif-icon { width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+    .notif-icon svg { width: 15px; height: 15px; }
+    .notif-body strong { display: block; font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+    .notif-body span  { font-size: 11px; color: var(--text-light); }
+
+    /* ─── NEW SHIPMENT MODAL ─── */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,.5);
+      z-index: 300; display: none; align-items: center; justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--white); border-radius: 16px;
+      width: 100%; max-width: 580px; max-height: 90vh; overflow-y: auto;
+      padding: 32px; position: relative;
+    }
+    .modal-close {
+      position: absolute; top: 16px; left: 16px;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--bg); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-mid); transition: var(--transition);
+    }
+    .modal-close:hover { background: var(--gray-mid); }
+    .modal-close svg { width: 16px; height: 16px; }
+    .modal h2 { font-size: 20px; font-weight: 900; margin-bottom: 24px; }
+    .modal .form-group { margin-bottom: 16px; }
+    .modal .form-group label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+    .modal .form-group input, .modal .form-group select, .modal .form-group textarea {
+      width: 100%; padding: 11px 14px;
+      border: 2px solid var(--gray-mid); border-radius: 10px;
+      font-family: 'Cairo', sans-serif; font-size: 14px; color: var(--text);
+      outline: none; transition: border-color var(--transition);
+      background: var(--bg);
+    }
+    .modal .form-group input:focus, .modal .form-group select:focus, .modal .form-group textarea:focus {
+      border-color: var(--purple); background: var(--white);
+    }
+    .modal .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .modal-footer { display: flex; gap: 10px; margin-top: 24px; }
+    .btn-cancel {
+      flex: 1; padding: 13px; border: 2px solid var(--gray-mid); border-radius: 10px;
+      font-family: 'Cairo', sans-serif; font-size: 14px; font-weight: 700;
+      color: var(--text-mid); background: var(--white); cursor: pointer;
+      transition: var(--transition);
+    }
+    .btn-cancel:hover { border-color: var(--purple); color: var(--purple); }
+    .btn-submit {
+      flex: 2; padding: 13px; background: var(--orange); border: none; border-radius: 10px;
+      font-family: 'Cairo', sans-serif; font-size: 14px; font-weight: 700;
+      color: var(--white); cursor: pointer; transition: var(--transition);
+      box-shadow: 0 4px 14px rgba(255,69,0,.3);
+    }
+    .btn-submit:hover { background: var(--orange-dim); }
+
+    /* ─── RESPONSIVE ─── */
+    @media(max-width:1100px) {
+      .stats-grid { grid-template-columns: repeat(2,1fr); }
+      .quick-actions { grid-template-columns: repeat(2,1fr); }
+      .dashboard-row { grid-template-columns: 1fr; }
+    }
+    @media(max-width:768px) {
+      .sidebar { transform: translateX(100%); }
+      .sidebar.open { transform: translateX(0); }
+      .main { margin-right: 0; }
+      .page-content { padding: 16px; }
+      .topbar { padding: 0 16px; }
+      .topbar-search { display: none; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ SIDEBAR ═══ -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <img src="جمبك.jpg" alt="جمبك"/>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="nav-section">
+      <div class="nav-section-label">الرئيسية</div>
+      <div class="nav-item active" onclick="showSection('overview')">
+        <svg><use href="#ic-grid"/></svg>
+        نظرة عامة
+      </div>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-label">الشحن</div>
+      <div class="nav-item" onclick="showSection('shipments')">
+        <svg><use href="#ic-package"/></svg>
+        شحناتي
+        <span class="nav-badge">3</span>
+      </div>
+      <div class="nav-item" onclick="showSection('tracking')">
+        <svg><use href="#ic-map-pin"/></svg>
+        تتبع الشحنات
+      </div>
+      <div class="nav-item" onclick="showSection('fleet')">
+        <svg><use href="#ic-truck"/></svg>
+        المندوبون
+      </div>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-label">المالية</div>
+      <div class="nav-item" onclick="showSection('wallet')">
+        <svg><use href="#ic-wallet"/></svg>
+        المحفظة
+      </div>
+      <div class="nav-item" onclick="showSection('reports')">
+        <svg><use href="#ic-chart"/></svg>
+        التقارير
+      </div>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-label">الإدارة</div>
+      <div class="nav-item" onclick="showSection('customers')">
+        <svg><use href="#ic-users"/></svg>
+        العملاء
+      </div>
+      <div class="nav-item" onclick="showSection('integrations')">
+        <svg><use href="#ic-integration"/></svg>
+        التكاملات
+      </div>
+      <div class="nav-item" onclick="showSection('settings')">
+        <svg><use href="#ic-settings"/></svg>
+        الإعدادات
+      </div>
+    </div>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="sidebar-user">
+      <div class="user-avatar">أ</div>
+      <div class="user-info">
+        <strong>أنس رمسيس</strong>
+        <span>anas_m_ramsees</span>
+      </div>
+      <button class="logout-btn" onclick="window.location.href='login.html'" title="تسجيل الخروج">
+        <svg><use href="#ic-logout"/></svg>
+      </button>
+    </div>
+  </div>
+</aside>
+
+<!-- ═══ MAIN ═══ -->
+<div class="main">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <button class="btn-ghost" id="menuBtn" onclick="toggleSidebar()" style="display:none; border:none; padding:8px;">
+      <svg width="20" height="20"><use href="#ic-menu"/></svg>
+    </button>
+    <span class="topbar-title" id="pageTitle">نظرة عامة</span>
+
+    <div class="topbar-search">
+      <svg><use href="#ic-search"/></svg>
+      <input type="text" placeholder="ابحث عن شحنة أو عميل..."/>
+    </div>
+
+    <button class="notif-btn" onclick="toggleNotif()" id="notifBtn">
+      <svg><use href="#ic-bell"/></svg>
+      <span class="notif-dot" id="notifDot"></span>
+    </button>
+
+    <button class="new-shipment-btn" onclick="openModal()">
+      <svg><use href="#ic-plus"/></svg>
+      شحنة جديدة
+    </button>
+  </div>
+
+  <!-- PAGE CONTENT -->
+  <div class="page-content">
+
+    <!-- ══ OVERVIEW SECTION ══ -->
+    <section class="page-section active" id="sec-overview">
+
+      <div class="greeting">
+        <h1>أهلاً بك، أنس 👋</h1>
+        <p>الأربعاء، ١٦ أبريل ٢٠٢٦ — إليك ملخص نشاط متجرك اليوم</p>
+      </div>
+
+      <!-- STATS -->
+      <div class="stats-grid">
+        <div class="stat-card purple">
+          <div class="stat-top">
+            <div class="stat-icon purple"><svg><use href="#ic-package"/></svg></div>
+            <div class="stat-trend up"><svg><use href="#ic-arrow-up"/></svg> 12%</div>
+          </div>
+          <div class="stat-value">248</div>
+          <div class="stat-label">إجمالي الشحنات</div>
+        </div>
+        <div class="stat-card orange">
+          <div class="stat-top">
+            <div class="stat-icon orange"><svg><use href="#ic-truck"/></svg></div>
+            <div class="stat-trend up"><svg><use href="#ic-arrow-up"/></svg> 8%</div>
+          </div>
+          <div class="stat-value">37</div>
+          <div class="stat-label">قيد التوصيل اليوم</div>
+        </div>
+        <div class="stat-card green">
+          <div class="stat-top">
+            <div class="stat-icon green"><svg><use href="#ic-check"/></svg></div>
+            <div class="stat-trend up"><svg><use href="#ic-arrow-up"/></svg> 5%</div>
+          </div>
+          <div class="stat-value">189</div>
+          <div class="stat-label">تم التسليم</div>
+        </div>
+        <div class="stat-card yellow">
+          <div class="stat-top">
+            <div class="stat-icon yellow"><svg><use href="#ic-wallet"/></svg></div>
+            <div class="stat-trend up"><svg><use href="#ic-arrow-up"/></svg> 18%</div>
+          </div>
+          <div class="stat-value" style="font-size:22px">84,200 SDG</div>
+          <div class="stat-label">إيرادات هذا الشهر</div>
+        </div>
+      </div>
+
+      <!-- QUICK ACTIONS -->
+      <div class="quick-actions">
+        <div class="quick-action" onclick="openModal()">
+          <div class="qa-icon orange"><svg><use href="#ic-plus"/></svg></div>
+          <span>شحنة جديدة</span>
+        </div>
+        <div class="quick-action" onclick="showSection('tracking')">
+          <div class="qa-icon purple"><svg><use href="#ic-map-pin"/></svg></div>
+          <span>تتبع شحنة</span>
+        </div>
+        <div class="quick-action" onclick="showSection('wallet')">
+          <div class="qa-icon green"><svg><use href="#ic-wallet"/></svg></div>
+          <span>سحب الأموال</span>
+        </div>
+        <div class="quick-action" onclick="showSection('reports')">
+          <div class="qa-icon yellow"><svg><use href="#ic-download"/></svg></div>
+          <span>تنزيل التقرير</span>
+        </div>
+      </div>
+
+      <!-- CHART + ACTIVITY -->
+      <div class="dashboard-row">
+
+        <!-- Mini Chart -->
+        <div class="card">
+          <div class="card-header">
+            <h3>أداء الشحنات — آخر 7 أيام</h3>
+            <div class="card-actions">
+              <button class="btn-ghost"><svg><use href="#ic-refresh"/></svg> تحديث</button>
+              <button class="btn-ghost"><svg><use href="#ic-download"/></svg> تصدير</button>
+            </div>
+          </div>
+
+          <div class="mini-chart">
+            <div class="chart-col">
+              <div class="chart-bar delivered" style="height:70%"></div>
+              <div class="chart-bar returned"  style="height:15%"></div>
+              <div class="chart-lbl">الأحد</div>
+            </div>
+            <div class="chart-col">
+              <div class="chart-bar delivered" style="height:85%"></div>
+              <div class="chart-bar returned"  style="height:10%"></div>
+              <div class="chart-lbl">الاثنين</div>
+            </div>
+            <div class="chart-col">
+              <div class="chart-bar delivered" style="height:60%"></div>
+              <div class="chart-bar returned"  style="height:20%"></div>
+              <div class="chart-lbl">الثلاثاء</div>
+            </div>
+            <div class="chart-col">
+              <div class="chart-bar delivered" style="height:90%"></div>
+              <div class="chart-bar returned"  style="height:8%"></div>
+              <div class="chart-lbl">الأربعاء</div>
+            </div>
+            <div class="chart-col">
+              <div class="chart-bar delivered" style="height:75%"></div>
+              <div class="chart-bar returned"  style="height:12%"></div>
+              <div class="chart-lbl">الخميس</div>
+            </div>
+            <div class="chart-col">
+              <div class="chart-bar delivered" style="height:50%"></div>
+              <div class="chart-bar returned"  style="height:18%"></div>
+              <div class="chart-lbl">الجمعة</div>
+            </div>
+            <div class="chart-col">
+              <div class="chart-bar delivered" style="height:80%"></div>
+              <div class="chart-bar returned"  style="height:9%"></div>
+              <div class="chart-lbl">السبت</div>
+            </div>
+          </div>
+
+          <div class="chart-legend">
+            <div class="legend-item"><div class="legend-dot" style="background:var(--purple)"></div> تم التسليم</div>
+            <div class="legend-item"><div class="legend-dot" style="background:var(--orange);opacity:.6"></div> مُعادة</div>
+          </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="card">
+          <div class="card-header">
+            <h3>آخر الأحداث</h3>
+            <button class="btn-ghost">الكل</button>
+          </div>
+          <div class="activity-list">
+            <div class="activity-item">
+              <div class="activity-dot green"><svg><use href="#ic-check"/></svg></div>
+              <div class="activity-body">
+                <strong>تم تسليم JMB-00247</strong>
+                <span>الخرطوم — منذ 18 دقيقة</span>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot orange"><svg><use href="#ic-truck"/></svg></div>
+              <div class="activity-body">
+                <strong>خرجت JMB-00246 للتوصيل</strong>
+                <span>أم درمان — منذ 42 دقيقة</span>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot purple"><svg><use href="#ic-package"/></svg></div>
+              <div class="activity-body">
+                <strong>شحنة جديدة JMB-00248</strong>
+                <span>استُلمت في المستودع — منذ ساعة</span>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot red"><svg><use href="#ic-refresh"/></svg></div>
+              <div class="activity-body">
+                <strong>إعادة JMB-00241</strong>
+                <span>العميل لم يكن متاحاً — منذ ساعتين</span>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot green"><svg><use href="#ic-wallet"/></svg></div>
+              <div class="activity-body">
+                <strong>تحصيل 12,500 SDG</strong>
+                <span>تم التحويل إلى المحفظة — منذ 3 ساعات</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RECENT SHIPMENTS TABLE -->
+      <div class="table-wrap">
+        <div class="table-topbar">
+          <h3>آخر الشحنات</h3>
+          <div class="filter-tabs-sm">
+            <button class="ftab active" onclick="filterTab(this,'all')">الكل</button>
+            <button class="ftab" onclick="filterTab(this,'transit')">قيد التوصيل</button>
+            <button class="ftab" onclick="filterTab(this,'done')">مُسلَّمة</button>
+            <button class="ftab" onclick="filterTab(this,'returned')">مُعادة</button>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>رقم التتبع</th>
+              <th>العميل</th>
+              <th>الوجهة</th>
+              <th>التاريخ</th>
+              <th>المبلغ</th>
+              <th>الحالة</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="tracking-num">JMB-00248</span></td>
+              <td>فاطمة إبراهيم</td>
+              <td>الخرطوم — الرياض</td>
+              <td>اليوم، 10:24</td>
+              <td>850 SDG</td>
+              <td><span class="status-badge in-transit"><svg><use href="#ic-clock"/></svg> قيد التوصيل</span></td>
+              <td><div class="row-actions"><button class="row-btn">تتبع</button><button class="row-btn">تفاصيل</button></div></td>
+            </tr>
+            <tr>
+              <td><span class="tracking-num">JMB-00247</span></td>
+              <td>محمد علي حسن</td>
+              <td>الخرطوم — بحري</td>
+              <td>اليوم، 09:05</td>
+              <td>600 SDG</td>
+              <td><span class="status-badge delivered"><svg><use href="#ic-check"/></svg> مُسلَّمة</span></td>
+              <td><div class="row-actions"><button class="row-btn">تفاصيل</button></div></td>
+            </tr>
+            <tr>
+              <td><span class="tracking-num">JMB-00246</span></td>
+              <td>سارة عبدالله</td>
+              <td>الخرطوم — أم درمان</td>
+              <td>اليوم، 08:30</td>
+              <td>720 SDG</td>
+              <td><span class="status-badge out-for-delivery"><svg><use href="#ic-truck"/></svg> في الطريق</span></td>
+              <td><div class="row-actions"><button class="row-btn">تتبع</button><button class="row-btn">تفاصيل</button></div></td>
+            </tr>
+            <tr>
+              <td><span class="tracking-num">JMB-00245</span></td>
+              <td>أحمد خالد</td>
+              <td>الخرطوم — الدمازين</td>
+              <td>أمس، 16:10</td>
+              <td>1,200 SDG</td>
+              <td><span class="status-badge pending"><svg><use href="#ic-clock"/></svg> في المستودع</span></td>
+              <td><div class="row-actions"><button class="row-btn">تتبع</button><button class="row-btn">تفاصيل</button></div></td>
+            </tr>
+            <tr>
+              <td><span class="tracking-num">JMB-00241</span></td>
+              <td>نور الدين محمد</td>
+              <td>الخرطوم — مدني</td>
+              <td>أمس، 11:00</td>
+              <td>950 SDG</td>
+              <td><span class="status-badge returned"><svg><use href="#ic-x"/></svg> مُعادة</span></td>
+              <td><div class="row-actions"><button class="row-btn">إعادة جدولة</button></div></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="pagination">
+          <span>عرض 5 من 248 شحنة</span>
+          <div class="page-btns">
+            <button class="page-btn">‹</button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">›</button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ══ SHIPMENTS SECTION ══ -->
+    <section class="page-section" id="sec-shipments">
+      <div class="greeting"><h1>شحناتي</h1><p>إدارة وتتبع جميع شحناتك</p></div>
+      <div class="table-wrap">
+        <div class="table-topbar">
+          <h3>جميع الشحنات</h3>
+          <button class="new-shipment-btn" onclick="openModal()">
+            <svg width="14" height="14"><use href="#ic-plus"/></svg>
+            شحنة جديدة
+          </button>
+        </div>
+        <table>
+          <thead>
+            <tr><th>رقم التتبع</th><th>العميل</th><th>الوجهة</th><th>التاريخ</th><th>المبلغ</th><th>الحالة</th><th></th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="tracking-num">JMB-00248</span></td><td>فاطمة إبراهيم</td><td>الخرطوم — الرياض</td><td>اليوم</td><td>850 SDG</td><td><span class="status-badge in-transit"><svg><use href="#ic-clock"/></svg> قيد التوصيل</span></td><td><button class="row-btn">تفاصيل</button></td></tr>
+            <tr><td><span class="tracking-num">JMB-00247</span></td><td>محمد علي</td><td>الخرطوم — بحري</td><td>اليوم</td><td>600 SDG</td><td><span class="status-badge delivered"><svg><use href="#ic-check"/></svg> مُسلَّمة</span></td><td><button class="row-btn">تفاصيل</button></td></tr>
+            <tr><td><span class="tracking-num">JMB-00246</span></td><td>سارة عبدالله</td><td>الخرطوم — أم درمان</td><td>اليوم</td><td>720 SDG</td><td><span class="status-badge out-for-delivery"><svg><use href="#ic-truck"/></svg> في الطريق</span></td><td><button class="row-btn">تفاصيل</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ WALLET SECTION ══ -->
+    <section class="page-section" id="sec-wallet">
+      <div class="greeting"><h1>المحفظة</h1><p>رصيدك وتحويلاتك المالية</p></div>
+      <div class="stats-grid">
+        <div class="stat-card green">
+          <div class="stat-top"><div class="stat-icon green"><svg><use href="#ic-wallet"/></svg></div></div>
+          <div class="stat-value" style="font-size:24px">84,200 SDG</div>
+          <div class="stat-label">الرصيد المتاح</div>
+        </div>
+        <div class="stat-card purple">
+          <div class="stat-top"><div class="stat-icon purple"><svg><use href="#ic-clock"/></svg></div></div>
+          <div class="stat-value" style="font-size:24px">12,500 SDG</div>
+          <div class="stat-label">قيد التحصيل</div>
+        </div>
+      </div>
+      <div class="empty-section" style="margin-top:0">
+        <svg><use href="#ic-wallet"/></svg>
+        <h3>سحب الأموال</h3>
+        <p>يمكنك سحب رصيدك إلى حسابك البنكي أو محفظة موبايل موني</p>
+        <button class="new-shipment-btn" style="margin:0 auto">سحب الرصيد</button>
+      </div>
+    </section>
+
+    <!-- ══ TRACKING SECTION ══ -->
+    <section class="page-section" id="sec-tracking">
+      <div class="greeting"><h1>تتبع الشحنات</h1><p>ابحث عن أي شحنة بالوقت الفعلي</p></div>
+      <div class="card" style="max-width:600px">
+        <div class="card-header"><h3>إدخال رقم التتبع</h3></div>
+        <div style="display:flex;gap:10px">
+          <div class="topbar-search" style="flex:1">
+            <svg><use href="#ic-search"/></svg>
+            <input type="text" placeholder="مثال: JMB-00248" id="trackInput"/>
+          </div>
+          <button class="new-shipment-btn" onclick="window.open('tracking.html','_blank')">تتبع</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ OTHER SECTIONS (empty state) ══ -->
+    <section class="page-section" id="sec-fleet">
+      <div class="greeting"><h1>المندوبون</h1><p>إدارة فريق التوصيل</p></div>
+      <div class="empty-section">
+        <svg><use href="#ic-truck"/></svg>
+        <h3>لا يوجد مندوبون بعد</h3>
+        <p>أضف مندوبي التوصيل لإدارة شحناتك بشكل أسرع</p>
+        <button class="new-shipment-btn" style="margin:0 auto">إضافة مندوب</button>
+      </div>
+    </section>
+
+    <section class="page-section" id="sec-customers">
+      <div class="greeting"><h1>العملاء</h1><p>قاعدة بيانات عملائك</p></div>
+      <div class="empty-section">
+        <svg><use href="#ic-users"/></svg>
+        <h3>لا يوجد عملاء مسجلون</h3>
+        <p>سيتم إضافة العملاء تلقائياً عند إنشاء الشحنات</p>
+      </div>
+    </section>
+
+    <section class="page-section" id="sec-integrations">
+      <div class="greeting"><h1>التكاملات</h1><p>اربط متجرك بجمبك</p></div>
+      <div class="empty-section">
+        <svg><use href="#ic-integration"/></svg>
+        <h3>ربط متجرك الآن</h3>
+        <p>تكامل مع Shopify، WooCommerce، سلة، وغيرها</p>
+        <a href="integrations.html" class="new-shipment-btn" style="display:inline-flex;margin:0 auto">استعرض التكاملات</a>
+      </div>
+    </section>
+
+    <section class="page-section" id="sec-reports">
+      <div class="greeting"><h1>التقارير</h1><p>تحليل أداء متجرك</p></div>
+      <div class="stats-grid">
+        <div class="stat-card purple">
+          <div class="stat-top"><div class="stat-icon purple"><svg><use href="#ic-chart"/></svg></div><div class="stat-trend up"><svg><use href="#ic-arrow-up"/></svg> 12%</div></div>
+          <div class="stat-value">76%</div>
+          <div class="stat-label">معدل التسليم</div>
+        </div>
+        <div class="stat-card orange">
+          <div class="stat-top"><div class="stat-icon orange"><svg><use href="#ic-refresh"/></svg></div><div class="stat-trend down"><svg><use href="#ic-arrow-down"/></svg> 3%</div></div>
+          <div class="stat-value">9%</div>
+          <div class="stat-label">معدل الإعادة</div>
+        </div>
+        <div class="stat-card green">
+          <div class="stat-top"><div class="stat-icon green"><svg><use href="#ic-clock"/></svg></div></div>
+          <div class="stat-value">1.4 يوم</div>
+          <div class="stat-label">متوسط وقت التسليم</div>
+        </div>
+        <div class="stat-card yellow">
+          <div class="stat-top"><div class="stat-icon yellow"><svg><use href="#ic-users"/></svg></div></div>
+          <div class="stat-value">142</div>
+          <div class="stat-label">عملاء فريدون</div>
+        </div>
+      </div>
+      <div class="empty-section" style="margin-top:0">
+        <svg><use href="#ic-download"/></svg>
+        <h3>تنزيل التقرير التفصيلي</h3>
+        <p>احصل على تقرير شامل بصيغة Excel أو PDF</p>
+        <button class="new-shipment-btn" style="margin:0 auto">تنزيل التقرير</button>
+      </div>
+    </section>
+
+    <section class="page-section" id="sec-settings">
+      <div class="greeting"><h1>الإعدادات</h1><p>إعدادات حسابك ومتجرك</p></div>
+      <div class="card" style="max-width:580px">
+        <div class="card-header"><h3>معلومات الحساب</h3></div>
+        <div class="form-group" style="margin-bottom:16px">
+          <label style="font-size:13px;font-weight:700;display:block;margin-bottom:6px">الاسم الكامل</label>
+          <input type="text" value="أنس رمسيس" style="width:100%;padding:11px 14px;border:2px solid var(--gray-mid);border-radius:10px;font-family:'Cairo',sans-serif;font-size:14px;color:var(--text);outline:none;background:var(--bg)"/>
+        </div>
+        <div class="form-group" style="margin-bottom:16px">
+          <label style="font-size:13px;font-weight:700;display:block;margin-bottom:6px">البريد الإلكتروني</label>
+          <input type="email" value="anas_m_ramsees@hotmail.co.uk" dir="ltr" style="width:100%;padding:11px 14px;border:2px solid var(--gray-mid);border-radius:10px;font-family:'Cairo',sans-serif;font-size:14px;color:var(--text);outline:none;background:var(--bg);text-align:right"/>
+        </div>
+        <div class="form-group" style="margin-bottom:0">
+          <label style="font-size:13px;font-weight:700;display:block;margin-bottom:6px">رقم الهاتف</label>
+          <input type="tel" placeholder="09xxxxxxxx" style="width:100%;padding:11px 14px;border:2px solid var(--gray-mid);border-radius:10px;font-family:'Cairo',sans-serif;font-size:14px;color:var(--text);outline:none;background:var(--bg)"/>
+        </div>
+        <div style="margin-top:20px">
+          <button class="new-shipment-btn" style="width:auto;padding:10px 28px">حفظ التغييرات</button>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /page-content -->
+</div><!-- /main -->
+
+<!-- NOTIFICATION PANEL -->
+<div class="notif-panel" id="notifPanel">
+  <div class="notif-panel-header">
+    <h4>الإشعارات</h4>
+    <button onclick="markAllRead()">تحديد الكل كمقروء</button>
+  </div>
+  <div class="notif-item unread">
+    <div class="notif-icon" style="background:rgba(0,168,107,.12);color:var(--green)"><svg width="15" height="15"><use href="#ic-check"/></svg></div>
+    <div class="notif-body"><strong>تم تسليم JMB-00247 بنجاح</strong><span>منذ 18 دقيقة</span></div>
+  </div>
+  <div class="notif-item unread">
+    <div class="notif-icon" style="background:rgba(255,69,0,.1);color:var(--orange)"><svg width="15" height="15"><use href="#ic-truck"/></svg></div>
+    <div class="notif-body"><strong>الشحنة JMB-00246 خرجت للتوصيل</strong><span>منذ 42 دقيقة</span></div>
+  </div>
+  <div class="notif-item unread">
+    <div class="notif-icon" style="background:rgba(229,57,53,.1);color:var(--red)"><svg width="15" height="15"><use href="#ic-x"/></svg></div>
+    <div class="notif-body"><strong>إعادة الشحنة JMB-00241</strong><span>منذ ساعتين</span></div>
+  </div>
+  <div class="notif-item">
+    <div class="notif-icon" style="background:var(--purple-light);color:var(--purple)"><svg width="15" height="15"><use href="#ic-wallet"/></svg></div>
+    <div class="notif-body"><strong>تم تحويل 12,500 SDG إلى محفظتك</strong><span>منذ 3 ساعات</span></div>
+  </div>
+</div>
+
+<!-- NEW SHIPMENT MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalIfOutside(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()"><svg><use href="#ic-x"/></svg></button>
+    <h2>إنشاء شحنة جديدة</h2>
+
+    <div class="form-row-2">
+      <div class="form-group">
+        <label>اسم العميل</label>
+        <input type="text" placeholder="محمد أحمد"/>
+      </div>
+      <div class="form-group">
+        <label>رقم الهاتف</label>
+        <input type="tel" placeholder="09xxxxxxxx"/>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>عنوان التسليم</label>
+      <input type="text" placeholder="الحي، الشارع، رقم المبنى"/>
+    </div>
+
+    <div class="form-row-2">
+      <div class="form-group">
+        <label>المدينة</label>
+        <select>
+          <option>الخرطوم</option>
+          <option>أم درمان</option>
+          <option>بحري</option>
+          <option>مدني</option>
+          <option>بورتسودان</option>
+          <option>الدمازين</option>
+          <option>كسلا</option>
+          <option>الفاشر</option>
+          <option>نيالا</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>مبلغ التحصيل (SDG)</label>
+        <input type="number" placeholder="0"/>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>وصف المحتوى</label>
+      <textarea rows="2" placeholder="مثال: ملابس، إلكترونيات..."></textarea>
+    </div>
+
+    <div class="form-row-2">
+      <div class="form-group">
+        <label>الوزن (كجم)</label>
+        <input type="number" placeholder="1" min="0.1" step="0.1"/>
+      </div>
+      <div class="form-group">
+        <label>عدد القطع</label>
+        <input type="number" placeholder="1" min="1"/>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="closeModal()">إلغاء</button>
+      <button class="btn-submit" onclick="submitShipment()">إنشاء الشحنة</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const sectionMap = {
+    overview:     { id: 'sec-overview',     title: 'نظرة عامة' },
+    shipments:    { id: 'sec-shipments',    title: 'شحناتي' },
+    tracking:     { id: 'sec-tracking',     title: 'تتبع الشحنات' },
+    fleet:        { id: 'sec-fleet',        title: 'المندوبون' },
+    wallet:       { id: 'sec-wallet',       title: 'المحفظة' },
+    reports:      { id: 'sec-reports',      title: 'التقارير' },
+    customers:    { id: 'sec-customers',    title: 'العملاء' },
+    integrations: { id: 'sec-integrations', title: 'التكاملات' },
+    settings:     { id: 'sec-settings',     title: 'الإعدادات' },
+  };
+
+  function showSection(key) {
+    // hide all sections
+    document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+    // deactivate all nav items
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+
+    const sec = sectionMap[key];
+    if (sec) {
+      document.getElementById(sec.id).classList.add('active');
+      document.getElementById('pageTitle').textContent = sec.title;
+    }
+
+    // activate the nav item
+    document.querySelectorAll('.nav-item').forEach(n => {
+      if (n.getAttribute('onclick') && n.getAttribute('onclick').includes(`'${key}'`)) {
+        n.classList.add('active');
+      }
+    });
+
+    // close sidebar on mobile
+    document.getElementById('sidebar').classList.remove('open');
+  }
+
+  function filterTab(btn, filter) {
+    btn.closest('.filter-tabs-sm').querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  /* notifications */
+  function toggleNotif() {
+    const panel = document.getElementById('notifPanel');
+    panel.classList.toggle('open');
+    if (panel.classList.contains('open')) {
+      document.getElementById('notifDot').style.display = 'none';
+    }
+  }
+  function markAllRead() {
+    document.querySelectorAll('.notif-item.unread').forEach(i => i.classList.remove('unread'));
+  }
+  document.addEventListener('click', e => {
+    const panel = document.getElementById('notifPanel');
+    const btn   = document.getElementById('notifBtn');
+    if (!panel.contains(e.target) && !btn.contains(e.target)) {
+      panel.classList.remove('open');
+    }
+  });
+
+  /* modal */
+  function openModal() { document.getElementById('modalOverlay').classList.add('open'); }
+  function closeModal() { document.getElementById('modalOverlay').classList.remove('open'); }
+  function closeModalIfOutside(e) { if (e.target === document.getElementById('modalOverlay')) closeModal(); }
+  function submitShipment() {
+    closeModal();
+    // show success toast
+    const toast = document.createElement('div');
+    toast.style.cssText = 'position:fixed;bottom:24px;right:50%;transform:translateX(50%);background:var(--green);color:#fff;padding:12px 24px;border-radius:12px;font-family:Cairo,sans-serif;font-size:14px;font-weight:700;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.2)';
+    toast.textContent = '✓ تم إنشاء الشحنة بنجاح';
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 3000);
+  }
+
+  /* mobile sidebar */
+  function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); }
+
+  // show menu button on small screens
+  function checkMobile() {
+    document.getElementById('menuBtn').style.display = window.innerWidth < 768 ? 'flex' : 'none';
+  }
+  checkMobile();
+  window.addEventListener('resize', checkMobile);
+</script>
+
+</body>
+</html>

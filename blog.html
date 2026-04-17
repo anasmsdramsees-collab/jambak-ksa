@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>المدونة | جمبك</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="base.css"/>
+
+  <svg style="display:none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="ic-clock"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+      <symbol id="ic-user"    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+      <symbol id="ic-arrow-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+      <symbol id="ic-search"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+      <symbol id="ic-mail"    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+      <symbol id="ic-tag"     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></symbol>
+      <symbol id="ic-truck"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></symbol>
+    </defs>
+  </svg>
+
+  <style>
+    /* ── HERO ── */
+    .blog-hero {
+      background: linear-gradient(150deg, var(--purple) 0%, #5a0db5 60%, #7b2dff 100%);
+      padding: 80px 64px 64px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .blog-hero::before { content:''; position:absolute; top:-100px; right:-80px; width:360px; height:360px; background:rgba(255,165,0,.1); border-radius:50%; }
+    .blog-hero::after  { content:''; position:absolute; bottom:-70px; left:-60px; width:280px; height:280px; background:rgba(255,69,0,.09); border-radius:50%; }
+    .blog-hero-inner { position:relative; z-index:1; max-width:640px; margin:0 auto; }
+    .blog-hero h1 { font-size:42px; font-weight:900; color:var(--white); line-height:1.25; margin-bottom:14px; }
+    .blog-hero h1 span { color:var(--yellow); }
+    .blog-hero p  { font-size:16px; color:rgba(255,255,255,.72); line-height:1.75; margin-bottom:32px; }
+
+    /* search bar */
+    .blog-search {
+      display:flex; align-items:center; gap:0;
+      background:var(--white); border-radius:14px; overflow:hidden;
+      max-width:480px; margin:0 auto;
+      box-shadow:0 8px 32px rgba(0,0,0,.2);
+    }
+    .blog-search svg { width:18px; height:18px; color:var(--text-light); margin-right:14px; flex-shrink:0; }
+    .blog-search input {
+      flex:1; padding:15px 20px; border:none; outline:none;
+      font-family:'Cairo',sans-serif; font-size:14px; color:var(--text);
+      background:transparent;
+    }
+    .blog-search input::placeholder { color:var(--text-light); }
+    .blog-search button {
+      padding:12px 22px; background:var(--orange); border:none;
+      font-family:'Cairo',sans-serif; font-size:14px; font-weight:700; color:#fff;
+      cursor:pointer; transition:background var(--transition);
+    }
+    .blog-search button:hover { background:var(--orange-dim); }
+
+    /* ── LAYOUT ── */
+    .blog-layout {
+      display:grid; grid-template-columns:1fr 320px;
+      gap:32px; padding:64px;
+      max-width:1200px; margin:0 auto;
+    }
+
+    /* ── CATEGORY TABS ── */
+    .cat-tabs { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:32px; }
+    .cat-tab {
+      padding:7px 18px; border-radius:99px;
+      border:1.5px solid var(--gray-mid); background:var(--white);
+      font-family:'Cairo',sans-serif; font-size:12px; font-weight:700;
+      color:var(--text-mid); cursor:pointer; transition:var(--transition);
+    }
+    .cat-tab.active { background:var(--purple); border-color:var(--purple); color:var(--white); }
+    .cat-tab:hover:not(.active) { border-color:var(--purple); color:var(--purple); }
+
+    /* ── FEATURED POST ── */
+    .featured-post {
+      border-radius:var(--radius-lg); overflow:hidden;
+      background:var(--white); box-shadow:var(--shadow-sm);
+      margin-bottom:24px;
+      display:grid; grid-template-columns:1fr 1fr;
+      transition:transform var(--transition),box-shadow var(--transition);
+    }
+    .featured-post:hover { transform:translateY(-3px); box-shadow:var(--shadow-md); }
+    .fp-image {
+      min-height:280px; display:flex; align-items:center; justify-content:center;
+      position:relative; overflow:hidden;
+    }
+    .fp-image svg { width:80px; height:80px; opacity:.2; }
+    .fp-badge {
+      position:absolute; top:16px; right:16px;
+      background:var(--orange); color:#fff;
+      padding:4px 12px; border-radius:99px; font-size:11px; font-weight:700;
+    }
+    .fp-body { padding:32px; display:flex; flex-direction:column; justify-content:center; }
+    .fp-cat  { font-size:11px; font-weight:700; color:var(--orange); text-transform:uppercase; letter-spacing:.05em; margin-bottom:10px; }
+    .fp-body h2 { font-size:22px; font-weight:900; line-height:1.35; margin-bottom:12px; color:var(--text); }
+    .fp-body p  { font-size:14px; color:var(--text-mid); line-height:1.75; margin-bottom:18px; }
+    .fp-meta { display:flex; align-items:center; gap:16px; }
+    .fp-meta .meta-item { display:flex; align-items:center; gap:5px; font-size:12px; color:var(--text-light); font-weight:600; }
+    .fp-meta svg { width:13px; height:13px; }
+    .read-more {
+      display:inline-flex; align-items:center; gap:6px;
+      color:var(--purple); font-size:13px; font-weight:700;
+      margin-top:14px; transition:gap var(--transition);
+    }
+    .read-more:hover { gap:10px; }
+    .read-more svg { width:14px; height:14px; }
+
+    /* ── POSTS GRID ── */
+    .posts-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .post-card {
+      background:var(--white); border-radius:var(--radius-md);
+      overflow:hidden; box-shadow:var(--shadow-sm);
+      transition:transform var(--transition),box-shadow var(--transition);
+      display:flex; flex-direction:column;
+    }
+    .post-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-md); }
+    .post-image {
+      height:160px; display:flex; align-items:center; justify-content:center;
+      position:relative;
+    }
+    .post-image svg { width:48px; height:48px; opacity:.2; }
+    .post-body { padding:20px; flex:1; display:flex; flex-direction:column; }
+    .post-cat  { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; margin-bottom:8px; }
+    .post-body h3 { font-size:15px; font-weight:900; line-height:1.4; margin-bottom:8px; color:var(--text); flex:1; }
+    .post-body p  { font-size:13px; color:var(--text-mid); line-height:1.65; margin-bottom:12px; }
+    .post-meta { display:flex; align-items:center; gap:12px; }
+    .post-meta .pm { display:flex; align-items:center; gap:4px; font-size:11px; color:var(--text-light); font-weight:600; }
+    .post-meta svg { width:12px; height:12px; }
+    .post-tag {
+      display:inline-flex; align-items:center; gap:4px;
+      padding:2px 8px; border-radius:99px; font-size:10px; font-weight:700;
+    }
+
+    /* ── SIDEBAR ── */
+    .blog-sidebar { display:flex; flex-direction:column; gap:20px; }
+    .sidebar-widget { background:var(--white); border-radius:var(--radius-md); padding:24px; box-shadow:var(--shadow-sm); }
+    .sidebar-widget h3 { font-size:15px; font-weight:900; margin-bottom:18px; padding-bottom:12px; border-bottom:2px solid var(--gray-mid); }
+
+    /* newsletter */
+    .newsletter-widget { background:linear-gradient(135deg,var(--purple),var(--purple-mid)); }
+    .newsletter-widget h3 { color:var(--white); border-bottom-color:rgba(255,255,255,.2); }
+    .newsletter-widget p  { font-size:13px; color:rgba(255,255,255,.72); line-height:1.6; margin-bottom:16px; }
+    .nl-input {
+      width:100%; padding:11px 14px; border-radius:10px;
+      border:none; outline:none;
+      font-family:'Cairo',sans-serif; font-size:13px; color:var(--text);
+      margin-bottom:10px; background:rgba(255,255,255,.95);
+    }
+    .nl-btn {
+      width:100%; padding:11px; background:var(--orange); border:none;
+      border-radius:10px; font-family:'Cairo',sans-serif; font-size:13px; font-weight:700;
+      color:#fff; cursor:pointer; transition:var(--transition);
+    }
+    .nl-btn:hover { background:var(--orange-dim); }
+
+    /* popular posts */
+    .pop-post { display:flex; gap:12px; padding:10px 0; border-bottom:1px solid var(--gray-mid); }
+    .pop-post:last-child { border-bottom:none; padding-bottom:0; }
+    .pop-num { font-size:24px; font-weight:900; color:var(--gray-mid); flex-shrink:0; line-height:1; }
+    .pop-post h4 { font-size:13px; font-weight:700; color:var(--text); margin-bottom:4px; line-height:1.4; }
+    .pop-post span { font-size:11px; color:var(--text-light); }
+
+    /* tags cloud */
+    .tags-cloud { display:flex; flex-wrap:wrap; gap:8px; }
+    .tag-chip {
+      padding:5px 12px; border-radius:99px;
+      border:1.5px solid var(--gray-mid); font-size:12px; font-weight:700;
+      color:var(--text-mid); cursor:pointer; transition:var(--transition);
+    }
+    .tag-chip:hover { border-color:var(--purple); color:var(--purple); background:var(--purple-light); }
+
+    /* categories list */
+    .cat-list { display:flex; flex-direction:column; gap:0; }
+    .cat-item { display:flex; align-items:center; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--gray-mid); font-size:13px; font-weight:700; color:var(--text-mid); cursor:pointer; transition:color var(--transition); }
+    .cat-item:last-child { border-bottom:none; }
+    .cat-item:hover { color:var(--purple); }
+    .cat-count { background:var(--purple-light); color:var(--purple); padding:2px 8px; border-radius:99px; font-size:11px; }
+
+    /* ── PAGINATION ── */
+    .pagination { display:flex; align-items:center; justify-content:center; gap:6px; margin-top:36px; }
+    .pg-btn { width:36px; height:36px; border-radius:10px; border:1.5px solid var(--gray-mid); background:var(--white); font-family:'Cairo',sans-serif; font-size:13px; font-weight:700; color:var(--text-mid); cursor:pointer; transition:var(--transition); }
+    .pg-btn.active { background:var(--purple); border-color:var(--purple); color:#fff; }
+    .pg-btn:hover:not(.active) { border-color:var(--purple); color:var(--purple); }
+
+    @media(max-width:1024px){
+      .blog-layout { grid-template-columns:1fr; padding:40px 24px; }
+      .blog-sidebar { order:-1; }
+      .featured-post { grid-template-columns:1fr; }
+      .fp-image { min-height:200px; }
+    }
+    @media(max-width:640px){
+      .blog-hero { padding:56px 24px 48px; }
+      .blog-hero h1 { font-size:28px; }
+      .posts-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav">
+  <div class="nav-logo"><img src="جمبك.jpg" alt="جمبك"/></div>
+  <ul class="nav-links">
+    <li><a href="index.html">الرئيسية</a></li>
+    <li><a href="blog.html" style="color:var(--orange);font-weight:700">المدونة</a></li>
+    <li><a href="storage.html">التخزين</a></li>
+    <li><a href="pricing.html">التسعير</a></li>
+    <li><a href="tracking.html" class="highlight">تتبع شحنتك</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="login.html"    class="btn btn-outline btn-sm">دخول</a>
+    <a href="register.html" class="btn btn-primary btn-sm">ابدأ مجاناً</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="blog-hero">
+  <div class="blog-hero-inner">
+    <div class="sec-tag white" style="margin-bottom:18px">مدونة جمبك</div>
+    <h1>نصائح وأدلة لـ<span>تجار السودان</span></h1>
+    <p>مقالات متخصصة في التجارة الإلكترونية والشحن والتسويق — كل ما يحتاجه التاجر السوداني لينجح.</p>
+    <div class="blog-search">
+      <input type="text" placeholder="ابحث في المقالات..." id="searchInput" onkeydown="if(event.key==='Enter')filterSearch()"/>
+      <button onclick="filterSearch()">بحث</button>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="blog-layout">
+
+  <!-- POSTS COLUMN -->
+  <div>
+    <!-- Category Tabs -->
+    <div class="cat-tabs">
+      <button class="cat-tab active" onclick="filterCat(this,'all')">الكل</button>
+      <button class="cat-tab" onclick="filterCat(this,'ecommerce')">التجارة الإلكترونية</button>
+      <button class="cat-tab" onclick="filterCat(this,'shipping')">الشحن والتوصيل</button>
+      <button class="cat-tab" onclick="filterCat(this,'marketing')">التسويق</button>
+      <button class="cat-tab" onclick="filterCat(this,'storage')">التخزين</button>
+      <button class="cat-tab" onclick="filterCat(this,'tips')">نصائح وأدوات</button>
+    </div>
+
+    <!-- Featured Post -->
+    <div class="featured-post">
+      <div class="fp-image" style="background:linear-gradient(135deg,var(--purple-light),#dcc6ff)">
+        <svg style="color:var(--purple)"><use href="#ic-truck"/></svg>
+        <div class="fp-badge">مقال مميز</div>
+      </div>
+      <div class="fp-body">
+        <div class="fp-cat">الشحن والتوصيل</div>
+        <h2>دليل التاجر الشامل: كيف تختار شركة الشحن المناسبة في السودان</h2>
+        <p>السعر ليس كل شيء — تعرّف على 7 معايير أساسية يجب مقارنتها قبل الاختيار، وكيف تؤثر على رضا عملائك وأرباحك.</p>
+        <div class="fp-meta">
+          <div class="meta-item"><svg><use href="#ic-user"/></svg> فريق جمبك</div>
+          <div class="meta-item"><svg><use href="#ic-clock"/></svg> 8 أبريل 2026</div>
+          <div class="meta-item"><svg><use href="#ic-clock"/></svg> 6 دقائق قراءة</div>
+        </div>
+        <a href="#" class="read-more">اقرأ المقال <svg><use href="#ic-arrow-l"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Posts Grid -->
+    <div class="posts-grid" id="postsGrid">
+
+      <div class="post-card" data-cat="ecommerce">
+        <div class="post-image" style="background:linear-gradient(135deg,#fff3e0,#ffe0b2)">
+          <svg style="color:#b07800"><use href="#ic-tag"/></svg>
+        </div>
+        <div class="post-body">
+          <div class="post-cat" style="color:var(--orange)">التجارة الإلكترونية</div>
+          <h3>كيف تبني متجراً إلكترونياً ناجحاً في السودان من الصفر</h3>
+          <p>من اختيار المنتج وحتى أول عملية بيع — خطوات عملية مجرّبة مع تجار سودانيين.</p>
+          <div class="post-meta">
+            <div class="pm"><svg><use href="#ic-clock"/></svg> 12 أبريل 2026</div>
+            <div class="pm"><svg><use href="#ic-clock"/></svg> 5 دقائق</div>
+          </div>
+          <a href="#" class="read-more" style="margin-top:10px">اقرأ المقال <svg><use href="#ic-arrow-l"/></svg></a>
+        </div>
+      </div>
+
+      <div class="post-card" data-cat="marketing">
+        <div class="post-image" style="background:linear-gradient(135deg,var(--purple-light),#dcc6ff)">
+          <svg style="color:var(--purple)"><use href="#ic-user"/></svg>
+        </div>
+        <div class="post-body">
+          <div class="post-cat" style="color:var(--purple)">التسويق</div>
+          <h3>10 استراتيجيات تسويق على واتساب تضاعف مبيعاتك في رمضان</h3>
+          <p>واتساب هو السلاح السري للتاجر السوداني — تعلّم كيف تستخدمه بشكل احترافي.</p>
+          <div class="post-meta">
+            <div class="pm"><svg><use href="#ic-clock"/></svg> 10 أبريل 2026</div>
+            <div class="pm"><svg><use href="#ic-clock"/></svg> 7 دقائق</div>
+          </div>
+          <a href="#" class="read-more" style="margin-top:10px">اقرأ المقال <svg><use href="#ic-arrow-l"/></svg></a>
+        </div>
+      </div>
+
+      <div class="post-card" data-cat="storage">
+        <div class="post-image" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9)">
+          <svg style="color:#2E7D32"><use href="#ic-truck"/></svg>
+        </div>
+        <div class="post-body">
+          <div class="post-cat" style="color:#2E7D32">التخزين</div>
+          <h3>مستودعك الخاص أم التخزين الخارجي؟ حسابات لا بد أن تعرفها</h3>
+          <p>مقارنة شاملة بالأرقام بين تأجير مستودع خاص والاشتراك في خدمة تخزين خارجية.</p>
+          <div class="post-meta">
+            <div class="pm"><svg><use href="#ic-clock"/></svg> 7 أبريل 2026</div>
+            <div class="pm"><svg><use href="#ic-clock"/></svg> 5 دقائق</div>
+          </div>
+          <a href="#" class="read-more" style="margin-top:10px">اقرأ المقال <svg><use href="#ic-arrow-l"/></svg></a>
+        </div>
+      </div>
+
+      <div class="post-card" data-cat="tips">
+        <div class="post-image" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0)">
+          <svg style="color:#c62828"><use href="#ic-tag"/></svg>
+        </div>
+        <div class="post-body">
+          <div class="post-cat" style="color:#c62828">نصائح وأدوات</div>
+          <h3>أدوات مجانية يستخدمها أنجح التجار السودانيين يومياً</h3>
+          <p>قائمة مختارة من الأدوات لإدارة المخزون، التواصل مع العملاء، وتحليل المبيعات.</p>
+          <div class="post-meta">
+            <div class="pm"><svg><use href="#ic-clock"/></svg> 5 أبريل 2026</div>
+            <div class="pm"><svg><use href="#ic-clock"/></svg> 4 دقائق</div>
+          </div>
+          <a href="#" class="read-more" style="margin-top:10px">اقرأ المقال <svg><use href="#ic-arrow-l"/></svg></a>
+        </div>
+      </div>
+
+      <div class="post-card" data-cat="shipping">
+        <div class="post-image" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb)">
+          <svg style="color:#1565c0"><use href="#ic-truck"/></svg>
+        </div>
+        <div class="post-body">
+          <div class="post-cat" style="color:#1565c0">الشحن والتوصيل</div>
+          <h3>لماذا يرفض العملاء استلام الشحنات وكيف تقلل نسبة الإعادة لأدنى مستوى</h3>
+          <p>تحليل أسباب رفض الاستلام وخطوات عملية لتحسين تجربة التوصيل وتقليل الخسائر.</p>
+          <div class="post-meta">
+            <div class="pm"><svg><use href="#ic-clock"/></svg> 3 أبريل 2026</div>
+            <div class="pm"><svg><use href="#ic-clock"/></svg> 6 دقائق</div>
+          </div>
+          <a href="#" class="read-more" style="margin-top:10px">اقرأ المقال <svg><use href="#ic-arrow-l"/></svg></a>
+        </div>
+      </div>
+
+      <div class="post-card" data-cat="ecommerce">
+        <div class="post-image" style="background:linear-gradient(135deg,#f3eaff,#dcc6ff)">
+          <svg style="color:var(--purple)"><use href="#ic-tag"/></svg>
+        </div>
+        <div class="post-body">
+          <div class="post-cat" style="color:var(--purple)">التجارة الإلكترونية</div>
+          <h3>Shopify أم سلة أم WooCommerce؟ أيهم يناسب التاجر السوداني في 2026</h3>
+          <p>مقارنة عملية بين أشهر منصات التجارة الإلكترونية مع الأخذ بعين الاعتبار السوق السوداني.</p>
+          <div class="post-meta">
+            <div class="pm"><svg><use href="#ic-clock"/></svg> 1 أبريل 2026</div>
+            <div class="pm"><svg><use href="#ic-clock"/></svg> 8 دقائق</div>
+          </div>
+          <a href="#" class="read-more" style="margin-top:10px">اقرأ المقال <svg><use href="#ic-arrow-l"/></svg></a>
+        </div>
+      </div>
+
+      <div class="post-card" data-cat="marketing">
+        <div class="post-image" style="background:linear-gradient(135deg,#fff8e1,#ffe082)">
+          <svg style="color:#b07800"><use href="#ic-user"/></svg>
+        </div>
+        <div class="post-body">
+          <div class="post-cat" style="color:#b07800">التسويق</div>
+          <h3>كيف تحوّل عميلاً واحداً إلى 10 عملاء بقوة التوصية الشفهية</h3>
+          <p>التوصيات الشخصية هي أقوى أداة تسويقية في السودان — إليك كيف تبنيها بشكل منهجي.</p>
+          <div class="post-meta">
+            <div class="pm"><svg><use href="#ic-clock"/></svg> 28 مارس 2026</div>
+            <div class="pm"><svg><use href="#ic-clock"/></svg> 5 دقائق</div>
+          </div>
+          <a href="#" class="read-more" style="margin-top:10px">اقرأ المقال <svg><use href="#ic-arrow-l"/></svg></a>
+        </div>
+      </div>
+
+      <div class="post-card" data-cat="tips">
+        <div class="post-image" style="background:linear-gradient(135deg,#e0f7fa,#b2ebf2)">
+          <svg style="color:#00697a"><use href="#ic-tag"/></svg>
+        </div>
+        <div class="post-body">
+          <div class="post-cat" style="color:#00697a">نصائح وأدوات</div>
+          <h3>التغليف الاحترافي: كيف يزيد رضا عميلك ويقلل التالف بنسبة 40%</h3>
+          <p>دليل عملي لاختيار مواد التغليف المناسبة وتقنيات التعبئة التي تحمي منتجاتك أثناء النقل.</p>
+          <div class="post-meta">
+            <div class="pm"><svg><use href="#ic-clock"/></svg> 25 مارس 2026</div>
+            <div class="pm"><svg><use href="#ic-clock"/></svg> 4 دقائق</div>
+          </div>
+          <a href="#" class="read-more" style="margin-top:10px">اقرأ المقال <svg><use href="#ic-arrow-l"/></svg></a>
+        </div>
+      </div>
+
+    </div><!-- /posts-grid -->
+
+    <!-- Empty state (hidden by default) -->
+    <div id="emptyState" style="display:none;text-align:center;padding:60px 20px;color:var(--text-light)">
+      <svg width="48" height="48" style="margin:0 auto 16px;opacity:.3"><use href="#ic-search"/></svg>
+      <p style="font-weight:700;font-size:15px">لا توجد مقالات في هذه الفئة</p>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+      <button class="pg-btn">‹</button>
+      <button class="pg-btn active">1</button>
+      <button class="pg-btn">2</button>
+      <button class="pg-btn">3</button>
+      <button class="pg-btn">›</button>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="blog-sidebar">
+
+    <!-- Newsletter -->
+    <div class="sidebar-widget newsletter-widget">
+      <h3>اشترك في النشرة البريدية</h3>
+      <p>نصائح أسبوعية حصرية لتجار السودان مباشرة في بريدك الإلكتروني</p>
+      <input class="nl-input" type="email" placeholder="بريدك الإلكتروني" id="nlEmail"/>
+      <button class="nl-btn" onclick="subscribeNl()">اشترك مجاناً</button>
+    </div>
+
+    <!-- Popular -->
+    <div class="sidebar-widget">
+      <h3>الأكثر قراءة</h3>
+      <div class="pop-post">
+        <div class="pop-num">01</div>
+        <div>
+          <h4>دليل اختيار شركة الشحن في السودان</h4>
+          <span>3,200 قراءة</span>
+        </div>
+      </div>
+      <div class="pop-post">
+        <div class="pop-num">02</div>
+        <div>
+          <h4>Shopify أم سلة؟ مقارنة للتاجر السوداني</h4>
+          <span>2,800 قراءة</span>
+        </div>
+      </div>
+      <div class="pop-post">
+        <div class="pop-num">03</div>
+        <div>
+          <h4>كيف تقلل نسبة إعادة الشحنات</h4>
+          <span>2,100 قراءة</span>
+        </div>
+      </div>
+      <div class="pop-post">
+        <div class="pop-num">04</div>
+        <div>
+          <h4>التغليف الاحترافي وأثره على العميل</h4>
+          <span>1,900 قراءة</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Categories -->
+    <div class="sidebar-widget">
+      <h3>التصنيفات</h3>
+      <div class="cat-list">
+        <div class="cat-item" onclick="filterCat(null,'ecommerce')">التجارة الإلكترونية <span class="cat-count">12</span></div>
+        <div class="cat-item" onclick="filterCat(null,'shipping')">الشحن والتوصيل <span class="cat-count">9</span></div>
+        <div class="cat-item" onclick="filterCat(null,'marketing')">التسويق <span class="cat-count">8</span></div>
+        <div class="cat-item" onclick="filterCat(null,'storage')">التخزين <span class="cat-count">5</span></div>
+        <div class="cat-item" onclick="filterCat(null,'tips')">نصائح وأدوات <span class="cat-count">11</span></div>
+      </div>
+    </div>
+
+    <!-- Tags -->
+    <div class="sidebar-widget">
+      <h3>الوسوم</h3>
+      <div class="tags-cloud">
+        <span class="tag-chip">شحن</span>
+        <span class="tag-chip">تجارة إلكترونية</span>
+        <span class="tag-chip">Shopify</span>
+        <span class="tag-chip">تسويق</span>
+        <span class="tag-chip">مستودعات</span>
+        <span class="tag-chip">عملاء</span>
+        <span class="tag-chip">واتساب</span>
+        <span class="tag-chip">التغليف</span>
+        <span class="tag-chip">السودان</span>
+        <span class="tag-chip">مبيعات</span>
+        <span class="tag-chip">رمضان</span>
+        <span class="tag-chip">نمو</span>
+      </div>
+    </div>
+
+  </div>
+</div><!-- /blog-layout -->
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="جمبك.jpg" alt="جمبك" class="footer-logo"/>
+      <p>أسرع شركة شحن في السودان. نوصّل لكل الولايات باليوم التالي.</p>
+    </div>
+    <div class="footer-col"><h4>الشركة</h4><ul><li><a href="about.html">من نحن</a></li><li><a href="contact.html">تواصل معنا</a></li><li><a href="blog.html">المدونة</a></li></ul></div>
+    <div class="footer-col"><h4>الخدمات</h4><ul><li><a href="index.html">الشحن السريع</a></li><li><a href="storage.html">التخزين</a></li><li><a href="integrations.html">التكاملات</a></li></ul></div>
+    <div class="footer-col"><h4>الدعم</h4><ul><li><a href="tracking.html">تتبع شحنة</a></li><li><a href="app.html">التطبيق</a></li><li><a href="login.html">تسجيل الدخول</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 جمبك. جميع الحقوق محفوظة.</span></div>
+</footer>
+
+<script>
+  function filterCat(btn, cat) {
+    // update tab UI
+    document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    else {
+      document.querySelectorAll('.cat-tab').forEach(t => {
+        if (t.getAttribute('onclick') && t.getAttribute('onclick').includes(`'${cat}'`)) t.classList.add('active');
+      });
+    }
+
+    const cards = document.querySelectorAll('.post-card');
+    let visible = 0;
+    cards.forEach(c => {
+      const show = cat === 'all' || c.dataset.cat === cat;
+      c.style.display = show ? 'flex' : 'none';
+      if (show) visible++;
+    });
+    document.getElementById('emptyState').style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  function filterSearch() {
+    const q = document.getElementById('searchInput').value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.post-card');
+    let visible = 0;
+    cards.forEach(c => {
+      const text = c.querySelector('h3').textContent.toLowerCase() + c.querySelector('p').textContent.toLowerCase();
+      const show = !q || text.includes(q);
+      c.style.display = show ? 'flex' : 'none';
+      if (show) visible++;
+    });
+    document.getElementById('emptyState').style.display = visible === 0 ? 'block' : 'none';
+    // reset cat tabs
+    document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+    document.querySelector('.cat-tab').classList.add('active');
+  }
+
+  function subscribeNl() {
+    const input = document.getElementById('nlEmail');
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRe.test(input.value.trim())) {
+      input.style.border = '2px solid rgba(229,57,53,.7)';
+      return;
+    }
+    input.style.border = 'none';
+    const btn = document.querySelector('.nl-btn');
+    btn.textContent = '✓ تم الاشتراك بنجاح!';
+    btn.style.background = '#2E7D32';
+    input.value = '';
+    setTimeout(() => { btn.textContent = 'اشترك مجاناً'; btn.style.background = ''; }, 3000);
+  }
+</script>
+
+</body>
+</html>

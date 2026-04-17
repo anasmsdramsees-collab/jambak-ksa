@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>نوع التاجر | جمبك</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="base.css"/>
+
+  <svg style="display:none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="ic-check"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
+      <symbol id="ic-arrow"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+      <symbol id="ic-truck"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"   stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></symbol>
+      <symbol id="ic-zap"     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"   stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+      <symbol id="ic-chart"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"   stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></symbol>
+      <symbol id="ic-shield"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"   stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+      <symbol id="ic-phone"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"   stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></symbol>
+      <symbol id="ic-users"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"   stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+      <symbol id="ic-code"    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"   stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+      <symbol id="ic-wallet"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"   stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/><circle cx="17" cy="15" r="1" fill="currentColor" stroke="none"/></symbol>
+      <symbol id="ic-star"    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"   stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+      <symbol id="ic-x"  viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></symbol>
+      <symbol id="ic-fb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+      <symbol id="ic-li" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7H10v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+      <symbol id="ic-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></symbol>
+    </defs>
+  </svg>
+
+  <style>
+    /* TOGGLE HERO */
+    .merchant-hero {
+      background: linear-gradient(135deg, var(--purple) 0%, var(--purple-mid) 100%);
+      padding: 80px 64px; text-align: center;
+    }
+    .merchant-hero h1 { font-size: 44px; font-weight: 900; color: var(--white); margin-bottom: 16px; }
+    .merchant-hero p  { font-size: 18px; color: rgba(255,255,255,.75); max-width: 540px; margin: 0 auto 44px; line-height: 1.75; }
+    .type-toggle { display: inline-flex; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); border-radius: 14px; padding: 6px; gap: 4px; }
+    .type-btn {
+      padding: 12px 32px; border-radius: 10px; border: none; cursor: pointer;
+      font-family: 'Cairo', sans-serif; font-size: 15px; font-weight: 700;
+      transition: var(--transition);
+    }
+    .type-btn.off { background: transparent; color: rgba(255,255,255,.65); }
+    .type-btn.on  { background: var(--white); color: var(--purple); }
+
+    /* HERO VISUAL */
+    .hero-visual-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0; min-height: 480px;
+    }
+    .hv-panel { padding: 72px 64px; display: flex; flex-direction: column; justify-content: center; }
+    .hv-panel.purple { background: var(--purple); }
+    .hv-panel.light  { background: var(--bg); }
+    .hv-panel h2 { font-size: 34px; font-weight: 900; margin-bottom: 14px; line-height: 1.3; }
+    .hv-panel.purple h2 { color: var(--white); }
+    .hv-panel.light  h2 { color: var(--text); }
+    .hv-panel > p { font-size: 16px; line-height: 1.75; margin-bottom: 32px; }
+    .hv-panel.purple > p { color: rgba(255,255,255,.75); }
+    .hv-panel.light  > p { color: var(--text-mid); }
+    .hv-features { display: flex; flex-direction: column; gap: 14px; margin-bottom: 36px; }
+    .hv-feat { display: flex; align-items: center; gap: 10px; font-size: 15px; }
+    .hv-panel.purple .hv-feat { color: rgba(255,255,255,.85); }
+    .hv-panel.light  .hv-feat { color: var(--text-mid); }
+    .hv-feat svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .hv-panel.purple .hv-feat svg { color: var(--yellow); }
+    .hv-panel.light  .hv-feat svg { color: var(--purple); }
+
+    /* FEATURE CARDS */
+    .feat-cards-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .feat-card { padding: 36px 28px; }
+    .feat-card .f-icon { width: 54px; height: 54px; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+    .feat-card .f-icon svg { width: 26px; height: 26px; }
+    .feat-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; color: var(--text); }
+    .feat-card p  { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
+
+    /* TESTIMONIALS */
+    .testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .testi-card { padding: 30px; }
+    .stars { display: flex; gap: 3px; margin-bottom: 14px; }
+    .stars svg { width: 16px; height: 16px; color: var(--yellow); fill: var(--yellow); }
+    .testi-text { font-size: 14px; color: var(--text-mid); line-height: 1.75; margin-bottom: 20px; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-avatar { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: var(--white); flex-shrink: 0; }
+    .testi-info h4 { font-size: 14px; font-weight: 700; color: var(--text); }
+    .testi-info p  { font-size: 12px; color: var(--text-light); }
+
+    /* SME VS ENTERPRISE TABLE */
+    .compare-split { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .cs-card { border-radius: 20px; padding: 40px 32px; }
+    .cs-card.sme  { background: var(--bg); border: 2px solid var(--gray-mid); }
+    .cs-card.ent  { background: var(--purple); }
+    .cs-card h3 { font-size: 22px; font-weight: 900; margin-bottom: 8px; }
+    .cs-card.sme h3 { color: var(--text); }
+    .cs-card.ent h3 { color: var(--white); }
+    .cs-card .sub { font-size: 14px; color: var(--text-light); margin-bottom: 28px; }
+    .cs-card.ent .sub { color: rgba(255,255,255,.65); }
+    .cs-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
+    .cs-item { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+    .cs-card.sme .cs-item { color: var(--text-mid); }
+    .cs-card.ent .cs-item { color: rgba(255,255,255,.85); }
+    .cs-card.sme .cs-item svg { width: 17px; height: 17px; color: var(--purple); }
+    .cs-card.ent .cs-item svg { width: 17px; height: 17px; color: var(--yellow); }
+
+    /* NUMBERS ROW */
+    .numbers-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; }
+    .num-item { text-align: center; padding: 40px 20px; border-left: 1px solid rgba(255,255,255,.1); }
+    .num-item:first-child { border-left: none; }
+    .num-big { font-size: 48px; font-weight: 900; color: var(--white); line-height: 1; margin-bottom: 8px; }
+    .num-big b { color: var(--yellow); }
+    .num-lbl { font-size: 14px; color: rgba(255,255,255,.65); font-weight: 600; }
+
+    @media(max-width:1024px){
+      .merchant-hero { padding: 56px 28px; }
+      .hero-visual-row { grid-template-columns: 1fr; }
+      .hv-panel { padding: 48px 28px; }
+      .feat-cards-grid { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .compare-split { grid-template-columns: 1fr; }
+      .numbers-row { grid-template-columns: repeat(2,1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav">
+  <div class="nav-logo"><img src="جمبك.jpg" alt="جمبك"/></div>
+  <ul class="nav-links">
+    <li><a href="index.html">الرئيسية</a></li>
+    <li><a href="merchant.html" class="active">نوع التاجر</a></li>
+    <li><a href="integrations.html">التكاملات</a></li>
+    <li><a href="pricing.html">التسعير</a></li>
+    <li><a href="tracking.html" class="highlight">تتبع شحنتك</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn btn-ghost btn-sm">سجل دخول</button>
+    <a href="#" class="btn btn-primary btn-sm btn-pill">اشترك الآن</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="merchant-hero">
+  <h1>حلول شحن لكل نوع من الأعمال</h1>
+  <p>سواء كنت تاجراً صغيراً أو شركة كبيرة، لدى جمبك الحل المثالي لشحن منتجاتك في السودان</p>
+  <div class="type-toggle">
+    <button class="type-btn on" id="btn-sme" onclick="switchType('sme')">الأعمال الصغيرة والمتوسطة</button>
+    <button class="type-btn off" id="btn-ent" onclick="switchType('ent')">الأعمال الكبيرة</button>
+  </div>
+</div>
+
+<!-- SPLIT PANELS -->
+<div class="hero-visual-row">
+  <!-- SME Panel -->
+  <div class="hv-panel light" id="sme-panel">
+    <span class="sec-tag orange" style="margin-bottom:18px">الأعمال الصغيرة والمتوسطة</span>
+    <h2>ابدأ الشحن من اليوم الأول</h2>
+    <p>جمبك يوفر لك كل ما تحتاجه لتبدأ الشحن فوراً — بدون عقود معقدة أو استثمار مبدئي كبير.</p>
+    <div class="hv-features">
+      <div class="hv-feat"><svg><use href="#ic-check"/></svg>تسجيل مجاني في أقل من دقيقة</div>
+      <div class="hv-feat"><svg><use href="#ic-check"/></svg>تطبيق موبايل سهل الاستخدام</div>
+      <div class="hv-feat"><svg><use href="#ic-check"/></svg>دفع عند الاستلام مع تحصيل سريع</div>
+      <div class="hv-feat"><svg><use href="#ic-check"/></svg>دعم مباشر عبر الواتساب</div>
+      <div class="hv-feat"><svg><use href="#ic-check"/></svg>تتبع لحظي لكل شحنة</div>
+    </div>
+    <a href="#" class="btn btn-primary btn-lg">ابدأ الآن مجاناً <svg><use href="#ic-arrow"/></svg></a>
+  </div>
+
+  <!-- Enterprise Panel -->
+  <div class="hv-panel purple" id="ent-panel">
+    <span class="sec-tag white" style="margin-bottom:18px">الأعمال الكبيرة</span>
+    <h2>حلول لوجستية على مستوى المؤسسات</h2>
+    <p>لوحة تحكم متقدمة، تكامل API كامل، ومدير حساب مخصص لضمان سير عملياتك بكفاءة عالية.</p>
+    <div class="hv-features">
+      <div class="hv-feat"><svg><use href="#ic-check"/></svg>تكامل API مخصص وكامل</div>
+      <div class="hv-feat"><svg><use href="#ic-check"/></svg>مدير حساب مخصص لشركتك</div>
+      <div class="hv-feat"><svg><use href="#ic-check"/></svg>SLA مضمون بنسبة 99.5%</div>
+      <div class="hv-feat"><svg><use href="#ic-check"/></svg>تقارير تفصيلية يومية وأسبوعية</div>
+      <div class="hv-feat"><svg><use href="#ic-check"/></svg>شحنات غير محدودة بأسعار مخصصة</div>
+    </div>
+    <a href="#" class="btn btn-white btn-lg">تواصل مع المبيعات <svg><use href="#ic-arrow"/></svg></a>
+  </div>
+</div>
+
+<!-- FEATURES BY TYPE -->
+<section class="section">
+  <div class="sec-header center">
+    <span class="sec-tag purple">لماذا جمبك؟</span>
+    <h2 class="sec-title">مميزات تناسب كل نوع من الأعمال</h2>
+  </div>
+  <div class="feat-cards-grid">
+    <div class="feat-card card flat">
+      <div class="f-icon icon-box purple"><svg><use href="#ic-phone"/></svg></div>
+      <h3>تطبيق سهل الاستخدام</h3>
+      <p>أدر شحناتك بالكامل من جوالك — أضف طلبات، تتبع الشحنات، واستلم إشعارات فورية في أي وقت ومكان.</p>
+    </div>
+    <div class="feat-card card flat">
+      <div class="f-icon icon-box orange"><svg><use href="#ic-zap"/></svg></div>
+      <h3>تحصيل في 24 ساعة</h3>
+      <p>أسرع خدمة تحصيل أموال في السودان. أموالك المحصلة تصل لحسابك في أقل من يوم عمل واحد.</p>
+    </div>
+    <div class="feat-card card flat">
+      <div class="f-icon icon-box yellow"><svg><use href="#ic-chart"/></svg></div>
+      <h3>تقارير وتحليلات</h3>
+      <p>داشبورد شامل يعطيك نظرة كاملة على مبيعاتك، معدلات التسليم، والأداء المالي لأعمالك.</p>
+    </div>
+    <div class="feat-card card flat">
+      <div class="f-icon icon-box green"><svg><use href="#ic-shield"/></svg></div>
+      <h3>ضمان البضاعة</h3>
+      <p>نضمن سلامة شحناتك من لحظة الاستلام حتى التسليم. تغطية كاملة لأي أضرار أو فقدان.</p>
+    </div>
+    <div class="feat-card card flat">
+      <div class="f-icon icon-box purple"><svg><use href="#ic-users"/></svg></div>
+      <h3>دعم متخصص</h3>
+      <p>فريق دعم متخصص لكل نوع من العملاء — دعم واتساب للأعمال الصغيرة ومدير حساب للكبيرة.</p>
+    </div>
+    <div class="feat-card card flat">
+      <div class="f-icon icon-box orange"><svg><use href="#ic-code"/></svg></div>
+      <h3>تكاملات قوية</h3>
+      <p>اربط منصتك بجمبك بضغطة واحدة — Shopify، WooCommerce، سلة، زد، أو API مخصص لأنظمتك.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS (purple bg) -->
+<section class="section bg-purple" style="padding-top:56px;padding-bottom:56px">
+  <div class="numbers-row">
+    <div class="num-item">
+      <div class="num-big">+<b>20K</b></div>
+      <div class="num-lbl">تاجر نشط</div>
+    </div>
+    <div class="num-item">
+      <div class="num-big"><b>96%</b></div>
+      <div class="num-lbl">نسبة نجاح التوصيل</div>
+    </div>
+    <div class="num-item">
+      <div class="num-big">+<b>5M</b></div>
+      <div class="num-lbl">طرد مكتمل</div>
+    </div>
+    <div class="num-item">
+      <div class="num-big"><b>24h</b></div>
+      <div class="num-lbl">تحصيل الأموال</div>
+    </div>
+  </div>
+</section>
+
+<!-- SME vs ENTERPRISE COMPARE -->
+<section class="section bg-gray">
+  <div class="sec-header center">
+    <span class="sec-tag orange">قارن بين الحلول</span>
+    <h2 class="sec-title">اختر الحل المناسب لك</h2>
+  </div>
+  <div class="compare-split">
+    <div class="cs-card sme">
+      <h3>الأعمال الصغيرة والمتوسطة</h3>
+      <p class="sub">للتجار الأفراد والمتاجر الناشئة والشركات المتنامية</p>
+      <ul class="cs-list">
+        <li class="cs-item"><svg><use href="#ic-check"/></svg>تسجيل مجاني فوري</li>
+        <li class="cs-item"><svg><use href="#ic-check"/></svg>تطبيق موبايل سهل</li>
+        <li class="cs-item"><svg><use href="#ic-check"/></svg>حتى 500 شحنة شهرياً</li>
+        <li class="cs-item"><svg><use href="#ic-check"/></svg>تغطية جميع الولايات</li>
+        <li class="cs-item"><svg><use href="#ic-check"/></svg>دعم واتساب 24/7</li>
+        <li class="cs-item"><svg><use href="#ic-check"/></svg>تحصيل يومي للأموال</li>
+        <li class="cs-item"><svg><use href="#ic-check"/></svg>تقارير أسبوعية</li>
+      </ul>
+      <a href="pricing.html" class="btn btn-primary btn-lg" style="width:100%;justify-content:center">ابدأ مجاناً</a>
+    </div>
+    <div class="cs-card ent">
+      <h3>الأعمال الكبيرة</h3>
+      <p class="sub">للشركات والمؤسسات ذات الحجم الكبير والاحتياجات الخاصة</p>
+      <ul class="cs-list">
+        <li class="cs-item"><svg><use href="#ic-check"/></svg>شحنات غير محدودة</li>
+        <li class="cs-item"><svg><use href="#ic-check"/></svg>مدير حساب مخصص</li>
+        <li class="cs-item"><svg><use href="#ic-check"/></svg>تكامل API كامل</li>
+        <li class="cs-item"><svg><use href="#ic-check"/></svg>SLA مضمون 99.5%</li>
+        <li class="cs-item"><svg><use href="#ic-check"/></svg>أسعار مخصصة ومرنة</li>
+        <li class="cs-item"><svg><use href="#ic-check"/></svg>تقارير تفصيلية يومية</li>
+        <li class="cs-item"><svg><use href="#ic-check"/></svg>دعم أولوية 24/7</li>
+      </ul>
+      <a href="#" class="btn btn-white btn-lg" style="width:100%;justify-content:center">تواصل مع المبيعات</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="sec-header center">
+    <span class="sec-tag purple">آراء عملائنا</span>
+    <h2 class="sec-title">بيقولوا إيه عن جمبك؟</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card card">
+      <div class="stars">
+        <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+        <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+        <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+        <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+        <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+      </div>
+      <p class="testi-text">"جمبك غيّر طريقة شغلي من الأساس. التوصيل سريع، الأموال بتيجي في معادها، والدعم دايماً موجود. أنصح بيهم لكل تاجر أونلاين."</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:var(--purple)">م</div>
+        <div class="testi-info">
+          <h4>محمد أحمد</h4>
+          <p>متجر إلكتروني — الخرطوم</p>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card card">
+      <div class="stars">
+        <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+        <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+        <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+        <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+        <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+      </div>
+      <p class="testi-text">"ربطنا نظامنا بـ API جمبك في يومين فقط. الآن نشحن 2000 طلب يومياً بشكل تلقائي كامل. مستوى الخدمة رائع جداً."</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:var(--orange)">س</div>
+        <div class="testi-info">
+          <h4>سارة علي — مدير تقني</h4>
+          <p>شركة تجارة إلكترونية — أم درمان</p>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card card">
+      <div class="stars">
+        <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+        <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+        <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+        <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+        <svg viewBox="0 0 24 24"><use href="#ic-star"/></svg>
+      </div>
+      <p class="testi-text">"من أفضل القرارات اللي اتخذتها لشركتي. مدير الحساب المخصص يساعدنا دايماً ويحل أي مشكلة بسرعة."</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:#00897b">أ</div>
+        <div class="testi-info">
+          <h4>أحمد حسن — الرئيس التنفيذي</h4>
+          <p>سلسلة متاجر — الخرطوم</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div>
+    <h2>مستعد تبدأ مع جمبك؟</h2>
+    <p>انضم لأكثر من 20,000 تاجر يثقون في جمبك لشحن منتجاتهم في السودان</p>
+  </div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;flex-shrink:0">
+    <a href="pricing.html" class="btn btn-primary btn-lg btn-pill">ابدأ مجاناً</a>
+    <a href="#" class="btn btn-outline btn-lg btn-pill">تواصل مع المبيعات</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="جمبك.jpg" alt="جمبك"/>
+      <p>جمبك هي شركة الشحن الداخلي الأسرع والأكثر موثوقية في السودان.</p>
+      <div class="social-row">
+        <a href="#" class="social-btn"><svg><use href="#ic-x"/></svg></a>
+        <a href="#" class="social-btn"><svg><use href="#ic-fb"/></svg></a>
+        <a href="#" class="social-btn"><svg><use href="#ic-li"/></svg></a>
+        <a href="#" class="social-btn"><svg><use href="#ic-ig"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col"><h4>منتجات</h4><ul><li><a href="#">الحلول</a></li><li><a href="#">تطبيق الموبايل</a></li><li><a href="#">لوحة التحكم</a></li></ul></div>
+    <div class="footer-col"><h4>نوع التاجر</h4><ul><li><a href="merchant.html">شركات صغيرة ومتوسطة</a></li><li><a href="merchant.html">شركات كبيرة</a></li></ul></div>
+    <div class="footer-col"><h4>الشركة</h4><ul><li><a href="#">عن جمبك</a></li><li><a href="#">وظائف</a></li><li><a href="pricing.html">التسعير</a></li><li><a href="#">أسئلة متكررة</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 جمبك. جميع الحقوق محفوظة.</p>
+    <div class="footer-btm-links"><a href="#">سياسة الخصوصية</a><a href="#">الشروط والأحكام</a><a href="tracking.html">تتبع شحنتك</a></div>
+  </div>
+</footer>
+
+<script>
+function switchType(type){
+  document.getElementById('btn-sme').className = 'type-btn ' + (type==='sme'?'on':'off');
+  document.getElementById('btn-ent').className = 'type-btn ' + (type==='ent'?'on':'off');
+}
+</script>
+</body>
+</html>

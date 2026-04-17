@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>خدمة التخزين | جمبك</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="base.css"/>
+
+  <svg style="display:none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="ic-warehouse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9V20H2V9"/><path d="M1 4l11-3 11 3"/><rect x="8" y="14" width="8" height="6"/><line x1="12" y1="14" x2="12" y2="20"/></symbol>
+      <symbol id="ic-package"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 9.4l-9-5.19"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></symbol>
+      <symbol id="ic-truck"     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></symbol>
+      <symbol id="ic-shield"    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+      <symbol id="ic-zap"       viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+      <symbol id="ic-eye"       viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="ic-check"     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
+      <symbol id="ic-map-pin"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+      <symbol id="ic-clock"     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+      <symbol id="ic-thermometer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></symbol>
+      <symbol id="ic-camera"    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></symbol>
+      <symbol id="ic-phone"     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.71 3.46 2 2 0 0 1 3.68 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8 9a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+      <symbol id="ic-star"      viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+      <symbol id="ic-arrow-l"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+      <symbol id="ic-x"         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+    </defs>
+  </svg>
+
+  <style>
+    /* ── HERO ── */
+    .storage-hero {
+      display: grid; grid-template-columns: 1fr 1fr;
+      min-height: 520px; overflow: hidden;
+    }
+    .hero-left {
+      background: linear-gradient(150deg, var(--purple) 0%, #5a0db5 60%, #7b2dff 100%);
+      padding: 80px 64px;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .hero-left::before {
+      content: ''; position: absolute; top: -80px; right: -80px;
+      width: 320px; height: 320px;
+      background: rgba(255,165,0,.12); border-radius: 50%;
+    }
+    .hero-left::after {
+      content: ''; position: absolute; bottom: -60px; left: -40px;
+      width: 240px; height: 240px;
+      background: rgba(255,69,0,.1); border-radius: 50%;
+    }
+    .hero-left-inner { position: relative; z-index: 1; }
+    .hero-left .sec-tag { margin-bottom: 18px; }
+    .hero-left h1 { font-size: 40px; font-weight: 900; color: var(--white); line-height: 1.25; margin-bottom: 16px; }
+    .hero-left h1 span { color: var(--yellow); }
+    .hero-left p  { font-size: 16px; color: rgba(255,255,255,.75); line-height: 1.75; margin-bottom: 36px; max-width: 420px; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .hero-right {
+      background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      padding: 48px;
+    }
+
+    /* warehouse illustration SVG */
+    .warehouse-svg { width: 100%; max-width: 420px; }
+
+    /* ── STATS STRIP ── */
+    .stats-strip {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      background: var(--purple);
+    }
+    .strip-stat {
+      padding: 28px 24px; text-align: center;
+      border-left: 1px solid rgba(255,255,255,.1);
+    }
+    .strip-stat:first-child { border-left: none; }
+    .strip-stat .sv { font-size: 32px; font-weight: 900; color: var(--white); line-height: 1; margin-bottom: 6px; }
+    .strip-stat .sl { font-size: 13px; color: rgba(255,255,255,.65); font-weight: 600; }
+
+    /* ── HOW IT WORKS ── */
+    .how-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+    .how-card {
+      text-align: center; padding: 32px 20px;
+      background: var(--white); border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm); position: relative;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .how-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .how-card::after {
+      content: '→';
+      position: absolute; left: -15px; top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px; color: var(--orange); font-weight: 900;
+    }
+    .how-card:last-child::after { display: none; }
+    [dir=rtl] .how-card::after { content: '←'; right: -15px; left: auto; }
+    .how-num {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--orange); color: var(--white);
+      font-size: 18px; font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 18px;
+      box-shadow: 0 6px 16px rgba(255,69,0,.35);
+    }
+    .how-card h3 { font-size: 15px; font-weight: 900; margin-bottom: 8px; }
+    .how-card p  { font-size: 13px; color: var(--text-mid); line-height: 1.65; }
+
+    /* ── FEATURES ── */
+    .features-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+    .feat-card {
+      padding: 28px 24px; border-radius: var(--radius-md);
+      background: var(--white); box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+      border-top: 4px solid transparent;
+    }
+    .feat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .feat-card.purple { border-top-color: var(--purple); }
+    .feat-card.orange { border-top-color: var(--orange); }
+    .feat-card.yellow { border-top-color: var(--yellow); }
+    .feat-card.green  { border-top-color: #2E7D32; }
+    .feat-icon {
+      width: 48px; height: 48px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .feat-icon svg { width: 24px; height: 24px; }
+    .feat-icon.purple { background: var(--purple-light); color: var(--purple); }
+    .feat-icon.orange { background: rgba(255,69,0,.1);    color: var(--orange); }
+    .feat-icon.yellow { background: rgba(255,165,0,.12);  color: #b07800; }
+    .feat-icon.green  { background: rgba(46,125,50,.1);   color: #2E7D32; }
+    .feat-card h3 { font-size: 16px; font-weight: 900; margin-bottom: 8px; }
+    .feat-card p  { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
+
+    /* ── LOCATIONS ── */
+    .locations-section {
+      background: var(--bg); padding: 80px 64px;
+    }
+    .locations-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .loc-card {
+      background: var(--white); border-radius: var(--radius-md);
+      overflow: hidden; box-shadow: var(--shadow-sm);
+      transition: transform var(--transition);
+    }
+    .loc-card:hover { transform: translateY(-3px); }
+    .loc-map {
+      height: 140px; background: var(--purple-light);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .loc-map svg { width: 64px; height: 64px; color: var(--purple); opacity: .35; }
+    .loc-map-label {
+      position: absolute; top: 12px; right: 12px;
+      background: var(--orange); color: var(--white);
+      padding: 3px 10px; border-radius: 99px;
+      font-size: 11px; font-weight: 700;
+    }
+    .loc-body { padding: 18px; }
+    .loc-body h4 { font-size: 15px; font-weight: 900; margin-bottom: 6px; }
+    .loc-body p  { font-size: 13px; color: var(--text-mid); line-height: 1.6; margin-bottom: 14px; }
+    .loc-detail { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-light); font-weight: 600; margin-bottom: 4px; }
+    .loc-detail svg { width: 13px; height: 13px; }
+
+    /* ── PRICING ── */
+    .storage-pricing {
+      padding: 80px 64px;
+    }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; max-width: 900px; margin: 0 auto; }
+    .pricing-card {
+      border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: var(--shadow-sm); border: 2px solid var(--gray-mid);
+      background: var(--white); transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .pricing-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .pricing-card.featured { border-color: var(--orange); box-shadow: 0 8px 40px rgba(255,69,0,.2); transform: scale(1.03); }
+    .pricing-card.featured:hover { transform: scale(1.03) translateY(-4px); }
+    .pc-header { padding: 28px 24px; }
+    .pc-header .plan-name { font-size: 13px; font-weight: 700; color: var(--text-light); margin-bottom: 8px; }
+    .pc-header .plan-price { font-size: 32px; font-weight: 900; color: var(--text); line-height: 1; }
+    .pc-header .plan-price span { font-size: 14px; font-weight: 600; color: var(--text-light); }
+    .pc-header .plan-desc { font-size: 13px; color: var(--text-mid); margin-top: 8px; line-height: 1.5; }
+    .featured-badge {
+      background: var(--orange); color: var(--white);
+      padding: 5px 14px; font-size: 11px; font-weight: 700;
+      text-align: center;
+    }
+    .pc-features { padding: 16px 24px 28px; border-top: 1px solid var(--gray-mid); }
+    .pc-feature {
+      display: flex; align-items: center; gap: 10px;
+      padding: 8px 0; font-size: 13px; color: var(--text-mid); font-weight: 600;
+    }
+    .pc-feature svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .pc-feature.yes { color: var(--text); }
+    .pc-feature.yes svg { color: var(--purple); }
+    .pc-feature.no  { opacity: .45; }
+    .pc-feature.no  svg { color: var(--text-light); }
+    .pc-cta { padding: 0 24px 28px; }
+    .btn-plan {
+      width: 100%; padding: 13px; border-radius: 12px;
+      font-family: 'Cairo', sans-serif; font-size: 14px; font-weight: 700;
+      cursor: pointer; transition: var(--transition); border: 2px solid var(--gray-mid);
+      background: var(--white); color: var(--text);
+    }
+    .btn-plan:hover { border-color: var(--purple); color: var(--purple); }
+    .btn-plan.primary { background: var(--orange); border-color: var(--orange); color: var(--white); box-shadow: 0 4px 16px rgba(255,69,0,.3); }
+    .btn-plan.primary:hover { background: var(--orange-dim); }
+
+    /* ── FAQ ── */
+    .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item { background: var(--white); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); overflow: hidden; }
+    .faq-btn {
+      width: 100%; padding: 20px 24px; border: none; background: none;
+      display: flex; align-items: center; justify-content: space-between;
+      font-family: 'Cairo', sans-serif; font-size: 15px; font-weight: 700; color: var(--text);
+      cursor: pointer; text-align: right;
+    }
+    .faq-icon { width: 24px; height: 24px; border-radius: 50%; background: var(--gray-mid); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: var(--transition); }
+    .faq-icon svg { width: 12px; height: 12px; color: var(--text-mid); transition: transform var(--transition); }
+    .faq-item.open .faq-icon { background: var(--purple); }
+    .faq-item.open .faq-icon svg { color: var(--white); transform: rotate(45deg); }
+    .faq-body { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .faq-item.open .faq-body { max-height: 200px; }
+    .faq-body p { padding: 0 24px 20px; font-size: 14px; color: var(--text-mid); line-height: 1.75; }
+
+    /* ── CTA BAND ── */
+    .storage-cta {
+      background: linear-gradient(135deg, var(--purple) 0%, var(--purple-mid) 100%);
+      padding: 72px 64px;
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: center; gap: 40px;
+    }
+    .storage-cta h2 { font-size: 30px; font-weight: 900; color: var(--white); margin-bottom: 10px; }
+    .storage-cta p  { font-size: 15px; color: rgba(255,255,255,.72); }
+    .cta-btns { display: flex; gap: 12px; flex-shrink: 0; }
+
+    @media(max-width:1024px){
+      .storage-hero  { grid-template-columns: 1fr; }
+      .hero-right    { display: none; }
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .how-grid      { grid-template-columns: 1fr 1fr; }
+      .locations-grid{ grid-template-columns: 1fr 1fr; }
+      .pricing-grid  { grid-template-columns: 1fr; max-width: 400px; }
+      .pricing-card.featured { transform: none; }
+      .storage-cta   { grid-template-columns: 1fr; text-align: center; }
+      .cta-btns      { justify-content: center; }
+    }
+    @media(max-width:640px){
+      .hero-left { padding: 56px 24px; }
+      .hero-left h1 { font-size: 28px; }
+      .stats-strip   { grid-template-columns: 1fr 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+      .how-grid      { grid-template-columns: 1fr; }
+      .locations-grid{ grid-template-columns: 1fr; }
+      .section       { padding: 56px 24px; }
+      .storage-cta, .locations-section { padding: 56px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav">
+  <div class="nav-logo"><img src="جمبك.jpg" alt="جمبك"/></div>
+  <ul class="nav-links">
+    <li><a href="index.html">الرئيسية</a></li>
+    <li><a href="pricing.html">التسعير</a></li>
+    <li><a href="storage.html" style="color:var(--orange);font-weight:700">التخزين</a></li>
+    <li><a href="tracking.html" class="highlight">تتبع شحنتك</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="login.html"    class="btn btn-outline btn-sm">دخول</a>
+    <a href="register.html" class="btn btn-primary btn-sm">ابدأ مجاناً</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="storage-hero">
+  <div class="hero-left">
+    <div class="hero-left-inner">
+      <div class="sec-tag white">خدمة التخزين الذكي</div>
+      <h1>خزّن بضاعتك<br/>عندنا وشحّن<br/><span>بضغطة واحدة</span></h1>
+      <p>مستودعات جمبك في قلب الخرطوم — خزّن منتجاتك، وبمجرد وصول طلب من متجرك نشحنه فوراً. لا مستودع خاص، لا موظفين، لا تعقيدات.</p>
+      <div class="hero-btns">
+        <a href="register.html" class="btn btn-white">ابدأ التخزين مجاناً</a>
+        <a href="demo.html"     class="btn btn-outline" style="color:rgba(255,255,255,.85);border-color:rgba(255,255,255,.4)">شاهد الديمو</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <!-- Warehouse illustration -->
+    <svg class="warehouse-svg" viewBox="0 0 440 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- floor -->
+      <rect x="20" y="290" width="400" height="10" rx="4" fill="#e0e0ef"/>
+      <!-- building body -->
+      <rect x="60" y="120" width="320" height="170" rx="6" fill="#f3eaff"/>
+      <rect x="60" y="120" width="320" height="170" rx="6" stroke="#d0bff0" stroke-width="2"/>
+      <!-- roof -->
+      <polygon points="40,120 220,50 400,120" fill="#3D007A" opacity=".9"/>
+      <polygon points="40,120 220,50 400,120" stroke="#2A0055" stroke-width="2" fill="none"/>
+      <!-- roof line -->
+      <line x1="220" y1="50" x2="220" y2="120" stroke="rgba(255,165,0,.4)" stroke-width="2"/>
+      <!-- door -->
+      <rect x="175" y="200" width="90" height="90" rx="4" fill="#3D007A" opacity=".15"/>
+      <rect x="175" y="200" width="90" height="90" rx="4" stroke="#5a0db5" stroke-width="2"/>
+      <line x1="220" y1="200" x2="220" y2="290" stroke="#5a0db5" stroke-width="1.5" stroke-dasharray="4,4"/>
+      <circle cx="215" cy="248" r="4" fill="#5a0db5"/>
+      <!-- windows -->
+      <rect x="90"  y="155" width="55" height="42" rx="4" fill="white" stroke="#d0bff0" stroke-width="1.5"/>
+      <rect x="295" y="155" width="55" height="42" rx="4" fill="white" stroke="#d0bff0" stroke-width="1.5"/>
+      <line x1="117" y1="155" x2="117" y2="197" stroke="#d0bff0" stroke-width="1"/>
+      <line x1="322" y1="155" x2="322" y2="197" stroke="#d0bff0" stroke-width="1"/>
+      <!-- shelves inside -->
+      <rect x="95"  y="220" width="60" height="48" rx="3" fill="white" stroke="#d0bff0" stroke-width="1.5"/>
+      <line x1="95" y1="240" x2="155" y2="240" stroke="#d0bff0" stroke-width="1"/>
+      <line x1="95" y1="258" x2="155" y2="258" stroke="#d0bff0" stroke-width="1"/>
+      <!-- boxes on shelf left -->
+      <rect x="100" y="223" width="18" height="15" rx="2" fill="#FF4500" opacity=".7"/>
+      <rect x="121" y="223" width="14" height="15" rx="2" fill="#3D007A" opacity=".5"/>
+      <rect x="100" y="242" width="22" height="13" rx="2" fill="#FFA500" opacity=".7"/>
+      <!-- shelves right -->
+      <rect x="285" y="220" width="60" height="48" rx="3" fill="white" stroke="#d0bff0" stroke-width="1.5"/>
+      <line x1="285" y1="240" x2="345" y2="240" stroke="#d0bff0" stroke-width="1"/>
+      <line x1="285" y1="258" x2="345" y2="258" stroke="#d0bff0" stroke-width="1"/>
+      <rect x="290" y="223" width="16" height="15" rx="2" fill="#3D007A" opacity=".5"/>
+      <rect x="309" y="223" width="20" height="15" rx="2" fill="#FF4500" opacity=".7"/>
+      <rect x="290" y="242" width="24" height="13" rx="2" fill="#FFA500" opacity=".7"/>
+      <!-- truck -->
+      <rect x="340" y="248" width="80" height="40" rx="4" fill="#3D007A" opacity=".85"/>
+      <rect x="380" y="255" width="36" height="33" rx="3" fill="#5a0db5"/>
+      <circle cx="358" cy="291" r="8" fill="#1a1a2e" stroke="#555" stroke-width="2"/>
+      <circle cx="400" cy="291" r="8" fill="#1a1a2e" stroke="#555" stroke-width="2"/>
+      <rect x="380" y="264" width="30" height="18" rx="2" fill="rgba(255,255,255,.25)"/>
+      <!-- orange arrow -->
+      <path d="M310 268 L340 268" stroke="#FF4500" stroke-width="2.5" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+      <defs>
+        <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L6,3 L0,6" fill="none" stroke="#FF4500" stroke-width="1.5"/>
+        </marker>
+      </defs>
+      <!-- signal bars (top right) -->
+      <g transform="translate(370,72)">
+        <rect x="0"  y="14" width="6" height="8"  rx="1" fill="#3D007A" opacity=".3"/>
+        <rect x="9"  y="9"  width="6" height="13" rx="1" fill="#3D007A" opacity=".5"/>
+        <rect x="18" y="4"  width="6" height="18" rx="1" fill="#3D007A" opacity=".8"/>
+      </g>
+      <!-- label badge -->
+      <rect x="150" y="60" width="140" height="32" rx="16" fill="#FF4500"/>
+      <text x="220" y="81" text-anchor="middle" font-family="Cairo,sans-serif" font-size="13" font-weight="700" fill="white">مستودع جمبك</text>
+    </svg>
+  </div>
+</div>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="strip-stat">
+    <div class="sv">3</div>
+    <div class="sl">مستودعات في السودان</div>
+  </div>
+  <div class="strip-stat">
+    <div class="sv">+50K</div>
+    <div class="sl">متر مربع مساحة تخزين</div>
+  </div>
+  <div class="strip-stat">
+    <div class="sv">24/7</div>
+    <div class="sl">مراقبة وحراسة مستمرة</div>
+  </div>
+  <div class="strip-stat">
+    <div class="sv">98%</div>
+    <div class="sl">دقة تنفيذ الطلبات</div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="section">
+  <div class="sec-header center">
+    <div class="sec-tag orange">كيف يعمل</div>
+    <h2 class="sec-title">أربع خطوات بس وبضاعتك تتشحن تلقائياً</h2>
+    <p class="sec-sub">من إيداع المنتجات في مستودعنا وحتى وصولها للعميل — جمبك يتكفل بالباقي.</p>
+  </div>
+  <div class="how-grid">
+    <div class="how-card">
+      <div class="how-num">١</div>
+      <h3>أودع منتجاتك</h3>
+      <p>أرسل مخزونك إلى مستودع جمبك الأقرب إليك وسنتولى استلامه وتصنيفه فوراً.</p>
+    </div>
+    <div class="how-card">
+      <div class="how-num">٢</div>
+      <h3>تصل الطلبات تلقائياً</h3>
+      <p>عند تسجيل طلب في متجرك (Shopify، سلة، WooCommerce) يصلنا تلقائياً دون أي تدخل منك.</p>
+    </div>
+    <div class="how-card">
+      <div class="how-num">٣</div>
+      <h3>نحزّم ونشحن</h3>
+      <p>يقوم فريقنا بتجهيز الطلب وتغليفه ويخرج للتوصيل في نفس اليوم خلال ساعات.</p>
+    </div>
+    <div class="how-card">
+      <div class="how-num">٤</div>
+      <h3>تحصّل أموالك</h3>
+      <p>بعد التسليم مباشرة يُحوَّل مبلغ التحصيل إلى محفظتك خلال 24 ساعة.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section bg-gray">
+  <div class="sec-header center">
+    <div class="sec-tag purple">المزايا</div>
+    <h2 class="sec-title">مستودعات تضمن سلامة بضاعتك</h2>
+    <p class="sec-sub">بنية تحتية متطورة وفريق متخصص يعمل على مدار الساعة لضمان أعلى معايير التخزين.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feat-card purple">
+      <div class="feat-icon purple"><svg><use href="#ic-camera"/></svg></div>
+      <h3>مراقبة 24/7 بالكاميرات</h3>
+      <p>كل ركن في المستودع مُراقَب بكاميرات عالية الدقة وطاقم أمن متخصص على مدار الساعة.</p>
+    </div>
+    <div class="feat-card orange">
+      <div class="feat-icon orange"><svg><use href="#ic-thermometer"/></svg></div>
+      <h3>تحكم في درجة الحرارة</h3>
+      <p>قسم مبرّد ومقنّن لتخزين المنتجات الحساسة والإلكترونيات والمواد الغذائية بأمان تام.</p>
+    </div>
+    <div class="feat-card yellow">
+      <div class="feat-icon yellow"><svg><use href="#ic-eye"/></svg></div>
+      <h3>إدارة المخزون لحظياً</h3>
+      <p>تابع مخزونك في الوقت الفعلي — الكميات، الحركة، وتنبيهات النفاد — كل ذلك من لوحة التحكم.</p>
+    </div>
+    <div class="feat-card green">
+      <div class="feat-icon green"><svg><use href="#ic-shield"/></svg></div>
+      <h3>تأمين شامل على البضاعة</h3>
+      <p>جميع البضائع المخزنة مؤمَّنة بالكامل ضد الحريق والسرقة وأي أضرار داخل المستودع.</p>
+    </div>
+    <div class="feat-card purple">
+      <div class="feat-icon purple"><svg><use href="#ic-zap"/></svg></div>
+      <h3>تجهيز الطلب في ساعة</h3>
+      <p>من لحظة استلام الطلب حتى مغادرته المستودع — فريقنا يُنهي التغليف والتجهيز في أقل من 60 دقيقة.</p>
+    </div>
+    <div class="feat-card orange">
+      <div class="feat-icon orange"><svg><use href="#ic-truck"/></svg></div>
+      <h3>شحن مباشر لكل ولايات السودان</h3>
+      <p>من مستودعنا مباشرة إلى عميلك في الخرطوم، أم درمان، بورتسودان، مدني وجميع الولايات.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATIONS -->
+<div class="locations-section">
+  <div class="sec-header center">
+    <div class="sec-tag orange">مواقعنا</div>
+    <h2 class="sec-title">مستودعات جمبك في السودان</h2>
+    <p class="sec-sub">اختر المستودع الأقرب لمتجرك وابدأ التخزين في أي وقت.</p>
+  </div>
+  <div class="locations-grid">
+    <div class="loc-card">
+      <div class="loc-map">
+        <svg><use href="#ic-warehouse"/></svg>
+        <div class="loc-map-label">متاح الآن</div>
+      </div>
+      <div class="loc-body">
+        <h4>مستودع الخرطوم الرئيسي</h4>
+        <p>شارع الجيش، المنطقة الصناعية — أكبر مستودعاتنا وأكثرها تجهيزاً</p>
+        <div class="loc-detail"><svg><use href="#ic-map-pin"/></svg> الخرطوم — المنطقة الصناعية</div>
+        <div class="loc-detail"><svg><use href="#ic-clock"/></svg> مفتوح 24/7</div>
+        <div class="loc-detail"><svg><use href="#ic-package"/></svg> سعة 30,000 م²</div>
+      </div>
+    </div>
+    <div class="loc-card">
+      <div class="loc-map" style="background:rgba(255,69,0,.08)">
+        <svg style="color:var(--orange)"><use href="#ic-warehouse"/></svg>
+        <div class="loc-map-label" style="background:var(--purple)">متاح الآن</div>
+      </div>
+      <div class="loc-body">
+        <h4>مستودع أم درمان</h4>
+        <p>المنطقة الغربية — يخدم أم درمان وكل المناطق الغربية من السودان</p>
+        <div class="loc-detail"><svg><use href="#ic-map-pin"/></svg> أم درمان — الموردة</div>
+        <div class="loc-detail"><svg><use href="#ic-clock"/></svg> 8 ص — 10 م</div>
+        <div class="loc-detail"><svg><use href="#ic-package"/></svg> سعة 14,000 م²</div>
+      </div>
+    </div>
+    <div class="loc-card">
+      <div class="loc-map" style="background:rgba(255,165,0,.1)">
+        <svg style="color:#b07800"><use href="#ic-warehouse"/></svg>
+        <div class="loc-map-label" style="background:#2E7D32">قريباً</div>
+      </div>
+      <div class="loc-body">
+        <h4>مستودع بورتسودان</h4>
+        <p>قريب من الميناء — يخدم المناطق الشرقية ويُسهّل الاستيراد المباشر</p>
+        <div class="loc-detail"><svg><use href="#ic-map-pin"/></svg> بورتسودان — قرب الميناء</div>
+        <div class="loc-detail"><svg><use href="#ic-clock"/></svg> افتتاح 2026</div>
+        <div class="loc-detail"><svg><use href="#ic-package"/></svg> سعة 8,000 م²</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<div class="storage-pricing">
+  <div class="sec-header center">
+    <div class="sec-tag purple">الأسعار</div>
+    <h2 class="sec-title">خطط تناسب كل حجم متجر</h2>
+    <p class="sec-sub">ادفع فقط عن المساحة التي تستخدمها — لا رسوم إضافية ولا التزامات طويلة الأمد.</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="pc-header">
+        <div class="plan-name">المبتدئ</div>
+        <div class="plan-price">1,200 <span>SDG / شهر</span></div>
+        <div class="plan-desc">مثالي للمتاجر الصغيرة حتى 200 منتج</div>
+      </div>
+      <div class="pc-features">
+        <div class="pc-feature yes"><svg><use href="#ic-check"/></svg> تخزين حتى 5 م²</div>
+        <div class="pc-feature yes"><svg><use href="#ic-check"/></svg> 100 طلب شهرياً</div>
+        <div class="pc-feature yes"><svg><use href="#ic-check"/></svg> تتبع المخزون لحظياً</div>
+        <div class="pc-feature yes"><svg><use href="#ic-check"/></svg> تغليف بشعار جمبك</div>
+        <div class="pc-feature no" ><svg><use href="#ic-x"/></svg> تخزين مبرّد</div>
+        <div class="pc-feature no" ><svg><use href="#ic-x"/></svg> مدير حساب مخصص</div>
+      </div>
+      <div class="pc-cta">
+        <a href="register.html"><button class="btn-plan">ابدأ الآن</button></a>
+      </div>
+    </div>
+
+    <div class="pricing-card featured">
+      <div class="featured-badge">الأكثر طلباً</div>
+      <div class="pc-header">
+        <div class="plan-name">النمو</div>
+        <div class="plan-price">3,500 <span>SDG / شهر</span></div>
+        <div class="plan-desc">للمتاجر المتوسطة حتى 1000 منتج</div>
+      </div>
+      <div class="pc-features">
+        <div class="pc-feature yes"><svg><use href="#ic-check"/></svg> تخزين حتى 20 م²</div>
+        <div class="pc-feature yes"><svg><use href="#ic-check"/></svg> 500 طلب شهرياً</div>
+        <div class="pc-feature yes"><svg><use href="#ic-check"/></svg> تتبع المخزون لحظياً</div>
+        <div class="pc-feature yes"><svg><use href="#ic-check"/></svg> تغليف مخصص بشعارك</div>
+        <div class="pc-feature yes"><svg><use href="#ic-check"/></svg> تخزين مبرّد جزئي</div>
+        <div class="pc-feature no" ><svg><use href="#ic-x"/></svg> مدير حساب مخصص</div>
+      </div>
+      <div class="pc-cta">
+        <a href="register.html"><button class="btn-plan primary">ابدأ الآن</button></a>
+      </div>
+    </div>
+
+    <div class="pricing-card">
+      <div class="pc-header">
+        <div class="plan-name">المؤسسات</div>
+        <div class="plan-price">تواصل معنا</div>
+        <div class="plan-desc">للشركات الكبيرة والتجار بالجملة</div>
+      </div>
+      <div class="pc-features">
+        <div class="pc-feature yes"><svg><use href="#ic-check"/></svg> مساحة غير محدودة</div>
+        <div class="pc-feature yes"><svg><use href="#ic-check"/></svg> طلبات غير محدودة</div>
+        <div class="pc-feature yes"><svg><use href="#ic-check"/></svg> تتبع المخزون لحظياً</div>
+        <div class="pc-feature yes"><svg><use href="#ic-check"/></svg> تغليف مخصص بالكامل</div>
+        <div class="pc-feature yes"><svg><use href="#ic-check"/></svg> تخزين مبرّد كامل</div>
+        <div class="pc-feature yes"><svg><use href="#ic-check"/></svg> مدير حساب مخصص</div>
+      </div>
+      <div class="pc-cta">
+        <button class="btn-plan" onclick="contactSales()">تواصل مع المبيعات</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section class="section bg-gray">
+  <div class="sec-header center">
+    <div class="sec-tag orange">أسئلة شائعة</div>
+    <h2 class="sec-title">كل ما تريد معرفته عن خدمة التخزين</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-btn" onclick="toggleFaq(this)">
+        كيف أرسل بضاعتي إلى مستودع جمبك؟
+        <div class="faq-icon"><svg><use href="#ic-x"/></svg></div>
+      </button>
+      <div class="faq-body"><p>بعد الاشتراك في خدمة التخزين ستتلقى تعليمات شحن مفصّلة. يمكنك إرسال البضاعة عبر أي شركة نقل أو الاتفاق مع فريقنا لاستلامها منك مباشرة بتكلفة رمزية.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn" onclick="toggleFaq(this)">
+        هل يمكنني تخزين منتجات متنوعة في نفس الوقت؟
+        <div class="faq-icon"><svg><use href="#ic-x"/></svg></div>
+      </button>
+      <div class="faq-body"><p>نعم، يمكنك تخزين أي عدد من أنواع المنتجات المختلفة. يقوم فريقنا بتصنيفها وتنظيمها وإدارة مخزونها بشكل منفصل مع إمكانية تتبع كل صنف على حدة.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn" onclick="toggleFaq(this)">
+        ما هي المنتجات التي لا يمكن تخزينها؟
+        <div class="faq-icon"><svg><use href="#ic-x"/></svg></div>
+      </button>
+      <div class="faq-body"><p>لا نقبل تخزين المواد الخطرة أو المتفجرات أو المواد المحظورة قانونياً. أما المواد الغذائية والإلكترونيات والمنتجات الحساسة فنقبلها في الأقسام المخصصة لها.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn" onclick="toggleFaq(this)">
+        هل يمكنني سحب بضاعتي من المستودع في أي وقت؟
+        <div class="faq-icon"><svg><use href="#ic-x"/></svg></div>
+      </button>
+      <div class="faq-body"><p>نعم، يمكنك طلب استرداد جزء أو كل بضاعتك في أي وقت. يتم التجهيز خلال 24 ساعة ونرتب التوصيل إلى موقعك أو يمكنك الاستلام مباشرة من المستودع.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn" onclick="toggleFaq(this)">
+        هل خدمة التخزين تعمل مع جميع منصات التجارة الإلكترونية؟
+        <div class="faq-icon"><svg><use href="#ic-x"/></svg></div>
+      </button>
+      <div class="faq-body"><p>نعم، نتكامل مع Shopify وWooCommerce وسلة وزد وأي منصة تدعم API. بمجرد الربط تصلنا طلباتك تلقائياً ونبدأ التجهيز فوراً دون أي تدخل منك.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="storage-cta">
+  <div>
+    <h2>ابدأ التخزين الذكي اليوم</h2>
+    <p>اترك هموم التخزين والتغليف لنا — وركّز على تطوير متجرك وزيادة مبيعاتك</p>
+  </div>
+  <div class="cta-btns">
+    <a href="register.html" class="btn btn-white">ابدأ مجاناً</a>
+    <a href="demo.html"     class="btn btn-outline" style="color:rgba(255,255,255,.85);border-color:rgba(255,255,255,.4)">شاهد الديمو</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="جمبك.jpg" alt="جمبك" class="footer-logo"/>
+      <p>أسرع شركة شحن في السودان. نوصّل لكل الولايات باليوم التالي.</p>
+    </div>
+    <div class="footer-col">
+      <h4>الخدمات</h4>
+      <ul>
+        <li><a href="index.html">الشحن السريع</a></li>
+        <li><a href="storage.html">التخزين الذكي</a></li>
+        <li><a href="integrations.html">التكاملات</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>للتجار</h4>
+      <ul>
+        <li><a href="demo.html">الديمو</a></li>
+        <li><a href="pricing.html">التسعير</a></li>
+        <li><a href="merchant.html">أنواع التجار</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>الدعم</h4>
+      <ul>
+        <li><a href="tracking.html">تتبع شحنة</a></li>
+        <li><a href="login.html">تسجيل الدخول</a></li>
+        <li><a href="register.html">إنشاء حساب</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 جمبك. جميع الحقوق محفوظة.</span>
+  </div>
+</footer>
+
+<script>
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  function contactSales() {
+    const t = document.createElement('div');
+    t.style.cssText = 'position:fixed;bottom:24px;right:50%;transform:translateX(50%);background:var(--purple);color:#fff;padding:12px 28px;border-radius:12px;font-family:Cairo,sans-serif;font-size:14px;font-weight:700;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.2)';
+    t.innerHTML = '📞 سيتواصل معك فريق المبيعات خلال 24 ساعة';
+    document.body.appendChild(t);
+    setTimeout(() => t.remove(), 3500);
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>التسعير | جمبك</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="base.css" />
+
+  <svg style="display:none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
+      <symbol id="ic-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></symbol>
+      <symbol id="ic-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+      <symbol id="ic-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+      <symbol id="ic-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+      <symbol id="ic-headphone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"/><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></symbol>
+      <symbol id="ic-x" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></symbol>
+      <symbol id="ic-fb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+      <symbol id="ic-li" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+      <symbol id="ic-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></symbol>
+    </defs>
+  </svg>
+
+  <style>
+    /* PAGE HERO */
+    .page-hero {
+      background: linear-gradient(135deg, var(--purple) 0%, var(--purple-mid) 100%);
+      padding: 80px 64px;
+      text-align: center;
+    }
+    .page-hero h1 { font-size: 44px; font-weight: 900; color: var(--white); margin-bottom: 16px; }
+    .page-hero p  { font-size: 18px; color: rgba(255,255,255,.78); max-width: 560px; margin: 0 auto 36px; line-height: 1.75; }
+
+    /* TOGGLE */
+    .billing-toggle {
+      display: inline-flex; align-items: center; gap: 14px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 30px; padding: 6px 20px;
+      margin: 0 auto;
+    }
+    .billing-toggle span { font-size: 14px; font-weight: 600; color: rgba(255,255,255,.65); }
+    .billing-toggle span.active { color: var(--white); }
+    .toggle-switch { position: relative; width: 44px; height: 24px; }
+    .toggle-switch input { opacity: 0; width: 0; height: 0; }
+    .toggle-slider { position: absolute; inset: 0; background: rgba(255,255,255,.3); border-radius: 30px; cursor: pointer; transition: .3s; }
+    .toggle-slider::before { content: ''; position: absolute; width: 18px; height: 18px; right: 3px; top: 3px; background: var(--white); border-radius: 50%; transition: .3s; }
+    .badge-save { background: var(--yellow); color: #333; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-right: 4px; }
+
+    /* PRICING GRID */
+    .plans-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;
+      padding: 0 64px; margin-top: -28px;
+    }
+    .plan-card {
+      background: var(--white);
+      border: 2px solid var(--gray-mid);
+      border-radius: 24px;
+      padding: 40px 32px;
+      display: flex; flex-direction: column;
+      transition: var(--transition);
+      position: relative;
+    }
+    .plan-card:hover { border-color: var(--purple); box-shadow: 0 12px 40px rgba(61,0,122,.1); }
+    .plan-card.featured {
+      border-color: var(--orange);
+      box-shadow: 0 16px 56px rgba(255,69,0,.18);
+      transform: translateY(-12px);
+    }
+    .plan-badge {
+      position: absolute; top: -14px; right: 50%; transform: translateX(50%);
+      background: var(--orange); color: var(--white);
+      font-size: 12px; font-weight: 700; padding: 4px 16px; border-radius: 20px;
+    }
+    .plan-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+    .plan-icon svg { width: 26px; height: 26px; }
+    .plan-name { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .plan-desc { font-size: 14px; color: var(--text-light); margin-bottom: 28px; line-height: 1.65; }
+    .plan-price { margin-bottom: 28px; }
+    .plan-price .amount { font-size: 44px; font-weight: 900; color: var(--purple); line-height: 1; }
+    .plan-price .amount.orange { color: var(--orange); }
+    .plan-price .currency { font-size: 18px; font-weight: 700; color: var(--text-mid); vertical-align: super; }
+    .plan-price .period  { font-size: 14px; color: var(--text-light); display: block; margin-top: 4px; }
+    .plan-divider { border: none; border-top: 1px solid var(--gray-mid); margin: 24px 0; }
+    .plan-features { display: flex; flex-direction: column; gap: 13px; flex: 1; margin-bottom: 32px; }
+    .feat-row { display: flex; align-items: center; gap: 10px; }
+    .feat-row svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--purple); }
+    .feat-row.disabled svg { color: var(--gray-mid); }
+    .feat-row span { font-size: 14px; color: var(--text-mid); }
+    .feat-row.disabled span { color: var(--text-light); text-decoration: line-through; }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 0; border: 1.5px solid var(--gray-mid); border-radius: var(--radius-xl); overflow: hidden; }
+    .faq-item { border-bottom: 1px solid var(--gray-mid); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      width: 100%; text-align: right; padding: 22px 28px;
+      background: none; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      font-family: 'Cairo', sans-serif; font-size: 16px; font-weight: 700; color: var(--text);
+      transition: background var(--transition);
+    }
+    .faq-q:hover { background: var(--bg); }
+    .faq-q .faq-arrow { width: 22px; height: 22px; border-radius: 50%; background: var(--gray); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform var(--transition); }
+    .faq-q .faq-arrow svg { width: 12px; height: 12px; }
+    .faq-q.open .faq-arrow { background: var(--orange); transform: rotate(180deg); }
+    .faq-q.open .faq-arrow svg { color: var(--white); }
+    .faq-a { padding: 0 28px 22px; font-size: 15px; color: var(--text-mid); line-height: 1.8; display: none; }
+    .faq-a.open { display: block; }
+
+    /* COMPARE TABLE */
+    .compare-table { width: 100%; border-collapse: collapse; }
+    .compare-table th, .compare-table td { padding: 16px 24px; text-align: right; border-bottom: 1px solid var(--gray-mid); font-size: 14px; }
+    .compare-table thead th { font-size: 13px; font-weight: 700; color: var(--text-light); background: var(--bg); }
+    .compare-table thead th:not(:first-child) { text-align: center; }
+    .compare-table tbody td:not(:first-child) { text-align: center; }
+    .compare-table tbody tr:hover td { background: var(--bg); }
+    .compare-table .plan-col { font-weight: 700; color: var(--text); }
+    .compare-table .plan-col.featured { color: var(--orange); }
+    .check-icon { width: 22px; height: 22px; border-radius: 50%; background: var(--green-light); display: inline-flex; align-items: center; justify-content: center; }
+    .check-icon svg { width: 12px; height: 12px; color: var(--green); }
+    .x-icon { width: 22px; height: 22px; border-radius: 50%; background: var(--gray); display: inline-flex; align-items: center; justify-content: center; }
+    .x-icon svg { width: 10px; height: 10px; color: var(--text-light); }
+
+    @media(max-width:1024px){
+      .plans-grid { grid-template-columns: 1fr; padding: 0 28px; }
+      .plan-card.featured { transform: none; }
+      .compare-table { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav">
+  <div class="nav-logo"><img src="جمبك.jpg" alt="جمبك" /></div>
+  <ul class="nav-links">
+    <li><a href="index.html">الرئيسية</a></li>
+    <li><a href="merchant.html">نوع التاجر</a></li>
+    <li><a href="integrations.html">التكاملات</a></li>
+    <li><a href="pricing.html" class="active">التسعير</a></li>
+    <li><a href="tracking.html" class="highlight">تتبع شحنتك</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn btn-ghost btn-sm">سجل دخول</button>
+    <a href="#" class="btn btn-primary btn-sm btn-pill">اشترك الآن</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <h1>أسعار مرنة للجميع.</h1>
+  <p>تستطيع تخصيص خطة أسعار بناءً على احتياجاتك ونضمن لك أفضل تجربة شحن في السودان.</p>
+  <div class="billing-toggle">
+    <span class="active">فوترة شهرية</span>
+    <label class="toggle-switch">
+      <input type="checkbox" id="billingToggle"/>
+      <span class="toggle-slider"></span>
+    </label>
+    <span>فوترة سنوية <span class="badge-save">وفر 20%</span></span>
+  </div>
+</div>
+
+<!-- PLANS GRID -->
+<div class="plans-grid" style="margin-bottom:88px">
+
+  <!-- Starter -->
+  <div class="plan-card">
+    <div class="plan-icon" style="background:var(--purple-light);color:var(--purple)">
+      <svg><use href="#ic-truck"/></svg>
+    </div>
+    <div class="plan-name">الباقة الأساسية</div>
+    <div class="plan-desc">مثالية للتجار الجدد والمتاجر الصغيرة التي تبدأ رحلة الشحن</div>
+    <div class="plan-price">
+      <span class="currency">SDG</span><span class="amount">800</span>
+      <span class="period">/ شهرياً · حتى 100 شحنة</span>
+    </div>
+    <hr class="plan-divider"/>
+    <ul class="plan-features">
+      <li class="feat-row"><svg><use href="#ic-check"/></svg><span>توصيل خلال 24-48 ساعة</span></li>
+      <li class="feat-row"><svg><use href="#ic-check"/></svg><span>تغطية الخرطوم الكبرى</span></li>
+      <li class="feat-row"><svg><use href="#ic-check"/></svg><span>تتبع الشحنات في الوقت الفعلي</span></li>
+      <li class="feat-row"><svg><use href="#ic-check"/></svg><span>دعم فني عبر الواتساب</span></li>
+      <li class="feat-row disabled"><svg><use href="#ic-check"/></svg><span>تغطية جميع الولايات</span></li>
+      <li class="feat-row disabled"><svg><use href="#ic-check"/></svg><span>مندوب تحصيل مخصص</span></li>
+    </ul>
+    <a href="#" class="btn btn-outline" style="text-align:center;justify-content:center">ابدأ مجاناً</a>
+  </div>
+
+  <!-- Growth (featured) -->
+  <div class="plan-card featured">
+    <div class="plan-badge">الأكثر شيوعاً</div>
+    <div class="plan-icon" style="background:var(--orange-light);color:var(--orange)">
+      <svg><use href="#ic-zap"/></svg>
+    </div>
+    <div class="plan-name">باقة النمو</div>
+    <div class="plan-desc">للمتاجر المتنامية التي تحتاج تغطية أوسع وسرعة أكبر</div>
+    <div class="plan-price">
+      <span class="currency">SDG</span><span class="amount orange">2,500</span>
+      <span class="period">/ شهرياً · حتى 500 شحنة</span>
+    </div>
+    <hr class="plan-divider"/>
+    <ul class="plan-features">
+      <li class="feat-row"><svg><use href="#ic-check"/></svg><span>توصيل في اليوم التالي</span></li>
+      <li class="feat-row"><svg><use href="#ic-check"/></svg><span>تغطية جميع الولايات</span></li>
+      <li class="feat-row"><svg><use href="#ic-check"/></svg><span>تتبع متقدم + إشعارات SMS</span></li>
+      <li class="feat-row"><svg><use href="#ic-check"/></svg><span>دعم فني على مدار الساعة</span></li>
+      <li class="feat-row"><svg><use href="#ic-check"/></svg><span>مندوب تحصيل مخصص</span></li>
+      <li class="feat-row"><svg><use href="#ic-check"/></svg><span>تقارير وتحليلات أسبوعية</span></li>
+    </ul>
+    <a href="#" class="btn btn-primary" style="text-align:center;justify-content:center">ابدأ الآن</a>
+  </div>
+
+  <!-- Enterprise -->
+  <div class="plan-card">
+    <div class="plan-icon" style="background:#fff8e1;color:#e65100">
+      <svg><use href="#ic-star"/></svg>
+    </div>
+    <div class="plan-name">باقة المؤسسات</div>
+    <div class="plan-desc">للشركات الكبيرة التي تحتاج حلولاً مخصصة وطاقة شحن غير محدودة</div>
+    <div class="plan-price">
+      <span class="amount" style="font-size:32px;color:var(--text)">تواصل معنا</span>
+      <span class="period">أسعار مخصصة · شحنات غير محدودة</span>
+    </div>
+    <hr class="plan-divider"/>
+    <ul class="plan-features">
+      <li class="feat-row"><svg><use href="#ic-check"/></svg><span>كل مميزات باقة النمو</span></li>
+      <li class="feat-row"><svg><use href="#ic-check"/></svg><span>SLA مضمون 99.5%</span></li>
+      <li class="feat-row"><svg><use href="#ic-check"/></svg><span>مدير حساب مخصص</span></li>
+      <li class="feat-row"><svg><use href="#ic-check"/></svg><span>تكامل API مخصص</span></li>
+      <li class="feat-row"><svg><use href="#ic-check"/></svg><span>تقارير تفصيلية يومية</span></li>
+      <li class="feat-row"><svg><use href="#ic-check"/></svg><span>دعم أولوية 24/7</span></li>
+    </ul>
+    <a href="#" class="btn btn-outline" style="text-align:center;justify-content:center">تواصل مع المبيعات</a>
+  </div>
+
+</div>
+
+<!-- COMPARE TABLE -->
+<section class="section bg-gray">
+  <div class="sec-header center">
+    <span class="sec-tag purple">المقارنة</span>
+    <h2 class="sec-title">قارن بين الباقات</h2>
+  </div>
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>الميزة</th>
+        <th>الأساسية</th>
+        <th class="plan-col featured">النمو</th>
+        <th>المؤسسات</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="plan-col">عدد الشحنات</td>
+        <td>حتى 100</td>
+        <td>حتى 500</td>
+        <td>غير محدود</td>
+      </tr>
+      <tr>
+        <td class="plan-col">تغطية الخرطوم الكبرى</td>
+        <td><span class="check-icon"><svg><use href="#ic-check"/></svg></span></td>
+        <td><span class="check-icon"><svg><use href="#ic-check"/></svg></span></td>
+        <td><span class="check-icon"><svg><use href="#ic-check"/></svg></span></td>
+      </tr>
+      <tr>
+        <td class="plan-col">تغطية جميع الولايات</td>
+        <td><span class="x-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td>
+        <td><span class="check-icon"><svg><use href="#ic-check"/></svg></span></td>
+        <td><span class="check-icon"><svg><use href="#ic-check"/></svg></span></td>
+      </tr>
+      <tr>
+        <td class="plan-col">التسليم في اليوم التالي</td>
+        <td><span class="x-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td>
+        <td><span class="check-icon"><svg><use href="#ic-check"/></svg></span></td>
+        <td><span class="check-icon"><svg><use href="#ic-check"/></svg></span></td>
+      </tr>
+      <tr>
+        <td class="plan-col">مندوب مخصص</td>
+        <td><span class="x-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td>
+        <td><span class="check-icon"><svg><use href="#ic-check"/></svg></span></td>
+        <td><span class="check-icon"><svg><use href="#ic-check"/></svg></span></td>
+      </tr>
+      <tr>
+        <td class="plan-col">تكامل API</td>
+        <td><span class="x-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td>
+        <td><span class="x-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td>
+        <td><span class="check-icon"><svg><use href="#ic-check"/></svg></span></td>
+      </tr>
+      <tr>
+        <td class="plan-col">SLA مضمون</td>
+        <td><span class="x-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td>
+        <td><span class="x-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td>
+        <td><span class="check-icon"><svg><use href="#ic-check"/></svg></span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- GUARANTEES -->
+<section class="section">
+  <div class="sec-header center">
+    <span class="sec-tag green">ضماناتنا</span>
+    <h2 class="sec-title">لماذا تختار جمبك؟</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+    <div class="card flat" style="padding:36px 28px;text-align:center">
+      <div class="icon-box md purple" style="margin:0 auto 18px">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-shield"/></svg>
+      </div>
+      <h3 style="font-size:18px;font-weight:700;margin-bottom:8px">ضمان نسبة النجاح 96%</h3>
+      <p style="font-size:14px;color:var(--text-mid);line-height:1.7">نضمن توصيل 96% من شحناتك في الموعد المحدد وإلا نعيد لك الرسوم كاملة</p>
+    </div>
+    <div class="card flat" style="padding:36px 28px;text-align:center">
+      <div class="icon-box md orange" style="margin:0 auto 18px">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-zap"/></svg>
+      </div>
+      <h3 style="font-size:18px;font-weight:700;margin-bottom:8px">تحصيل في 24 ساعة</h3>
+      <p style="font-size:14px;color:var(--text-mid);line-height:1.7">أموالك المحصلة تصل إلى حسابك في أقل من 24 ساعة من تأكيد الاستلام</p>
+    </div>
+    <div class="card flat" style="padding:36px 28px;text-align:center">
+      <div class="icon-box md green" style="margin:0 auto 18px">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-headphone"/></svg>
+      </div>
+      <h3 style="font-size:18px;font-weight:700;margin-bottom:8px">دعم على مدار الساعة</h3>
+      <p style="font-size:14px;color:var(--text-mid);line-height:1.7">فريق دعم متخصص متاح 24/7 عبر الهاتف والواتساب والبريد الإلكتروني</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section bg-gray">
+  <div class="sec-header center">
+    <span class="sec-tag orange">الأسئلة الشائعة</span>
+    <h2 class="sec-title">أسئلة متكررة</h2>
+  </div>
+  <div class="faq-list" style="max-width:760px;margin:0 auto">
+    <div class="faq-item">
+      <button class="faq-q open" onclick="toggleFaq(this)">
+        <span>هل يمكنني تغيير الباقة في أي وقت؟</span>
+        <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
+      </button>
+      <div class="faq-a open">نعم، يمكنك الترقية أو التخفيض في أي وقت. التغيير يدخل حيز التنفيذ فوراً والرسوم تُحسب بشكل نسبي.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>ما هي طرق الدفع المتاحة؟</span>
+        <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
+      </button>
+      <div class="faq-a">نقبل التحويل البنكي، بنك الخرطوم، الفاتورة الإلكترونية، ومحافظ الدفع السودانية كـ MTN و Zain Cash.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>هل هناك عقد ملزم؟</span>
+        <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
+      </button>
+      <div class="faq-a">لا، جميع باقاتنا الشهرية بدون عقد ملزم. الباقة السنوية توفر لك 20% ولكنها غير إلزامية.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>ماذا يحدث إذا تجاوزت حد الشحنات؟</span>
+        <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
+      </button>
+      <div class="faq-a">ستُحسب الشحنات الزائدة بسعر مخفض مع إشعارك تلقائياً للترقية إلى الباقة المناسبة.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>هل تشمل الأسعار ضريبة القيمة المضافة؟</span>
+        <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
+      </button>
+      <div class="faq-a">الأسعار المعروضة لا تشمل ضريبة القيمة المضافة البالغة 17%. ستظهر الضريبة منفصلة في الفاتورة.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div>
+    <h2>مستعد تبدأ مع جمبك؟</h2>
+    <p>انضم لأكثر من 20,000 تاجر يثقون في جمبك لشحن منتجاتهم في السودان</p>
+  </div>
+  <a href="#" class="btn btn-primary btn-lg btn-pill" style="flex-shrink:0">ابدأ مجاناً الآن</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="جمبك.jpg" alt="جمبك" />
+      <p>جمبك هي شركة الشحن الداخلي الأسرع والأكثر موثوقية في السودان.</p>
+      <div class="social-row">
+        <a href="#" class="social-btn"><svg><use href="#ic-x"/></svg></a>
+        <a href="#" class="social-btn"><svg><use href="#ic-fb"/></svg></a>
+        <a href="#" class="social-btn"><svg><use href="#ic-li"/></svg></a>
+        <a href="#" class="social-btn"><svg><use href="#ic-ig"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col"><h4>منتجات</h4><ul><li><a href="#">الحلول</a></li><li><a href="#">تطبيق الموبايل</a></li><li><a href="#">لوحة التحكم</a></li></ul></div>
+    <div class="footer-col"><h4>نوع التاجر</h4><ul><li><a href="merchant.html">شركات صغيرة ومتوسطة</a></li><li><a href="merchant.html">شركات كبيرة</a></li></ul></div>
+    <div class="footer-col"><h4>الشركة</h4><ul><li><a href="#">عن جمبك</a></li><li><a href="#">وظائف</a></li><li><a href="pricing.html">التسعير</a></li><li><a href="#">أسئلة متكررة</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 جمبك. جميع الحقوق محفوظة.</p>
+    <div class="footer-btm-links"><a href="#">سياسة الخصوصية</a><a href="#">الشروط والأحكام</a><a href="tracking.html">تتبع شحنتك</a></div>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(btn){
+  const ans = btn.nextElementSibling;
+  const isOpen = btn.classList.contains('open');
+  document.querySelectorAll('.faq-q.open').forEach(b=>{ b.classList.remove('open'); b.nextElementSibling.classList.remove('open'); });
+  if(!isOpen){ btn.classList.add('open'); ans.classList.add('open'); }
+}
+</script>
+</body>
+</html>

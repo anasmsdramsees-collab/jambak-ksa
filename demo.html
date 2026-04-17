@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>جرّب جمبك | ديمو التاجر</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="base.css"/>
+
+  <svg style="display:none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="ic-package"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 9.4l-9-5.19"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></symbol>
+      <symbol id="ic-truck"    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></symbol>
+      <symbol id="ic-map-pin"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+      <symbol id="ic-wallet"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 3H8a2 2 0 0 0-2 2v2h12V5a2 2 0 0 0-2-2z"/><circle cx="16" cy="13" r="1" fill="currentColor"/></symbol>
+      <symbol id="ic-chart"    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></symbol>
+      <symbol id="ic-check"    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
+      <symbol id="ic-arrow-l"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+      <symbol id="ic-arrow-r"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></symbol>
+      <symbol id="ic-play"     viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><polygon points="10,8 16,12 10,16"/></symbol>
+      <symbol id="ic-clock"    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+      <symbol id="ic-star"     viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+    </defs>
+  </svg>
+
+  <style>
+    /* ── HERO ── */
+    .demo-hero {
+      background: linear-gradient(135deg, var(--purple) 0%, #6b1fe0 60%, #3D007A 100%);
+      padding: 80px 64px 60px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .demo-hero::before {
+      content: '';
+      position: absolute; top: -120px; right: -80px;
+      width: 400px; height: 400px;
+      background: rgba(255,165,0,.12); border-radius: 50%;
+    }
+    .demo-hero::after {
+      content: '';
+      position: absolute; bottom: -80px; left: -60px;
+      width: 300px; height: 300px;
+      background: rgba(255,69,0,.1); border-radius: 50%;
+    }
+    .demo-hero-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+    .demo-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,165,0,.18); color: var(--yellow);
+      padding: 7px 18px; border-radius: 99px;
+      font-size: 13px; font-weight: 700; margin-bottom: 24px;
+    }
+    .demo-badge svg { width: 14px; height: 14px; }
+    .demo-hero h1  { font-size: 42px; font-weight: 900; color: var(--white); line-height: 1.25; margin-bottom: 16px; }
+    .demo-hero h1 span { color: var(--yellow); }
+    .demo-hero p   { font-size: 17px; color: rgba(255,255,255,.78); line-height: 1.75; margin-bottom: 36px; }
+    .demo-hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-demo-start {
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px 32px; background: var(--orange);
+      color: var(--white); border: none; border-radius: var(--radius-md);
+      font-size: 16px; font-weight: 700;
+      cursor: pointer; transition: var(--transition);
+      box-shadow: 0 6px 24px rgba(255,69,0,.4);
+    }
+    .btn-demo-start:hover { background: var(--orange-dim); transform: translateY(-2px); }
+    .btn-demo-start svg { width: 18px; height: 18px; }
+    .btn-demo-outline {
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px 32px; background: rgba(255,255,255,.12);
+      color: var(--white); border: 2px solid rgba(255,255,255,.3); border-radius: var(--radius-md);
+      font-size: 16px; font-weight: 700;
+      cursor: pointer; transition: var(--transition);
+    }
+    .btn-demo-outline:hover { background: rgba(255,255,255,.2); border-color: var(--white); }
+
+    /* ── STEP TABS ── */
+    .steps-nav {
+      background: var(--white);
+      border-bottom: 2px solid var(--gray-mid);
+      position: sticky; top: 0; z-index: 50;
+    }
+    .steps-nav-inner {
+      max-width: 900px; margin: 0 auto;
+      display: flex; overflow-x: auto;
+    }
+    .step-tab {
+      display: flex; align-items: center; gap: 10px;
+      padding: 18px 28px; border: none; background: none;
+      font-family: 'Cairo', sans-serif; font-size: 14px; font-weight: 700;
+      color: var(--text-light); cursor: pointer; transition: var(--transition);
+      white-space: nowrap; border-bottom: 3px solid transparent; margin-bottom: -2px;
+      position: relative;
+    }
+    .step-tab:hover { color: var(--purple); }
+    .step-tab.active { color: var(--purple); border-bottom-color: var(--purple); }
+    .step-num-badge {
+      width: 26px; height: 26px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 900;
+      background: var(--gray-mid); color: var(--text-light);
+      transition: var(--transition);
+    }
+    .step-tab.active .step-num-badge,
+    .step-tab.done  .step-num-badge {
+      background: var(--purple); color: var(--white);
+    }
+    .step-tab.done  { color: var(--purple); }
+
+    /* ── DEMO AREA ── */
+    .demo-area { max-width: 960px; margin: 0 auto; padding: 48px 24px 80px; }
+
+    .demo-step { display: none; }
+    .demo-step.active { display: block; }
+
+    .demo-step-header { margin-bottom: 36px; }
+    .demo-step-header .step-label { font-size: 12px; font-weight: 700; color: var(--orange); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 8px; }
+    .demo-step-header h2 { font-size: 26px; font-weight: 900; color: var(--text); margin-bottom: 10px; }
+    .demo-step-header p  { font-size: 15px; color: var(--text-mid); line-height: 1.7; }
+
+    /* ── STEP 1: Create Shipment ── */
+    .demo-panel {
+      background: var(--white); border-radius: var(--radius-lg);
+      box-shadow: 0 8px 40px rgba(61,0,122,.1);
+      overflow: hidden;
+    }
+    .demo-panel-top {
+      background: linear-gradient(90deg, var(--purple) 0%, var(--purple-mid) 100%);
+      padding: 16px 22px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .win-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .demo-panel-title { color: rgba(255,255,255,.8); font-size: 13px; font-weight: 700; margin-right: auto; }
+
+    .demo-form-area { padding: 32px; }
+    .demo-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .demo-fg { display: flex; flex-direction: column; gap: 6px; }
+    .demo-fg label { font-size: 12px; font-weight: 700; color: var(--text-mid); }
+    .demo-fg input, .demo-fg select {
+      padding: 11px 14px; border: 2px solid var(--gray-mid); border-radius: 10px;
+      font-family: 'Cairo', sans-serif; font-size: 14px; color: var(--text);
+      outline: none; transition: border-color var(--transition); background: var(--bg);
+    }
+    .demo-fg input:focus, .demo-fg select:focus { border-color: var(--purple); background: var(--white); }
+    .demo-fg.full { grid-column: 1 / -1; }
+
+    /* shipment summary card */
+    .shipment-summary {
+      margin-top: 24px; padding: 20px 22px;
+      background: var(--purple-light); border-radius: 12px;
+      border: 1.5px solid rgba(61,0,122,.12);
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .sum-item { text-align: center; }
+    .sum-item .sum-val { font-size: 18px; font-weight: 900; color: var(--purple); }
+    .sum-item .sum-lbl { font-size: 11px; color: var(--text-light); font-weight: 600; margin-top: 2px; }
+    .sum-sep { width: 1px; height: 40px; background: rgba(61,0,122,.15); }
+
+    /* ── STEP 2: Tracking ── */
+    .track-demo {
+      background: var(--white); border-radius: var(--radius-lg);
+      box-shadow: 0 8px 40px rgba(61,0,122,.1); overflow: hidden;
+    }
+    .track-demo-top {
+      background: linear-gradient(90deg, var(--purple) 0%, var(--purple-mid) 100%);
+      padding: 20px 28px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .track-demo-top span { color: rgba(255,255,255,.7); font-size: 13px; }
+    .track-num { color: var(--white); font-size: 18px; font-weight: 900; font-family: monospace; letter-spacing: .05em; }
+
+    .track-body { padding: 32px 28px; }
+
+    /* animated timeline */
+    .tl { display: flex; flex-direction: column; gap: 0; }
+    .tl-item { display: flex; align-items: flex-start; gap: 18px; position: relative; }
+    .tl-item:not(:last-child)::after {
+      content: ''; position: absolute;
+      right: 19px; top: 38px;
+      width: 2px; height: calc(100% - 16px);
+      background: var(--gray-mid);
+    }
+    .tl-item.done::after { background: var(--purple); }
+
+    .tl-dot {
+      width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      border: 2px solid var(--gray-mid); background: var(--white);
+      position: relative; z-index: 1;
+    }
+    .tl-dot svg { width: 18px; height: 18px; }
+    .tl-dot.done   { background: var(--purple); border-color: var(--purple); color: var(--white); }
+    .tl-dot.active { background: var(--orange); border-color: var(--orange); color: var(--white); }
+    .tl-dot.active::before {
+      content: ''; position: absolute;
+      inset: -6px; border-radius: 50%;
+      border: 2px solid var(--orange); opacity: .4;
+      animation: pulse 1.4s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{ transform:scale(1); opacity:.4; } 50%{ transform:scale(1.15); opacity:.1; } }
+
+    .tl-dot.future { color: var(--text-light); }
+
+    .tl-content { padding: 8px 0 24px; }
+    .tl-content strong { display: block; font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .tl-content span   { font-size: 12px; color: var(--text-light); }
+    .tl-content.active-text strong { color: var(--orange); }
+
+    /* progress bar */
+    .progress-bar { margin-top: 24px; }
+    .progress-bar-label { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 12px; font-weight: 700; }
+    .progress-track { height: 8px; background: var(--gray-mid); border-radius: 99px; overflow: hidden; }
+    .progress-fill  { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--purple), var(--orange)); width: 65%; transition: width 1s ease; }
+
+    /* ── STEP 3: Collection ── */
+    .collection-demo {
+      background: var(--white); border-radius: var(--radius-lg);
+      box-shadow: 0 8px 40px rgba(61,0,122,.1);
+    }
+    .collection-header {
+      background: linear-gradient(135deg, var(--green, #2E7D32) 0%, #43a047 100%);
+      padding: 28px; border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .collection-header .amount { font-size: 36px; font-weight: 900; color: var(--white); }
+    .collection-header .sub    { font-size: 13px; color: rgba(255,255,255,.7); margin-top: 4px; }
+    .collection-header .wallet-icon {
+      width: 64px; height: 64px; border-radius: 18px;
+      background: rgba(255,255,255,.2); display: flex; align-items: center; justify-content: center;
+    }
+    .collection-header .wallet-icon svg { width: 32px; height: 32px; color: var(--white); }
+
+    .collection-body { padding: 24px; }
+    .coll-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 0; border-bottom: 1px solid var(--gray-mid);
+    }
+    .coll-row:last-child { border-bottom: none; }
+    .coll-row .cr-label { font-size: 13px; color: var(--text-mid); font-weight: 600; }
+    .coll-row .cr-value { font-size: 14px; font-weight: 900; color: var(--text); }
+    .coll-row .cr-value.green { color: #2E7D32; }
+    .coll-row .cr-value.orange { color: var(--orange); }
+
+    .withdraw-btn {
+      width: 100%; margin-top: 20px; padding: 14px;
+      background: #2E7D32; color: var(--white); border: none; border-radius: 12px;
+      font-family: 'Cairo', sans-serif; font-size: 15px; font-weight: 700;
+      cursor: pointer; transition: var(--transition);
+      box-shadow: 0 4px 16px rgba(46,125,50,.3);
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .withdraw-btn:hover { background: #1b5e20; }
+    .withdraw-btn svg { width: 18px; height: 18px; }
+
+    /* ── STEP 4: Reports ── */
+    .report-demo {
+      background: var(--white); border-radius: var(--radius-lg);
+      box-shadow: 0 8px 40px rgba(61,0,122,.1); overflow: hidden;
+    }
+    .report-header {
+      padding: 24px 28px; border-bottom: 1px solid var(--gray-mid);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .report-header h3 { font-size: 16px; font-weight: 900; }
+    .report-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; padding: 24px 28px; }
+    .rep-stat { text-align: center; padding: 20px; background: var(--bg); border-radius: 12px; }
+    .rep-stat .rs-val { font-size: 26px; font-weight: 900; color: var(--purple); }
+    .rep-stat .rs-lbl { font-size: 12px; color: var(--text-light); margin-top: 4px; font-weight: 600; }
+
+    /* bar chart */
+    .bar-chart { padding: 0 28px 28px; }
+    .bar-chart-title { font-size: 13px; font-weight: 700; color: var(--text-mid); margin-bottom: 14px; }
+    .bars { display: flex; align-items: flex-end; gap: 10px; height: 100px; }
+    .bar-group { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+    .bar { width: 100%; border-radius: 5px 5px 0 0; }
+    .bar.p { background: var(--purple); }
+    .bar.o { background: var(--orange); opacity: .65; }
+    .bar-lbl { font-size: 10px; color: var(--text-light); font-weight: 600; }
+    .chart-legend { display: flex; gap: 18px; margin-top: 12px; }
+    .cl-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-mid); font-weight: 600; }
+    .cl-dot  { width: 10px; height: 10px; border-radius: 50%; }
+
+    /* ── NAV BUTTONS ── */
+    .demo-nav {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 40px;
+    }
+    .btn-prev, .btn-next {
+      display: flex; align-items: center; gap: 8px;
+      padding: 12px 24px; border-radius: var(--radius-md);
+      font-family: 'Cairo', sans-serif; font-size: 14px; font-weight: 700;
+      cursor: pointer; transition: var(--transition);
+    }
+    .btn-prev { background: none; border: 2px solid var(--gray-mid); color: var(--text-mid); }
+    .btn-prev:hover { border-color: var(--purple); color: var(--purple); }
+    .btn-prev svg { width: 16px; height: 16px; }
+    .btn-next { background: var(--orange); border: none; color: var(--white); box-shadow: 0 4px 16px rgba(255,69,0,.3); }
+    .btn-next:hover { background: var(--orange-dim); transform: translateY(-1px); }
+    .btn-next svg { width: 16px; height: 16px; }
+    .btn-next.finish { background: var(--purple); box-shadow: 0 4px 16px rgba(61,0,122,.3); }
+    .btn-next.finish:hover { background: var(--purple-dim); }
+
+    .step-progress {
+      display: flex; gap: 6px; align-items: center;
+    }
+    .sp-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gray-mid); transition: var(--transition); }
+    .sp-dot.active { background: var(--orange); width: 24px; border-radius: 4px; }
+    .sp-dot.done   { background: var(--purple); }
+
+    /* ── CTA ── */
+    .demo-cta {
+      background: linear-gradient(135deg, var(--purple) 0%, var(--purple-mid) 100%);
+      padding: 72px 64px; text-align: center; margin-top: 0;
+    }
+    .demo-cta h2 { font-size: 32px; font-weight: 900; color: var(--white); margin-bottom: 14px; }
+    .demo-cta p  { font-size: 16px; color: rgba(255,255,255,.72); margin-bottom: 36px; }
+    .demo-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { padding: 72px 64px; background: var(--bg); }
+    .testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; max-width: 900px; margin: 0 auto; }
+    .testi-card { background: var(--white); padding: 24px; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+    .testi-stars { display: flex; gap: 3px; margin-bottom: 14px; }
+    .testi-stars svg { width: 14px; height: 14px; fill: var(--yellow); stroke: var(--yellow); }
+    .testi-card p { font-size: 14px; color: var(--text-mid); line-height: 1.7; margin-bottom: 16px; }
+    .testi-author { display: flex; align-items: center; gap: 10px; }
+    .testi-av { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 14px; color: var(--white); }
+    .testi-author strong { font-size: 13px; display: block; }
+    .testi-author span   { font-size: 11px; color: var(--text-light); }
+
+    @media(max-width:768px){
+      .demo-hero { padding: 56px 24px 44px; }
+      .demo-hero h1 { font-size: 28px; }
+      .demo-area { padding: 32px 16px 60px; }
+      .demo-form-grid { grid-template-columns: 1fr; }
+      .report-stats { grid-template-columns: 1fr 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .testimonials, .demo-cta { padding: 48px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav">
+  <div class="nav-logo"><img src="جمبك.jpg" alt="جمبك"/></div>
+  <ul class="nav-links">
+    <li><a href="index.html">الرئيسية</a></li>
+    <li><a href="pricing.html">التسعير</a></li>
+    <li><a href="storage.html">التخزين</a></li>
+    <li><a href="tracking.html" class="highlight">تتبع شحنتك</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="login.html"    class="btn btn-outline btn-sm">دخول</a>
+    <a href="register.html" class="btn btn-primary btn-sm">ابدأ مجاناً</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="demo-hero">
+  <div class="demo-hero-inner">
+    <div class="demo-badge">
+      <svg><use href="#ic-play"/></svg>
+      ديمو تفاعلي مجاني
+    </div>
+    <h1>جرّب <span>جمبك</span> خطوة بخطوة<br/>قبل ما تشترك</h1>
+    <p>شوف كيف تنشئ شحنة، تتبّعها، تحصّل فلوسك، وتحلّل أداء متجرك — كل ذلك في أقل من 5 دقائق.</p>
+    <div class="demo-hero-btns">
+      <button class="btn-demo-start" onclick="scrollToDemo()">
+        <svg><use href="#ic-play"/></svg>
+        ابدأ الديمو الآن
+      </button>
+      <a href="register.html" class="btn-demo-outline">سجّل مجاناً</a>
+    </div>
+  </div>
+</div>
+
+<!-- STEP TABS -->
+<div class="steps-nav" id="stepsNav">
+  <div class="steps-nav-inner">
+    <button class="step-tab active" id="tab-1" onclick="goStep(1)">
+      <div class="step-num-badge">١</div>
+      إنشاء شحنة
+    </button>
+    <button class="step-tab" id="tab-2" onclick="goStep(2)">
+      <div class="step-num-badge">٢</div>
+      تتبع الشحنة
+    </button>
+    <button class="step-tab" id="tab-3" onclick="goStep(3)">
+      <div class="step-num-badge">٣</div>
+      تحصيل الأموال
+    </button>
+    <button class="step-tab" id="tab-4" onclick="goStep(4)">
+      <div class="step-num-badge">٤</div>
+      التقارير
+    </button>
+  </div>
+</div>
+
+<!-- DEMO AREA -->
+<div class="demo-area" id="demoArea">
+
+  <!-- ══ STEP 1 ══ -->
+  <div class="demo-step active" id="step-1">
+    <div class="demo-step-header">
+      <div class="step-label">الخطوة الأولى</div>
+      <h2>إنشاء شحنة جديدة</h2>
+      <p>أدخل بيانات العميل والوجهة وسيقوم جمبك بحساب التكلفة فورياً وإرسال رمز التتبع تلقائياً.</p>
+    </div>
+
+    <div class="demo-panel">
+      <div class="demo-panel-top">
+        <div class="win-dot" style="background:#ff5f56"></div>
+        <div class="win-dot" style="background:#ffbd2e"></div>
+        <div class="win-dot" style="background:#27c93f"></div>
+        <span class="demo-panel-title">جمبك — لوحة التحكم / شحنة جديدة</span>
+      </div>
+
+      <div class="demo-form-area">
+        <div class="demo-form-grid">
+          <div class="demo-fg">
+            <label>اسم العميل</label>
+            <input type="text" id="d-name" value="فاطمة محمد أحمد" oninput="updateSummary()"/>
+          </div>
+          <div class="demo-fg">
+            <label>رقم الهاتف</label>
+            <input type="text" value="0912345678" dir="ltr" style="text-align:right"/>
+          </div>
+          <div class="demo-fg full">
+            <label>عنوان التسليم</label>
+            <input type="text" value="الخرطوم — حي الرياض، شارع الجامعة، مبنى 14"/>
+          </div>
+          <div class="demo-fg">
+            <label>مدينة التسليم</label>
+            <select id="d-city" onchange="updateSummary()">
+              <option>الخرطوم</option>
+              <option>أم درمان</option>
+              <option>بحري</option>
+              <option>مدني</option>
+              <option>بورتسودان</option>
+              <option>الدمازين</option>
+            </select>
+          </div>
+          <div class="demo-fg">
+            <label>مبلغ التحصيل (SDG)</label>
+            <input type="number" id="d-amount" value="1500" oninput="updateSummary()"/>
+          </div>
+          <div class="demo-fg">
+            <label>محتوى الشحنة</label>
+            <input type="text" value="ملابس وأحذية"/>
+          </div>
+          <div class="demo-fg">
+            <label>الوزن (كجم)</label>
+            <input type="number" value="2.5" step="0.5"/>
+          </div>
+        </div>
+
+        <div class="shipment-summary" id="shipSummary">
+          <div class="sum-item">
+            <div class="sum-val" id="s-city">الخرطوم</div>
+            <div class="sum-lbl">وجهة التسليم</div>
+          </div>
+          <div class="sum-sep"></div>
+          <div class="sum-item">
+            <div class="sum-val">اليوم التالي</div>
+            <div class="sum-lbl">وقت التوصيل</div>
+          </div>
+          <div class="sum-sep"></div>
+          <div class="sum-item">
+            <div class="sum-val">450 SDG</div>
+            <div class="sum-lbl">تكلفة الشحن</div>
+          </div>
+          <div class="sum-sep"></div>
+          <div class="sum-item">
+            <div class="sum-val" id="s-amount">1,500 SDG</div>
+            <div class="sum-lbl">مبلغ التحصيل</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-nav">
+      <div style="visibility:hidden" class="btn-prev">السابق</div>
+      <div class="step-progress">
+        <div class="sp-dot active"></div>
+        <div class="sp-dot"></div>
+        <div class="sp-dot"></div>
+        <div class="sp-dot"></div>
+      </div>
+      <button class="btn-next" onclick="goStep(2)">
+        التالي: التتبع
+        <svg><use href="#ic-arrow-l"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ══ STEP 2 ══ -->
+  <div class="demo-step" id="step-2">
+    <div class="demo-step-header">
+      <div class="step-label">الخطوة الثانية</div>
+      <h2>تتبع الشحنة لحظياً</h2>
+      <p>بمجرد إنشاء الشحنة يستلم العميل رمز التتبع عبر SMS ويمكنه متابعة الشحنة في كل لحظة.</p>
+    </div>
+
+    <div class="track-demo">
+      <div class="track-demo-top">
+        <div>
+          <div style="color:rgba(255,255,255,.6);font-size:11px;margin-bottom:4px">رقم التتبع</div>
+          <div class="track-num">JMB-00249</div>
+        </div>
+        <div style="text-align:center">
+          <div style="color:rgba(255,255,255,.6);font-size:11px;margin-bottom:4px">الحالة</div>
+          <div style="background:var(--orange);color:#fff;padding:5px 14px;border-radius:99px;font-size:12px;font-weight:700">المندوب في الطريق</div>
+        </div>
+        <div style="text-align:left">
+          <div style="color:rgba(255,255,255,.6);font-size:11px;margin-bottom:4px">التسليم المتوقع</div>
+          <div style="color:#fff;font-weight:700;font-size:14px">اليوم، 2:00 م</div>
+        </div>
+      </div>
+
+      <div class="track-body">
+        <div class="tl">
+          <div class="tl-item done">
+            <div class="tl-dot done"><svg><use href="#ic-check"/></svg></div>
+            <div class="tl-content">
+              <strong>استُلمت الشحنة</strong>
+              <span>مستودع جمبك — الخرطوم · اليوم 7:30 ص</span>
+            </div>
+          </div>
+          <div class="tl-item done">
+            <div class="tl-dot done"><svg><use href="#ic-check"/></svg></div>
+            <div class="tl-content">
+              <strong>جارٍ الفرز والتجهيز</strong>
+              <span>مركز الفرز الرئيسي · اليوم 9:15 ص</span>
+            </div>
+          </div>
+          <div class="tl-item done">
+            <div class="tl-dot active"><svg><use href="#ic-truck"/></svg></div>
+            <div class="tl-content active-text">
+              <strong>المندوب في الطريق إليك</strong>
+              <span>المندوب عمر خالد · التسليم المتوقع 2:00 م</span>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot future"><svg><use href="#ic-check"/></svg></div>
+            <div class="tl-content">
+              <strong>تم التسليم</strong>
+              <span>في انتظار التأكيد</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="progress-bar">
+          <div class="progress-bar-label">
+            <span style="font-weight:700;color:var(--text)">تقدم التوصيل</span>
+            <span style="color:var(--orange);font-weight:700">65%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-nav">
+      <button class="btn-prev" onclick="goStep(1)">
+        <svg><use href="#ic-arrow-r"/></svg>
+        السابق
+      </button>
+      <div class="step-progress">
+        <div class="sp-dot done"></div>
+        <div class="sp-dot active"></div>
+        <div class="sp-dot"></div>
+        <div class="sp-dot"></div>
+      </div>
+      <button class="btn-next" onclick="goStep(3)">
+        التالي: التحصيل
+        <svg><use href="#ic-arrow-l"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ══ STEP 3 ══ -->
+  <div class="demo-step" id="step-3">
+    <div class="demo-step-header">
+      <div class="step-label">الخطوة الثالثة</div>
+      <h2>تحصيل الأموال في 24 ساعة</h2>
+      <p>بعد التسليم مباشرة يُحوَّل مبلغ التحصيل إلى محفظتك ويمكنك سحبه فوراً إلى حسابك البنكي.</p>
+    </div>
+
+    <div class="collection-demo">
+      <div class="collection-header">
+        <div>
+          <div class="amount">84,200 SDG</div>
+          <div class="sub">الرصيد المتاح في المحفظة</div>
+        </div>
+        <div class="wallet-icon"><svg><use href="#ic-wallet"/></svg></div>
+      </div>
+
+      <div class="collection-body">
+        <div class="coll-row">
+          <span class="cr-label">تحصيل هذا الأسبوع</span>
+          <span class="cr-value green">+32,400 SDG</span>
+        </div>
+        <div class="coll-row">
+          <span class="cr-label">قيد التحصيل</span>
+          <span class="cr-value orange">12,500 SDG</span>
+        </div>
+        <div class="coll-row">
+          <span class="cr-label">رسوم الشحن المخصومة</span>
+          <span class="cr-value" style="color:var(--text-mid)">−4,200 SDG</span>
+        </div>
+        <div class="coll-row">
+          <span class="cr-label">آخر سحب</span>
+          <span class="cr-value">20,000 SDG · أمس</span>
+        </div>
+        <div class="coll-row" style="border:none;padding-bottom:0">
+          <span class="cr-label">طريقة التحويل</span>
+          <span class="cr-value">MTN Money / حساب بنكي</span>
+        </div>
+
+        <button class="withdraw-btn" onclick="withdrawDemo()">
+          <svg><use href="#ic-wallet"/></svg>
+          سحب الرصيد الآن
+        </button>
+      </div>
+    </div>
+
+    <div class="demo-nav">
+      <button class="btn-prev" onclick="goStep(2)">
+        <svg><use href="#ic-arrow-r"/></svg>
+        السابق
+      </button>
+      <div class="step-progress">
+        <div class="sp-dot done"></div>
+        <div class="sp-dot done"></div>
+        <div class="sp-dot active"></div>
+        <div class="sp-dot"></div>
+      </div>
+      <button class="btn-next" onclick="goStep(4)">
+        التالي: التقارير
+        <svg><use href="#ic-arrow-l"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ══ STEP 4 ══ -->
+  <div class="demo-step" id="step-4">
+    <div class="demo-step-header">
+      <div class="step-label">الخطوة الرابعة</div>
+      <h2>تقارير وتحليلات متكاملة</h2>
+      <p>راقب أداء متجرك ومعدلات التسليم والإيرادات — كل شيء في لوحة تحكم ذكية وسهلة الفهم.</p>
+    </div>
+
+    <div class="report-demo">
+      <div class="report-header">
+        <h3>ملخص الأداء — أبريل 2026</h3>
+        <div style="display:flex;gap:8px">
+          <select style="padding:6px 12px;border:1.5px solid var(--gray-mid);border-radius:8px;font-family:'Cairo',sans-serif;font-size:12px;color:var(--text-mid);background:var(--bg)">
+            <option>هذا الشهر</option>
+            <option>الشهر الماضي</option>
+          </select>
+          <button style="padding:6px 14px;border:1.5px solid var(--gray-mid);border-radius:8px;font-family:'Cairo',sans-serif;font-size:12px;font-weight:700;color:var(--text-mid);background:var(--white);cursor:pointer">تصدير PDF</button>
+        </div>
+      </div>
+
+      <div class="report-stats">
+        <div class="rep-stat">
+          <div class="rs-val">248</div>
+          <div class="rs-lbl">إجمالي الشحنات</div>
+        </div>
+        <div class="rep-stat">
+          <div class="rs-val" style="color:#2E7D32">76%</div>
+          <div class="rs-lbl">معدل التسليم</div>
+        </div>
+        <div class="rep-stat">
+          <div class="rs-val" style="color:var(--orange)">1.4 يوم</div>
+          <div class="rs-lbl">متوسط التوصيل</div>
+        </div>
+      </div>
+
+      <div class="bar-chart">
+        <div class="bar-chart-title">الشحنات الأسبوعية</div>
+        <div class="bars">
+          <div class="bar-group"><div class="bar p" style="height:70%"></div><div class="bar o" style="height:15%"></div><div class="bar-lbl">الأحد</div></div>
+          <div class="bar-group"><div class="bar p" style="height:85%"></div><div class="bar o" style="height:10%"></div><div class="bar-lbl">الاثنين</div></div>
+          <div class="bar-group"><div class="bar p" style="height:60%"></div><div class="bar o" style="height:20%"></div><div class="bar-lbl">الثلاثاء</div></div>
+          <div class="bar-group"><div class="bar p" style="height:90%"></div><div class="bar o" style="height:8%"></div><div class="bar-lbl">الأربعاء</div></div>
+          <div class="bar-group"><div class="bar p" style="height:75%"></div><div class="bar o" style="height:12%"></div><div class="bar-lbl">الخميس</div></div>
+          <div class="bar-group"><div class="bar p" style="height:50%"></div><div class="bar o" style="height:18%"></div><div class="bar-lbl">الجمعة</div></div>
+          <div class="bar-group"><div class="bar p" style="height:80%"></div><div class="bar o" style="height:9%"></div><div class="bar-lbl">السبت</div></div>
+        </div>
+        <div class="chart-legend">
+          <div class="cl-item"><div class="cl-dot" style="background:var(--purple)"></div> مُسلَّمة</div>
+          <div class="cl-item"><div class="cl-dot" style="background:var(--orange)"></div> مُعادة</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-nav">
+      <button class="btn-prev" onclick="goStep(3)">
+        <svg><use href="#ic-arrow-r"/></svg>
+        السابق
+      </button>
+      <div class="step-progress">
+        <div class="sp-dot done"></div>
+        <div class="sp-dot done"></div>
+        <div class="sp-dot done"></div>
+        <div class="sp-dot active"></div>
+      </div>
+      <a href="register.html" class="btn-next finish" style="display:flex;align-items:center;gap:8px">
+        ابدأ مجاناً الآن
+        <svg><use href="#ic-arrow-l"/></svg>
+      </a>
+    </div>
+  </div>
+
+</div><!-- /demo-area -->
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div style="max-width:900px;margin:0 auto">
+    <div class="sec-header center" style="margin-bottom:36px">
+      <div class="sec-tag orange">آراء التجار</div>
+      <h2 class="sec-title">ماذا قال التجار الذين جرّبوا جمبك؟</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">
+          <svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg>
+        </div>
+        <p>«الديمو أقنعني في أقل من 10 دقائق. الواجهة بسيطة جداً وما احتجت لأي تدريب.»</p>
+        <div class="testi-author">
+          <div class="testi-av" style="background:var(--purple)">م</div>
+          <div>
+            <strong>محمود البشير</strong>
+            <span>متجر الخرطوم للملابس</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">
+          <svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg>
+        </div>
+        <p>«التحصيل السريع كان هو السبب الرئيسي — بدنا نشحن وناخد فلوسنا في نفس اليوم.»</p>
+        <div class="testi-author">
+          <div class="testi-av" style="background:var(--orange)">س</div>
+          <div>
+            <strong>سمر النور</strong>
+            <span>متجر إلكترونيات</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">
+          <svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg>
+        </div>
+        <p>«ربطنا متجر Shopify بجمبك في 5 دقائق وبدأنا نشحن تلقائياً من نفس اليوم.»</p>
+        <div class="testi-author">
+          <div class="testi-av" style="background:#2E7D32">ع</div>
+          <div>
+            <strong>علاء الدين حسن</strong>
+            <span>متجر Shopify — مدني</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="demo-cta">
+  <h2>جاهز تبدأ؟</h2>
+  <p>سجّل مجاناً اليوم وأنشئ أول شحنة في أقل من 5 دقائق</p>
+  <div class="demo-cta-btns">
+    <a href="register.html" class="btn-demo-start" style="display:inline-flex">
+      <svg width="18" height="18"><use href="#ic-arrow-l"/></svg>
+      أنشئ حساباً مجاناً
+    </a>
+    <a href="pricing.html" class="btn-demo-outline" style="display:inline-flex">استعرض الأسعار</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="جمبك.jpg" alt="جمبك" class="footer-logo"/>
+      <p>أسرع شركة شحن في السودان. نوصّل لكل الولايات باليوم التالي.</p>
+    </div>
+    <div class="footer-col">
+      <h4>الخدمات</h4>
+      <ul>
+        <li><a href="index.html">الشحن السريع</a></li>
+        <li><a href="storage.html">التخزين</a></li>
+        <li><a href="integrations.html">التكاملات</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>للتجار</h4>
+      <ul>
+        <li><a href="demo.html">الديمو</a></li>
+        <li><a href="pricing.html">التسعير</a></li>
+        <li><a href="merchant.html">أنواع التجار</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>الدعم</h4>
+      <ul>
+        <li><a href="tracking.html">تتبع شحنة</a></li>
+        <li><a href="login.html">تسجيل الدخول</a></li>
+        <li><a href="register.html">إنشاء حساب</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 جمبك. جميع الحقوق محفوظة.</span>
+  </div>
+</footer>
+
+<script>
+  let currentStep = 1;
+
+  function scrollToDemo() {
+    document.getElementById('stepsNav').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function goStep(n) {
+    // hide current
+    document.getElementById(`step-${currentStep}`).classList.remove('active');
+    document.getElementById(`tab-${currentStep}`).classList.remove('active');
+
+    // mark done
+    for (let i = 1; i < n; i++) {
+      document.getElementById(`tab-${i}`).classList.add('done');
+    }
+    document.getElementById(`tab-${n}`).classList.remove('done');
+
+    currentStep = n;
+
+    // show new
+    document.getElementById(`step-${n}`).classList.add('active');
+    document.getElementById(`tab-${n}`).classList.add('active');
+
+    // scroll
+    document.getElementById('stepsNav').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // animate progress bar on step 2
+    if (n === 2) {
+      setTimeout(() => {
+        document.getElementById('progressFill').style.width = '65%';
+      }, 300);
+    }
+  }
+
+  function updateSummary() {
+    const city   = document.getElementById('d-city').value;
+    const amount = parseInt(document.getElementById('d-amount').value) || 0;
+    document.getElementById('s-city').textContent   = city;
+    document.getElementById('s-amount').textContent = amount.toLocaleString('ar-EG') + ' SDG';
+  }
+
+  function withdrawDemo() {
+    const btn = document.querySelector('.withdraw-btn');
+    btn.textContent = '✓ جارٍ التحويل...';
+    btn.style.background = '#1b5e20';
+    setTimeout(() => {
+      btn.textContent = '✓ تم التحويل بنجاح إلى MTN Money';
+    }, 1500);
+  }
+</script>
+</body>
+</html>

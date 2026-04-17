@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>تطبيق جمبك | حمّله الآن</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="base.css"/>
+
+  <svg style="display:none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="ic-check"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
+      <symbol id="ic-star"    viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+      <symbol id="ic-truck"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></symbol>
+      <symbol id="ic-bell"    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></symbol>
+      <symbol id="ic-wallet"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 3H8a2 2 0 0 0-2 2v2h12V5a2 2 0 0 0-2-2z"/><circle cx="16" cy="13" r="1" fill="currentColor"/></symbol>
+      <symbol id="ic-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+      <symbol id="ic-scan"    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><line x1="3" y1="12" x2="21" y2="12"/></symbol>
+      <symbol id="ic-chart"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></symbol>
+      <symbol id="ic-shield"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+      <symbol id="ic-zap"     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+      <symbol id="ic-phone"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></symbol>
+    </defs>
+  </svg>
+
+  <style>
+    /* ── HERO ── */
+    .app-hero {
+      background: linear-gradient(150deg, var(--purple) 0%, #5a0db5 55%, #7b2dff 100%);
+      padding: 80px 64px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; gap: 60px;
+      position: relative; overflow: hidden; min-height: 600px;
+    }
+    .app-hero::before {
+      content:''; position:absolute; top:-120px; right:-80px;
+      width:420px; height:420px; background:rgba(255,165,0,.1); border-radius:50%;
+    }
+    .app-hero::after {
+      content:''; position:absolute; bottom:-80px; left:-40px;
+      width:300px; height:300px; background:rgba(255,69,0,.09); border-radius:50%;
+    }
+    .app-hero-text { position:relative; z-index:1; }
+    .app-badge {
+      display:inline-flex; align-items:center; gap:8px;
+      background:rgba(255,165,0,.18); color:var(--yellow);
+      padding:7px 18px; border-radius:99px;
+      font-size:13px; font-weight:700; margin-bottom:22px;
+    }
+    .app-badge svg { width:14px; height:14px; }
+    .app-hero h1  { font-size:44px; font-weight:900; color:var(--white); line-height:1.2; margin-bottom:16px; }
+    .app-hero h1 span { color:var(--yellow); }
+    .app-hero p   { font-size:17px; color:rgba(255,255,255,.75); line-height:1.8; margin-bottom:36px; }
+
+    /* store badges */
+    .store-badges { display:flex; gap:14px; flex-wrap:wrap; }
+    .store-badge {
+      display:flex; align-items:center; gap:12px;
+      padding:12px 22px; border-radius:14px;
+      background:rgba(255,255,255,.12); border:1.5px solid rgba(255,255,255,.25);
+      color:var(--white); cursor:pointer; transition:var(--transition);
+      text-decoration:none;
+    }
+    .store-badge:hover { background:rgba(255,255,255,.22); border-color:rgba(255,255,255,.5); transform:translateY(-2px); }
+    .store-badge svg  { width:28px; height:28px; flex-shrink:0; }
+    .store-badge div  { }
+    .store-badge .sb-sub  { font-size:10px; opacity:.7; display:block; }
+    .store-badge .sb-name { font-size:16px; font-weight:900; display:block; }
+
+    /* ratings row */
+    .app-ratings { display:flex; gap:24px; margin-top:28px; flex-wrap:wrap; }
+    .app-rating  { display:flex; align-items:center; gap:8px; }
+    .stars { display:flex; gap:2px; }
+    .stars svg { width:13px; height:13px; fill:var(--yellow); color:var(--yellow); }
+    .app-rating span { font-size:12px; color:rgba(255,255,255,.65); font-weight:600; }
+    .app-rating strong { font-size:14px; color:var(--white); font-weight:900; }
+
+    /* phone mockup */
+    .phone-wrap { position:relative; z-index:1; display:flex; justify-content:center; }
+    .phone-mockup {
+      width: 260px;
+      background: #0d0d1a;
+      border-radius: 40px;
+      padding: 14px;
+      box-shadow: 0 40px 100px rgba(0,0,0,.5), 0 0 0 2px rgba(255,255,255,.1);
+      position: relative;
+    }
+    .phone-screen {
+      background: linear-gradient(160deg, #1a0533 0%, #2d0a5e 100%);
+      border-radius: 28px; overflow: hidden;
+      aspect-ratio: 9/19.5;
+      display: flex; flex-direction: column;
+    }
+    .phone-notch {
+      width: 90px; height: 26px; background: #0d0d1a;
+      border-radius: 0 0 18px 18px; margin: 0 auto;
+    }
+    .phone-statusbar {
+      display:flex; justify-content:space-between;
+      padding:6px 16px; font-size:9px; color:rgba(255,255,255,.6); font-weight:700;
+    }
+    .phone-content { flex:1; padding:10px 12px; }
+
+    /* app UI inside phone */
+    .app-topbar { display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
+    .app-topbar .at-greeting { font-size:9px; color:rgba(255,255,255,.55); }
+    .app-topbar .at-name     { font-size:12px; font-weight:900; color:#fff; }
+    .app-notif-btn { width:26px; height:26px; border-radius:8px; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; }
+    .app-notif-btn svg { width:13px; height:13px; color:#fff; }
+
+    /* mini stat cards in phone */
+    .mini-stats { display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-bottom:10px; }
+    .mini-stat { padding:8px 10px; border-radius:10px; }
+    .mini-stat.purple { background:rgba(90,13,181,.5); }
+    .mini-stat.orange { background:rgba(255,69,0,.35); }
+    .mini-stat .ms-val { font-size:14px; font-weight:900; color:#fff; }
+    .mini-stat .ms-lbl { font-size:8px; color:rgba(255,255,255,.55); margin-top:1px; }
+
+    /* quick actions in phone */
+    .mini-actions { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; margin-bottom:10px; }
+    .mini-action { display:flex; flex-direction:column; align-items:center; gap:4px; }
+    .ma-icon { width:28px; height:28px; border-radius:9px; display:flex; align-items:center; justify-content:center; }
+    .ma-icon svg { width:14px; height:14px; }
+    .ma-icon.p { background:rgba(90,13,181,.5); color:#d4adff; }
+    .ma-icon.o { background:rgba(255,69,0,.35); color:#ffb39a; }
+    .ma-icon.g { background:rgba(46,125,50,.4); color:#a5d6a7; }
+    .ma-icon.y { background:rgba(255,165,0,.3); color:#ffe082; }
+    .mini-action span { font-size:7px; color:rgba(255,255,255,.55); text-align:center; }
+
+    /* shipment card in phone */
+    .mini-ship { background:rgba(255,255,255,.07); border-radius:10px; padding:8px 10px; margin-bottom:6px; }
+    .ms-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:4px; }
+    .ms-top .ms-num { font-size:9px; font-weight:900; color:#fff; font-family:monospace; }
+    .ms-top .ms-badge { font-size:7px; font-weight:700; padding:2px 6px; border-radius:99px; }
+    .ms-top .ms-badge.transit  { background:rgba(255,69,0,.3); color:#ff9a7a; }
+    .ms-top .ms-badge.done     { background:rgba(46,125,50,.3); color:#a5d6a7; }
+    .ms-dest { font-size:8px; color:rgba(255,255,255,.45); }
+
+    /* bottom nav in phone */
+    .phone-nav { display:flex; padding:8px 12px 10px; border-top:1px solid rgba(255,255,255,.07); justify-content:space-around; }
+    .pn-item { display:flex; flex-direction:column; align-items:center; gap:3px; }
+    .pn-item svg { width:14px; height:14px; }
+    .pn-item span { font-size:7px; }
+    .pn-item.active svg, .pn-item.active span { color:var(--orange); }
+    .pn-item:not(.active) svg, .pn-item:not(.active) span { color:rgba(255,255,255,.35); }
+
+    /* float bubbles around phone */
+    .phone-bubble {
+      position:absolute; background:var(--white); border-radius:14px;
+      padding:12px 16px; box-shadow:0 8px 32px rgba(0,0,0,.15);
+      display:flex; align-items:center; gap:10px;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    .pb-icon { width:32px; height:32px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .pb-icon svg { width:16px; height:16px; }
+    .pb-text strong { display:block; font-size:12px; font-weight:900; color:var(--text); }
+    .pb-text span   { font-size:10px; color:var(--text-light); }
+    .bubble-1 { top:20%; left:-60px; animation-delay:.5s; }
+    .bubble-2 { bottom:28%; left:-80px; animation-delay:1.2s; }
+    .bubble-3 { top:35%; right:-70px; animation-delay:.8s; }
+
+    /* ── FEATURES ── */
+    .app-features { padding:80px 64px; background:var(--bg); }
+    .app-features-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+    .app-feat {
+      background:var(--white); border-radius:var(--radius-md); padding:28px 24px;
+      box-shadow:var(--shadow-sm); transition:transform var(--transition),box-shadow var(--transition);
+    }
+    .app-feat:hover { transform:translateY(-4px); box-shadow:var(--shadow-md); }
+    .af-icon { width:50px; height:50px; border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:16px; }
+    .af-icon svg { width:24px; height:24px; }
+    .af-icon.purple { background:var(--purple-light); color:var(--purple); }
+    .af-icon.orange { background:rgba(255,69,0,.1); color:var(--orange); }
+    .af-icon.green  { background:rgba(46,125,50,.1); color:#2E7D32; }
+    .af-icon.yellow { background:rgba(255,165,0,.12); color:#b07800; }
+    .app-feat h3 { font-size:16px; font-weight:900; margin-bottom:8px; }
+    .app-feat p  { font-size:14px; color:var(--text-mid); line-height:1.7; }
+
+    /* ── SCREENSHOTS ── */
+    .screenshots { padding:80px 64px; background:var(--bg-gray); }
+    .screens-row { display:flex; gap:24px; justify-content:center; align-items:flex-end; overflow-x:auto; padding-bottom:8px; }
+    .screen-item { flex-shrink:0; text-align:center; }
+    .screen-phone {
+      width:160px; background:#111; border-radius:30px; padding:8px;
+      box-shadow:0 24px 64px rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .screen-phone .sp-inner {
+      border-radius:22px; overflow:hidden;
+      height:290px; position:relative; display:flex; flex-direction:column;
+    }
+    .screen-item p { font-size:12px; color:var(--text-light); font-weight:700; margin-top:14px; letter-spacing:.3px; }
+    .screen-item.main .screen-phone { width:188px; transform:translateY(-24px); box-shadow:0 32px 80px rgba(61,0,122,.45); }
+    .screen-item.main .screen-phone .sp-inner { height:340px; }
+
+    /* shared mini UI */
+    .spi-bar { display:flex; justify-content:space-between; align-items:center; padding:7px 10px 4px; }
+    .spi-bar .spi-time { font-size:8px; font-weight:800; color:rgba(255,255,255,.7); }
+    .spi-bar .spi-icons { display:flex; gap:4px; }
+    .spi-bar .spi-icons span { font-size:7px; color:rgba(255,255,255,.6); }
+    .spi-notch { width:54px; height:13px; background:#111; border-radius:0 0 10px 10px; margin:0 auto 2px; }
+
+    /* Screen 1 – Shipments */
+    .sc1 { background:linear-gradient(175deg,#1a0435 0%,#2b0860 100%); color:#fff; font-size:10px; }
+    .sc1-head { padding:6px 10px 8px; }
+    .sc1-head h5 { font-size:11px; font-weight:800; margin:0 0 2px; }
+    .sc1-head span { font-size:8px; color:rgba(255,255,255,.5); }
+    .sc1-tabs { display:flex; gap:4px; padding:0 10px 8px; }
+    .sc1-tab { font-size:8px; padding:3px 8px; border-radius:20px; background:rgba(255,255,255,.08); color:rgba(255,255,255,.5); font-weight:700; }
+    .sc1-tab.act { background:var(--orange); color:#fff; }
+    .sc1-row { display:flex; align-items:center; gap:8px; padding:7px 10px; border-bottom:1px solid rgba(255,255,255,.05); }
+    .sc1-ic { width:24px; height:24px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:10px; flex-shrink:0; }
+    .sc1-info { flex:1; text-align:right; }
+    .sc1-info b { display:block; font-size:8.5px; font-weight:800; }
+    .sc1-info s { font-size:7.5px; color:rgba(255,255,255,.4); font-style:normal; }
+    .sc1-badge { font-size:7px; padding:2px 6px; border-radius:20px; font-weight:700; }
+    .badge-del  { background:rgba(76,175,80,.2); color:#81c784; }
+    .badge-ship { background:rgba(255,152,0,.2); color:#ffb74d; }
+    .badge-pend { background:rgba(255,255,255,.1); color:rgba(255,255,255,.5); }
+    .sc1-nav { display:flex; justify-content:space-around; padding:8px 0 6px; border-top:1px solid rgba(255,255,255,.07); margin-top:auto; }
+    .sc1-ni { display:flex; flex-direction:column; align-items:center; gap:2px; font-size:6px; color:rgba(255,255,255,.35); }
+    .sc1-ni.act { color:var(--orange); }
+    .sc1-ni .dot { width:14px; height:2px; border-radius:2px; background:var(--orange); }
+
+    /* Screen 2 – Home/Dashboard (main) */
+    .sc2 { background:linear-gradient(170deg,#3D007A 0%,#1a0035 100%); color:#fff; }
+    .sc2-hi { padding:6px 10px 4px; display:flex; justify-content:space-between; align-items:center; }
+    .sc2-hi h5 { font-size:10px; font-weight:800; margin:0; }
+    .sc2-hi span { font-size:7px; color:rgba(255,255,255,.5); }
+    .sc2-avt { width:22px; height:22px; border-radius:50%; background:var(--orange); font-size:9px; font-weight:900; display:flex; align-items:center; justify-content:center; }
+    .sc2-card { margin:4px 10px 6px; background:rgba(255,255,255,.08); border-radius:10px; padding:8px; }
+    .sc2-card-lbl { font-size:7px; color:rgba(255,255,255,.5); }
+    .sc2-card-val { font-size:16px; font-weight:900; color:#fff; margin:1px 0; }
+    .sc2-card-sub { font-size:7px; color:#a5d6a7; }
+    .sc2-grid { display:grid; grid-template-columns:1fr 1fr; gap:5px; padding:0 10px 6px; }
+    .sc2-box { background:rgba(255,255,255,.07); border-radius:8px; padding:7px; text-align:center; }
+    .sc2-box-n { font-size:13px; font-weight:900; }
+    .sc2-box-l { font-size:6.5px; color:rgba(255,255,255,.5); }
+    .sc2-acts { display:grid; grid-template-columns:repeat(4,1fr); gap:4px; padding:0 10px 4px; }
+    .sc2-act { background:rgba(255,255,255,.07); border-radius:8px; padding:6px 2px; text-align:center; font-size:6.5px; color:rgba(255,255,255,.7); }
+    .sc2-act-ic { font-size:12px; display:block; margin-bottom:2px; }
+    .sc2-ship { padding:0 10px; }
+    .sc2-ship-lbl { font-size:7.5px; font-weight:800; margin-bottom:4px; }
+    .sc2-ship-row { display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,.06); border-radius:7px; padding:5px 7px; margin-bottom:3px; }
+    .sc2-ship-row b { font-size:7.5px; font-weight:800; display:block; }
+    .sc2-ship-row s { font-size:6.5px; color:rgba(255,255,255,.4); font-style:normal; }
+
+    /* Screen 3 – Wallet */
+    .sc3 { background:#0e0e1a; color:#fff; }
+    .sc3-head { background:linear-gradient(135deg,#3D007A,#6a0dad); padding:10px; margin-bottom:0; }
+    .sc3-head-lbl { font-size:7.5px; color:rgba(255,255,255,.6); }
+    .sc3-head-bal { font-size:18px; font-weight:900; margin:2px 0; }
+    .sc3-head-sub { font-size:7px; color:rgba(255,255,255,.5); }
+    .sc3-btns { display:flex; gap:5px; margin-top:7px; }
+    .sc3-btn { font-size:7px; padding:4px 10px; border-radius:20px; font-weight:800; }
+    .sc3-btn.primary { background:var(--orange); color:#fff; }
+    .sc3-btn.sec { background:rgba(255,255,255,.12); color:#fff; }
+    .sc3-txn-lbl { font-size:7.5px; font-weight:800; padding:8px 10px 4px; color:rgba(255,255,255,.7); }
+    .sc3-txn { display:flex; align-items:center; gap:7px; padding:6px 10px; border-bottom:1px solid rgba(255,255,255,.05); }
+    .sc3-txn-ic { width:22px; height:22px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:10px; flex-shrink:0; }
+    .sc3-txn-info { flex:1; }
+    .sc3-txn-info b { display:block; font-size:7.5px; font-weight:800; }
+    .sc3-txn-info s { font-size:6.5px; color:rgba(255,255,255,.35); font-style:normal; }
+    .sc3-txn-amt { font-size:8px; font-weight:900; }
+    .sc3-txn-amt.plus { color:#81c784; }
+    .sc3-txn-amt.minus { color:#ef9a9a; }
+
+    /* Screen 4 – Tracking */
+    .sc4 { background:#0d1117; color:#fff; }
+    .sc4-map { height:95px; background:linear-gradient(170deg,#1a1f2e,#0d1a2e); position:relative; overflow:hidden; flex-shrink:0; }
+    .sc4-map-grid { position:absolute; inset:0; opacity:.12;
+      background-image: linear-gradient(rgba(100,160,255,.5) 1px,transparent 1px), linear-gradient(90deg,rgba(100,160,255,.5) 1px,transparent 1px);
+      background-size:16px 16px; }
+    .sc4-route { position:absolute; bottom:10px; left:16px; right:16px; height:3px; background:rgba(255,152,0,.3); border-radius:2px; }
+    .sc4-route-fill { height:100%; width:60%; background:var(--orange); border-radius:2px; }
+    .sc4-dot { position:absolute; bottom:5px; left:60%; width:13px; height:13px; background:var(--orange); border-radius:50%; border:2px solid #fff; transform:translate(-50%,50%); box-shadow:0 0 0 4px rgba(255,69,0,.25); }
+    .sc4-origin { position:absolute; bottom:5px; left:16px; width:8px; height:8px; background:#fff; border-radius:50%; transform:translateY(50%); }
+    .sc4-dest { position:absolute; bottom:2px; right:16px; font-size:9px; }
+    .sc4-info { padding:8px 10px; }
+    .sc4-id { font-size:7.5px; color:rgba(255,255,255,.4); }
+    .sc4-name { font-size:9.5px; font-weight:800; margin:2px 0 6px; }
+    .sc4-tl { position:relative; padding-right:16px; }
+    .sc4-tl::before { content:''; position:absolute; right:19px; top:5px; bottom:5px; width:1px; background:rgba(255,255,255,.1); }
+    .sc4-step { display:flex; align-items:flex-start; gap:6px; margin-bottom:7px; position:relative; flex-direction:row-reverse; }
+    .sc4-step-dot { width:8px; height:8px; border-radius:50%; margin-top:2px; flex-shrink:0; }
+    .sc4-step-dot.done { background:var(--orange); }
+    .sc4-step-dot.active { background:var(--orange); box-shadow:0 0 0 3px rgba(255,69,0,.3); }
+    .sc4-step-dot.pend { background:rgba(255,255,255,.15); }
+    .sc4-step-info { text-align:right; }
+    .sc4-step-info b { display:block; font-size:7.5px; font-weight:800; }
+    .sc4-step-info s { font-size:6.5px; color:rgba(255,255,255,.35); font-style:normal; }
+    .sc4-nav { display:flex; justify-content:space-around; padding:6px 0 4px; border-top:1px solid rgba(255,255,255,.07); margin-top:auto; }
+    .sc4-ni { font-size:6px; color:rgba(255,255,255,.3); display:flex; flex-direction:column; align-items:center; gap:2px; }
+
+    /* ── REVIEWS ── */
+    .app-reviews { background:var(--bg); padding:72px 64px; }
+    .reviews-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .review-card { background:var(--white); border-radius:var(--radius-md); padding:24px; box-shadow:var(--shadow-sm); }
+    .review-top { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
+    .review-av { width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:16px; color:#fff; flex-shrink:0; }
+    .review-top strong { display:block; font-size:14px; font-weight:900; }
+    .review-top span   { font-size:11px; color:var(--text-light); }
+    .review-stars { display:flex; gap:2px; margin-bottom:10px; }
+    .review-stars svg { width:13px; height:13px; fill:var(--yellow); }
+    .review-card p { font-size:13px; color:var(--text-mid); line-height:1.7; }
+    .review-store { font-size:11px; color:var(--orange); font-weight:700; margin-top:10px; }
+
+    /* ── CTA ── */
+    .app-cta {
+      background:linear-gradient(135deg,var(--purple) 0%,var(--purple-mid) 100%);
+      padding:80px 64px; text-align:center;
+    }
+    .app-cta h2 { font-size:36px; font-weight:900; color:var(--white); margin-bottom:14px; }
+    .app-cta p  { font-size:17px; color:rgba(255,255,255,.72); margin-bottom:40px; }
+    .app-cta .store-badges { justify-content:center; }
+
+    @media(max-width:1024px){
+      .app-hero { grid-template-columns:1fr; padding:56px 24px; gap:40px; }
+      .phone-wrap { order:-1; }
+      .bubble-1,.bubble-2,.bubble-3 { display:none; }
+      .app-features-grid { grid-template-columns:1fr 1fr; }
+      .reviews-grid { grid-template-columns:1fr 1fr; }
+    }
+    @media(max-width:640px){
+      .app-hero h1 { font-size:28px; }
+      .app-features { padding:48px 24px; }
+      .screenshots  { padding:48px 24px; }
+      .app-features-grid { grid-template-columns:1fr; }
+      .reviews-grid { grid-template-columns:1fr; }
+      .app-reviews, .app-cta { padding:48px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav">
+  <div class="nav-logo"><img src="جمبك.jpg" alt="جمبك"/></div>
+  <ul class="nav-links">
+    <li><a href="index.html">الرئيسية</a></li>
+    <li><a href="app.html" style="color:var(--orange);font-weight:700">التطبيق</a></li>
+    <li><a href="storage.html">التخزين</a></li>
+    <li><a href="pricing.html">التسعير</a></li>
+    <li><a href="tracking.html" class="highlight">تتبع شحنتك</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="login.html"    class="btn btn-outline btn-sm">دخول</a>
+    <a href="register.html" class="btn btn-primary btn-sm">ابدأ مجاناً</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="app-hero">
+  <div class="app-hero-text">
+    <div class="app-badge">
+      <svg><use href="#ic-phone"/></svg>
+      تطبيق جمبك — متاح الآن
+    </div>
+    <h1>أدر شحناتك<br/>من <span>راحة يدك</span></h1>
+    <p>تطبيق جمبك يتيح لك إنشاء الشحنات، تتبعها لحظياً، واستلام أموالك — في أي وقت ومن أي مكان في السودان.</p>
+    <div class="store-badges">
+      <a href="#" class="store-badge">
+        <!-- Apple icon -->
+        <svg viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <div><span class="sb-sub">حمّل من</span><span class="sb-name">App Store</span></div>
+      </a>
+      <a href="#" class="store-badge">
+        <!-- Google Play icon -->
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3.18 23.76c.42.23.9.24 1.34.04l11.76-6.52-2.62-2.62-10.48 9.1z" fill="#EA4335"/><path d="M21.26 10.44L18.44 8.8l-2.96 2.96 2.96 2.96 2.84-1.66c.8-.47.8-1.15-.02-1.62z" fill="#FBBC05"/><path d="M3.18.24L13.66 9.34l-2.62 2.62L1.28.88C.84.67.36.68.18.92L3.18.24z" fill="#4285F4"/><path d="M3.18 23.76L16.28 14.8l-2.62-2.62L3.18.24c-.42.23-.68.67-.68 1.22v21.08c0 .55.26 1 .68 1.22z" fill="#34A853"/></svg>
+        <div><span class="sb-sub">حمّل من</span><span class="sb-name">Google Play</span></div>
+      </a>
+    </div>
+
+    <div class="app-ratings">
+      <div class="app-rating">
+        <div class="stars">
+          <svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg>
+          <svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg>
+        </div>
+        <strong>4.8</strong>
+        <span>App Store</span>
+      </div>
+      <div class="app-rating">
+        <div class="stars">
+          <svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg>
+          <svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg>
+        </div>
+        <strong>4.7</strong>
+        <span>Google Play</span>
+      </div>
+      <div class="app-rating">
+        <span>+10,000 تحميل</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHONE MOCKUP -->
+  <div class="phone-wrap">
+    <!-- Bubble notifications -->
+    <div class="phone-bubble bubble-1">
+      <div class="pb-icon" style="background:rgba(46,125,50,.12)"><svg style="color:#2E7D32;width:16px;height:16px"><use href="#ic-check"/></svg></div>
+      <div class="pb-text"><strong>تم التسليم ✓</strong><span>JMB-00247 — الآن</span></div>
+    </div>
+    <div class="phone-bubble bubble-2">
+      <div class="pb-icon" style="background:rgba(255,165,0,.15)"><svg style="color:#b07800;width:16px;height:16px"><use href="#ic-wallet"/></svg></div>
+      <div class="pb-text"><strong>+1,200 SDG</strong><span>تحصيل جديد</span></div>
+    </div>
+    <div class="phone-bubble bubble-3">
+      <div class="pb-icon" style="background:rgba(255,69,0,.1)"><svg style="color:var(--orange);width:16px;height:16px"><use href="#ic-truck"/></svg></div>
+      <div class="pb-text"><strong>مندوب في الطريق</strong><span>JMB-00249</span></div>
+    </div>
+
+    <div class="phone-mockup">
+      <div class="phone-screen">
+        <div class="phone-notch"></div>
+        <div class="phone-statusbar">
+          <span>9:41</span><span>●●●</span>
+        </div>
+        <div class="phone-content">
+          <div class="app-topbar">
+            <div>
+              <div class="at-greeting">مرحباً،</div>
+              <div class="at-name">أنس رمسيس 👋</div>
+            </div>
+            <div class="app-notif-btn"><svg><use href="#ic-bell"/></svg></div>
+          </div>
+
+          <div class="mini-stats">
+            <div class="mini-stat purple">
+              <div class="ms-val">37</div>
+              <div class="ms-lbl">شحنة اليوم</div>
+            </div>
+            <div class="mini-stat orange">
+              <div class="ms-val" style="font-size:12px">84K SDG</div>
+              <div class="ms-lbl">الإيرادات</div>
+            </div>
+          </div>
+
+          <div class="mini-actions">
+            <div class="mini-action">
+              <div class="ma-icon p"><svg><use href="#ic-truck"/></svg></div>
+              <span>شحنة جديدة</span>
+            </div>
+            <div class="mini-action">
+              <div class="ma-icon o"><svg><use href="#ic-map-pin"/></svg></div>
+              <span>تتبع</span>
+            </div>
+            <div class="mini-action">
+              <div class="ma-icon g"><svg><use href="#ic-wallet"/></svg></div>
+              <span>محفظة</span>
+            </div>
+            <div class="mini-action">
+              <div class="ma-icon y"><svg><use href="#ic-chart"/></svg></div>
+              <span>تقارير</span>
+            </div>
+          </div>
+
+          <div style="font-size:9px;color:rgba(255,255,255,.5);font-weight:700;margin-bottom:6px">آخر الشحنات</div>
+          <div class="mini-ship">
+            <div class="ms-top">
+              <span class="ms-num">JMB-00248</span>
+              <span class="ms-badge transit">في الطريق</span>
+            </div>
+            <div class="ms-dest">الخرطوم ← حي الرياض</div>
+          </div>
+          <div class="mini-ship">
+            <div class="ms-top">
+              <span class="ms-num">JMB-00247</span>
+              <span class="ms-badge done">مُسلَّمة</span>
+            </div>
+            <div class="ms-dest">الخرطوم ← بحري</div>
+          </div>
+        </div>
+        <div class="phone-nav">
+          <div class="pn-item active"><svg><use href="#ic-chart"/></svg><span>الرئيسية</span></div>
+          <div class="pn-item"><svg><use href="#ic-truck"/></svg><span>الشحنات</span></div>
+          <div class="pn-item"><svg><use href="#ic-map-pin"/></svg><span>تتبع</span></div>
+          <div class="pn-item"><svg><use href="#ic-wallet"/></svg><span>محفظة</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div class="app-features">
+  <div class="sec-header center">
+    <div class="sec-tag purple">مزايا التطبيق</div>
+    <h2 class="sec-title">كل شيء تحتاجه في جيبك</h2>
+    <p class="sec-sub">تطبيق جمبك مصمم للتاجر السوداني — بسيط وسريع ويعمل حتى بالإنترنت البطيء.</p>
+  </div>
+  <div class="app-features-grid">
+    <div class="app-feat">
+      <div class="af-icon purple"><svg><use href="#ic-zap"/></svg></div>
+      <h3>إنشاء شحنة في 30 ثانية</h3>
+      <p>أدخل اسم العميل والعنوان وأضغط إرسال — الباقي على جمبك. لا نماذج معقدة ولا خطوات زائدة.</p>
+    </div>
+    <div class="app-feat">
+      <div class="af-icon orange"><svg><use href="#ic-map-pin"/></svg></div>
+      <h3>تتبع لحظي لكل شحنة</h3>
+      <p>شاهد موقع المندوب على الخريطة في الوقت الفعلي وتلقّ إشعاراً فور تسليم كل طلب.</p>
+    </div>
+    <div class="app-feat">
+      <div class="af-icon green"><svg><use href="#ic-wallet"/></svg></div>
+      <h3>استلم أموالك فوراً</h3>
+      <p>راقب رصيدك واطلب التحويل مباشرة من التطبيق إلى محفظة موبايل موني أو حسابك البنكي.</p>
+    </div>
+    <div class="app-feat">
+      <div class="af-icon yellow"><svg><use href="#ic-bell"/></svg></div>
+      <h3>إشعارات ذكية لحظية</h3>
+      <p>احصل على إشعار فوري عند استلام الشحنة، خروجها للتوصيل، أو عند كل تحصيل مالي.</p>
+    </div>
+    <div class="app-feat">
+      <div class="af-icon purple"><svg><use href="#ic-scan"/></svg></div>
+      <h3>مسح الباركود السريع</h3>
+      <p>امسح باركود المنتج مباشرة لإنشاء الشحنة أو تتبعها — لا حاجة لكتابة الأرقام يدوياً.</p>
+    </div>
+    <div class="app-feat">
+      <div class="af-icon orange"><svg><use href="#ic-chart"/></svg></div>
+      <h3>تقارير وتحليلات مرئية</h3>
+      <p>شاهد أداء متجرك — معدلات التسليم، الإيرادات اليومية، وأكثر المنتجات مبيعاً — بلمحة واحدة.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SCREENSHOTS -->
+<section class="screenshots">
+  <div class="sec-header center">
+    <div class="sec-tag orange">لقطات التطبيق</div>
+    <h2 class="sec-title">واجهة مصممة للسهولة</h2>
+    <p class="sec-sub">تصميم عربي كامل مع دعم RTL وخطوط واضحة تناسب كل الأعمار.</p>
+  </div>
+  <div class="screens-row">
+
+    <!-- Screen 1: Shipments -->
+    <div class="screen-item">
+      <div class="screen-phone">
+        <div class="sp-inner sc1">
+          <div class="spi-notch"></div>
+          <div class="spi-bar"><span class="spi-time">9:41</span><div class="spi-icons"><span>●●●</span><span>WiFi</span><span>🔋</span></div></div>
+          <div class="sc1-head">
+            <h5>شحناتي</h5>
+            <span>248 شحنة إجمالاً</span>
+          </div>
+          <div class="sc1-tabs">
+            <span class="sc1-tab act">الكل</span>
+            <span class="sc1-tab">جارية</span>
+            <span class="sc1-tab">مُسلَّمة</span>
+          </div>
+          <div class="sc1-row">
+            <span class="sc1-badge badge-del">مُسلَّمة</span>
+            <div class="sc1-info"><b>JMB-00248</b><s>أم درمان • أمس</s></div>
+            <div class="sc1-ic" style="background:rgba(76,175,80,.15)">📦</div>
+          </div>
+          <div class="sc1-row">
+            <span class="sc1-badge badge-ship">في الطريق</span>
+            <div class="sc1-info"><b>JMB-00247</b><s>بحري • اليوم</s></div>
+            <div class="sc1-ic" style="background:rgba(255,152,0,.15)">🚚</div>
+          </div>
+          <div class="sc1-row">
+            <span class="sc1-badge badge-del">مُسلَّمة</span>
+            <div class="sc1-info"><b>JMB-00246</b><s>الخرطوم • أمس</s></div>
+            <div class="sc1-ic" style="background:rgba(76,175,80,.15)">📦</div>
+          </div>
+          <div class="sc1-row">
+            <span class="sc1-badge badge-pend">معلّقة</span>
+            <div class="sc1-info"><b>JMB-00245</b><s>مدني • اليوم</s></div>
+            <div class="sc1-ic" style="background:rgba(255,255,255,.08)">🕐</div>
+          </div>
+          <div class="sc1-row">
+            <span class="sc1-badge badge-ship">في الطريق</span>
+            <div class="sc1-info"><b>JMB-00244</b><s>كوستي • اليوم</s></div>
+            <div class="sc1-ic" style="background:rgba(255,152,0,.15)">🚚</div>
+          </div>
+          <div class="sc1-nav">
+            <div class="sc1-ni">🏠<span>الرئيسية</span></div>
+            <div class="sc1-ni act">📦<span>شحناتي</span><div class="dot"></div></div>
+            <div class="sc1-ni">➕<span>إضافة</span></div>
+            <div class="sc1-ni">👤<span>حسابي</span></div>
+          </div>
+        </div>
+      </div>
+      <p>الشحنات</p>
+    </div>
+
+    <!-- Screen 2: Home Dashboard (main/featured) -->
+    <div class="screen-item main">
+      <div class="screen-phone">
+        <div class="sp-inner sc2">
+          <div class="spi-notch"></div>
+          <div class="spi-bar"><span class="spi-time">9:41</span><div class="spi-icons"><span>●●●</span><span>🔋</span></div></div>
+          <div class="sc2-hi">
+            <div><h5>أهلاً، أنس 👋</h5><span style="font-size:7px;color:rgba(255,255,255,.45)">الخرطوم، السودان</span></div>
+            <div class="sc2-avt">أ</div>
+          </div>
+          <div class="sc2-card">
+            <div class="sc2-card-lbl">رصيد المحفظة</div>
+            <div class="sc2-card-val">84,200 <span style="font-size:10px;font-weight:700">SDG</span></div>
+            <div class="sc2-card-sub">↑ +3,400 هذا الأسبوع</div>
+          </div>
+          <div class="sc2-grid">
+            <div class="sc2-box"><div class="sc2-box-n" style="color:var(--orange)">37</div><div class="sc2-box-l">في التوصيل</div></div>
+            <div class="sc2-box"><div class="sc2-box-n" style="color:#81c784">189</div><div class="sc2-box-l">مُسلَّمة</div></div>
+          </div>
+          <div class="sc2-acts">
+            <div class="sc2-act"><span class="sc2-act-ic">📦</span>شحنة جديدة</div>
+            <div class="sc2-act"><span class="sc2-act-ic">📍</span>تتبع</div>
+            <div class="sc2-act"><span class="sc2-act-ic">💳</span>سحب</div>
+            <div class="sc2-act"><span class="sc2-act-ic">📊</span>تقارير</div>
+          </div>
+          <div class="sc2-ship">
+            <div class="sc2-ship-lbl">آخر الشحنات</div>
+            <div class="sc2-ship-row">
+              <div><b>JMB-00248</b><s>أم درمان</s></div>
+              <span style="font-size:7px;padding:2px 6px;border-radius:20px;background:rgba(76,175,80,.2);color:#81c784;font-weight:800">مُسلَّمة</span>
+            </div>
+            <div class="sc2-ship-row">
+              <div><b>JMB-00247</b><s>بحري</s></div>
+              <span style="font-size:7px;padding:2px 6px;border-radius:20px;background:rgba(255,152,0,.2);color:#ffb74d;font-weight:800">في الطريق</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>الرئيسية</p>
+    </div>
+
+    <!-- Screen 3: Wallet -->
+    <div class="screen-item">
+      <div class="screen-phone">
+        <div class="sp-inner sc3">
+          <div class="spi-notch"></div>
+          <div class="spi-bar" style="background:#3D007A"><span class="spi-time">9:41</span><div class="spi-icons"><span>🔋</span></div></div>
+          <div class="sc3-head">
+            <div class="sc3-head-lbl">إجمالي الرصيد</div>
+            <div class="sc3-head-bal">84,200 <span style="font-size:9px;font-weight:700">SDG</span></div>
+            <div class="sc3-head-sub">آخر تحديث: اليوم 9:38 ص</div>
+            <div class="sc3-btns">
+              <span class="sc3-btn primary">سحب</span>
+              <span class="sc3-btn sec">كشف حساب</span>
+            </div>
+          </div>
+          <div class="sc3-txn-lbl">آخر المعاملات</div>
+          <div class="sc3-txn">
+            <span class="sc3-txn-amt plus">+1,200</span>
+            <div class="sc3-txn-info"><b>شحنة JMB-00248</b><s>اليوم 8:22 ص</s></div>
+            <div class="sc3-txn-ic" style="background:rgba(76,175,80,.15)">💰</div>
+          </div>
+          <div class="sc3-txn">
+            <span class="sc3-txn-amt plus">+850</span>
+            <div class="sc3-txn-info"><b>شحنة JMB-00246</b><s>أمس 6:14 م</s></div>
+            <div class="sc3-txn-ic" style="background:rgba(76,175,80,.15)">💰</div>
+          </div>
+          <div class="sc3-txn">
+            <span class="sc3-txn-amt minus">-5,000</span>
+            <div class="sc3-txn-info"><b>سحب بنكي</b><s>أمس 2:00 م</s></div>
+            <div class="sc3-txn-ic" style="background:rgba(239,154,154,.1)">🏦</div>
+          </div>
+          <div class="sc3-txn">
+            <span class="sc3-txn-amt plus">+2,400</span>
+            <div class="sc3-txn-info"><b>شحنة JMB-00244</b><s>الاثنين 11:05 ص</s></div>
+            <div class="sc3-txn-ic" style="background:rgba(76,175,80,.15)">💰</div>
+          </div>
+          <div class="sc1-nav" style="margin-top:auto;border-top:1px solid rgba(255,255,255,.07)">
+            <div class="sc1-ni">🏠<span>الرئيسية</span></div>
+            <div class="sc1-ni">📦<span>شحناتي</span></div>
+            <div class="sc1-ni act">💳<span>محفظتي</span><div class="dot"></div></div>
+            <div class="sc1-ni">👤<span>حسابي</span></div>
+          </div>
+        </div>
+      </div>
+      <p>المحفظة</p>
+    </div>
+
+    <!-- Screen 4: Tracking -->
+    <div class="screen-item">
+      <div class="screen-phone">
+        <div class="sp-inner sc4">
+          <div class="spi-notch"></div>
+          <div class="spi-bar"><span class="spi-time">9:41</span><div class="spi-icons"><span>🔋</span></div></div>
+          <div class="sc4-map">
+            <div class="sc4-map-grid"></div>
+            <div class="sc4-route"><div class="sc4-route-fill"></div></div>
+            <div class="sc4-dot"></div>
+            <div class="sc4-origin"></div>
+            <div class="sc4-dest">📍</div>
+          </div>
+          <div class="sc4-info">
+            <div class="sc4-id">JMB-00247</div>
+            <div class="sc4-name">الخرطوم ← بحري</div>
+            <div class="sc4-tl">
+              <div class="sc4-step">
+                <div class="sc4-step-dot done"></div>
+                <div class="sc4-step-info"><b>تم استلام الطرد</b><s>اليوم 7:00 ص</s></div>
+              </div>
+              <div class="sc4-step">
+                <div class="sc4-step-dot done"></div>
+                <div class="sc4-step-info"><b>غادر المستودع</b><s>اليوم 8:30 ص</s></div>
+              </div>
+              <div class="sc4-step">
+                <div class="sc4-step-dot active"></div>
+                <div class="sc4-step-info" style="color:var(--orange)"><b>المندوب في الطريق</b><s>الوصول ~11:00 ص</s></div>
+              </div>
+              <div class="sc4-step">
+                <div class="sc4-step-dot pend"></div>
+                <div class="sc4-step-info" style="color:rgba(255,255,255,.3)"><b>تم التسليم</b><s>--</s></div>
+              </div>
+            </div>
+          </div>
+          <div class="sc4-nav">
+            <div class="sc4-ni">🏠<span>الرئيسية</span></div>
+            <div class="sc4-ni">📦<span>شحناتي</span></div>
+            <div class="sc4-ni" style="color:var(--orange)">📍<span style="color:var(--orange)">تتبع</span></div>
+            <div class="sc4-ni">👤<span>حسابي</span></div>
+          </div>
+        </div>
+      </div>
+      <p>التتبع</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<div class="app-reviews">
+  <div class="sec-header center">
+    <div class="sec-tag purple">آراء المستخدمين</div>
+    <h2 class="sec-title">ماذا قال التجار؟</h2>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-top">
+        <div class="review-av" style="background:var(--purple)">م</div>
+        <div><strong>محمد الأمين</strong><span>متجر إلكترونيات — الخرطوم</span></div>
+      </div>
+      <div class="review-stars"><svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg></div>
+      <p>«التطبيق سهّل حياتي جداً — بدل ما أفتح اللابتوب، دلوقتي أشحن وأتابع من الجوال في أي وقت»</p>
+      <div class="review-store">⭐ 5/5 — Google Play</div>
+    </div>
+    <div class="review-card">
+      <div class="review-top">
+        <div class="review-av" style="background:var(--orange)">ر</div>
+        <div><strong>رنا الطاهر</strong><span>متجر أزياء — أم درمان</span></div>
+      </div>
+      <div class="review-stars"><svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg></div>
+      <p>«الإشعارات الفورية ممتازة — أعرف فوراً لما تتسلم البضاعة وأرسل رسالة شكر لعميلي على طول»</p>
+      <div class="review-store">⭐ 5/5 — App Store</div>
+    </div>
+    <div class="review-card">
+      <div class="review-top">
+        <div class="review-av" style="background:#2E7D32">ع</div>
+        <div><strong>عمر سليمان</strong><span>متجر مواد غذائية — مدني</span></div>
+      </div>
+      <div class="review-stars"><svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg><svg><use href="#ic-star"/></svg></div>
+      <p>«أحسن تطبيق شحن في السودان — سريع وسهل والدعم الفني يرد في دقائق. ما توقعت يكون بالمستوى دا»</p>
+      <div class="review-store">⭐ 5/5 — Google Play</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="app-cta">
+  <h2>حمّل التطبيق الآن — مجاناً</h2>
+  <p>أكثر من 10,000 تاجر يستخدمون جمبك يومياً. انضم إليهم اليوم.</p>
+  <div class="store-badges">
+    <a href="#" class="store-badge">
+      <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      <div><span class="sb-sub">حمّل من</span><span class="sb-name">App Store</span></div>
+    </a>
+    <a href="#" class="store-badge">
+      <svg viewBox="0 0 24 24" fill="none" width="28" height="28"><path d="M3.18 23.76c.42.23.9.24 1.34.04l11.76-6.52-2.62-2.62-10.48 9.1z" fill="#EA4335"/><path d="M21.26 10.44L18.44 8.8l-2.96 2.96 2.96 2.96 2.84-1.66c.8-.47.8-1.15-.02-1.62z" fill="#FBBC05"/><path d="M3.18.24L13.66 9.34l-2.62 2.62L1.28.88C.84.67.36.68.18.92L3.18.24z" fill="#4285F4"/><path d="M3.18 23.76L16.28 14.8l-2.62-2.62L3.18.24c-.42.23-.68.67-.68 1.22v21.08c0 .55.26 1 .68 1.22z" fill="#34A853"/></svg>
+      <div><span class="sb-sub">حمّل من</span><span class="sb-name">Google Play</span></div>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="جمبك.jpg" alt="جمبك" class="footer-logo"/>
+      <p>أسرع شركة شحن في السودان. نوصّل لكل الولايات باليوم التالي.</p>
+    </div>
+    <div class="footer-col"><h4>الشركة</h4><ul><li><a href="about.html">من نحن</a></li><li><a href="contact.html">تواصل معنا</a></li><li><a href="blog.html">المدونة</a></li></ul></div>
+    <div class="footer-col"><h4>الخدمات</h4><ul><li><a href="index.html">الشحن السريع</a></li><li><a href="storage.html">التخزين</a></li><li><a href="integrations.html">التكاملات</a></li></ul></div>
+    <div class="footer-col"><h4>الدعم</h4><ul><li><a href="tracking.html">تتبع شحنة</a></li><li><a href="pricing.html">التسعير</a></li><li><a href="login.html">تسجيل الدخول</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 جمبك. جميع الحقوق محفوظة.</span></div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>من نحن | جمبك</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="base.css"/>
+
+  <svg style="display:none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="ic-check"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
+      <symbol id="ic-users"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+      <symbol id="ic-heart"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></symbol>
+      <symbol id="ic-globe"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+      <symbol id="ic-truck"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></symbol>
+      <symbol id="ic-zap"     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+      <symbol id="ic-star"    viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+      <symbol id="ic-target"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+      <symbol id="ic-award"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></symbol>
+      <symbol id="ic-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+    </defs>
+  </svg>
+
+  <style>
+    /* ── HERO ── */
+    .about-hero {
+      background: linear-gradient(150deg, var(--purple) 0%, #5a0db5 55%, #7b2dff 100%);
+      padding: 100px 64px 80px;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .about-hero::before {
+      content:''; position:absolute; top:-120px; right:-80px;
+      width:400px; height:400px; background:rgba(255,165,0,.1); border-radius:50%;
+    }
+    .about-hero::after {
+      content:''; position:absolute; bottom:-80px; left:-60px;
+      width:300px; height:300px; background:rgba(255,69,0,.09); border-radius:50%;
+    }
+    .about-hero-inner { position:relative; z-index:1; max-width:720px; margin:0 auto; }
+    .about-hero h1 { font-size:46px; font-weight:900; color:var(--white); line-height:1.2; margin-bottom:18px; }
+    .about-hero h1 span { color:var(--yellow); }
+    .about-hero p  { font-size:18px; color:rgba(255,255,255,.75); line-height:1.8; }
+
+    /* ── STORY ── */
+    .story-section {
+      display:grid; grid-template-columns:1fr 1fr; gap:80px;
+      align-items:center; padding:88px 64px;
+    }
+    .story-text .sec-tag { margin-bottom:14px; }
+    .story-text h2 { font-size:34px; font-weight:900; line-height:1.3; margin-bottom:18px; }
+    .story-text h2 span { color:var(--orange); }
+    .story-text p  { font-size:15px; color:var(--text-mid); line-height:1.85; margin-bottom:16px; }
+    .story-checks { display:flex; flex-direction:column; gap:10px; margin-top:24px; }
+    .story-check  { display:flex; align-items:center; gap:12px; font-size:14px; font-weight:700; color:var(--text); }
+    .story-check .dot { width:26px; height:26px; border-radius:50%; background:var(--purple-light); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .story-check .dot svg { width:13px; height:13px; color:var(--purple); }
+
+    /* Story visual */
+    .story-visual { position:relative; }
+    .story-img-frame {
+      width:100%; padding-bottom:100%; border-radius:30px;
+      background:linear-gradient(135deg,var(--purple-light) 0%,#e8d5ff 100%);
+      position:relative; overflow:hidden;
+    }
+    .story-img-frame .si-inner {
+      position:absolute; inset:0;
+      display:flex; align-items:center; justify-content:center;
+    }
+    /* year badge */
+    .year-badge {
+      position:absolute; bottom:24px; right:24px;
+      background:var(--orange); color:var(--white);
+      padding:14px 20px; border-radius:16px;
+      font-weight:900; text-align:center;
+      box-shadow:0 8px 24px rgba(255,69,0,.4);
+    }
+    .year-badge .yb-big   { font-size:32px; line-height:1; }
+    .year-badge .yb-small { font-size:12px; opacity:.85; }
+    /* float card */
+    .float-card {
+      position:absolute; top:24px; left:24px;
+      background:var(--white); border-radius:14px;
+      padding:14px 18px; box-shadow:0 8px 32px rgba(61,0,122,.15);
+      display:flex; align-items:center; gap:12px;
+    }
+    .float-card .fc-icon { width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center; }
+    .float-card .fc-icon svg { width:18px; height:18px; }
+    .float-card strong { display:block; font-size:16px; font-weight:900; color:var(--text); }
+    .float-card span   { font-size:11px; color:var(--text-light); }
+
+    /* ── STATS ── */
+    .stats-section {
+      background:var(--purple); padding:72px 64px;
+      display:grid; grid-template-columns:repeat(4,1fr); gap:0;
+    }
+    .about-stat { text-align:center; padding:0 24px; border-left:1px solid rgba(255,255,255,.12); }
+    .about-stat:first-child { border-left:none; }
+    .about-stat .as-val { font-size:42px; font-weight:900; color:var(--white); line-height:1; margin-bottom:8px; }
+    .about-stat .as-val span { color:var(--yellow); }
+    .about-stat .as-lbl { font-size:14px; color:rgba(255,255,255,.65); font-weight:600; }
+
+    /* ── VALUES ── */
+    .values-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .value-card {
+      padding:32px 28px; border-radius:var(--radius-md);
+      background:var(--white); box-shadow:var(--shadow-sm);
+      border-bottom:4px solid transparent;
+      transition:transform var(--transition),box-shadow var(--transition);
+    }
+    .value-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-md); }
+    .value-card.v1 { border-bottom-color:var(--purple); }
+    .value-card.v2 { border-bottom-color:var(--orange); }
+    .value-card.v3 { border-bottom-color:var(--yellow); }
+    .value-card.v4 { border-bottom-color:#2E7D32; }
+    .value-card.v5 { border-bottom-color:var(--purple-mid); }
+    .value-card.v6 { border-bottom-color:var(--orange); }
+    .val-icon { width:52px; height:52px; border-radius:16px; display:flex; align-items:center; justify-content:center; margin-bottom:18px; }
+    .val-icon svg { width:26px; height:26px; }
+    .val-icon.purple { background:var(--purple-light); color:var(--purple); }
+    .val-icon.orange { background:rgba(255,69,0,.1); color:var(--orange); }
+    .val-icon.yellow { background:rgba(255,165,0,.12); color:#b07800; }
+    .val-icon.green  { background:rgba(46,125,50,.1); color:#2E7D32; }
+    .value-card h3 { font-size:17px; font-weight:900; margin-bottom:10px; }
+    .value-card p  { font-size:14px; color:var(--text-mid); line-height:1.75; }
+
+    /* ── TEAM ── */
+    .team-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:24px; }
+    .team-card {
+      border-radius:var(--radius-md); overflow:hidden;
+      background:var(--white); box-shadow:var(--shadow-sm);
+      text-align:center;
+      transition:transform var(--transition),box-shadow var(--transition);
+    }
+    .team-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-md); }
+    .team-avatar {
+      height:180px; display:flex; align-items:center; justify-content:center;
+      font-size:56px; font-weight:900; color:var(--white);
+    }
+    .team-body { padding:20px 16px 24px; }
+    .team-body h4 { font-size:16px; font-weight:900; margin-bottom:4px; }
+    .team-body .role { font-size:13px; color:var(--orange); font-weight:700; margin-bottom:10px; }
+    .team-body p { font-size:13px; color:var(--text-mid); line-height:1.65; }
+    .team-social { margin-top:14px; }
+    .team-social a { color:var(--text-light); transition:color var(--transition); }
+    .team-social a:hover { color:var(--purple); }
+    .team-social svg { width:18px; height:18px; }
+
+    /* ── TIMELINE ── */
+    .timeline { max-width:760px; margin:0 auto; position:relative; }
+    .timeline::before {
+      content:''; position:absolute;
+      right:19px; top:0; bottom:0;
+      width:2px; background:var(--gray-mid);
+    }
+    .tl-event { display:flex; gap:24px; margin-bottom:0; padding-bottom:40px; position:relative; }
+    .tl-event:last-child { padding-bottom:0; }
+    .tl-year {
+      width:40px; height:40px; border-radius:50%; flex-shrink:0;
+      background:var(--purple); color:var(--white);
+      display:flex; align-items:center; justify-content:center;
+      font-size:11px; font-weight:900; position:relative; z-index:1;
+    }
+    .tl-event:nth-child(even) .tl-year { background:var(--orange); }
+    .tl-info { padding-top:8px; }
+    .tl-info .tl-date { font-size:11px; font-weight:700; color:var(--orange); margin-bottom:4px; }
+    .tl-info h4 { font-size:15px; font-weight:900; margin-bottom:6px; }
+    .tl-info p  { font-size:13px; color:var(--text-mid); line-height:1.65; }
+
+    /* ── CTA ── */
+    .about-cta {
+      background:linear-gradient(135deg,var(--purple) 0%,var(--purple-mid) 100%);
+      padding:80px 64px; text-align:center;
+    }
+    .about-cta h2 { font-size:34px; font-weight:900; color:var(--white); margin-bottom:14px; }
+    .about-cta p  { font-size:16px; color:rgba(255,255,255,.72); margin-bottom:36px; }
+    .about-cta-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+
+    @media(max-width:1024px){
+      .story-section { grid-template-columns:1fr; gap:48px; }
+      .story-visual  { max-width:480px; margin:0 auto; }
+      .stats-section { grid-template-columns:1fr 1fr; gap:32px; padding:56px 32px; }
+      .about-stat    { border-left:none; border-top:1px solid rgba(255,255,255,.12); padding-top:24px; }
+      .about-stat:nth-child(-n+2) { border-top:none; }
+      .values-grid   { grid-template-columns:1fr 1fr; }
+      .team-grid     { grid-template-columns:1fr 1fr 1fr; }
+    }
+    @media(max-width:640px){
+      .about-hero { padding:64px 24px 56px; }
+      .about-hero h1 { font-size:30px; }
+      .story-section { padding:56px 24px; }
+      .stats-section { grid-template-columns:1fr 1fr; }
+      .values-grid   { grid-template-columns:1fr; }
+      .team-grid     { grid-template-columns:1fr 1fr; }
+      .section       { padding:56px 24px; }
+      .about-cta     { padding:56px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav">
+  <div class="nav-logo"><img src="جمبك.jpg" alt="جمبك"/></div>
+  <ul class="nav-links">
+    <li><a href="index.html">الرئيسية</a></li>
+    <li><a href="about.html" style="color:var(--orange);font-weight:700">من نحن</a></li>
+    <li><a href="storage.html">التخزين</a></li>
+    <li><a href="pricing.html">التسعير</a></li>
+    <li><a href="tracking.html" class="highlight">تتبع شحنتك</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="login.html"    class="btn btn-outline btn-sm">دخول</a>
+    <a href="register.html" class="btn btn-primary btn-sm">ابدأ مجاناً</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="about-hero">
+  <div class="about-hero-inner">
+    <div class="sec-tag white" style="margin-bottom:20px">من نحن</div>
+    <h1>نحن <span>جمبك</span> —<br/>الشحن الذكي<br/>لكل السودان</h1>
+    <p>بدأنا بحلم بسيط: نخلّي التوصيل في السودان سهل وموثوق وسريع لكل تاجر — صغير كان أو كبير.</p>
+  </div>
+</div>
+
+<!-- STORY -->
+<div class="story-section">
+  <div class="story-text">
+    <div class="sec-tag orange">قصتنا</div>
+    <h2>من الخرطوم<br/>إلى <span>كل ولاية</span></h2>
+    <p>في عام 2022، لاحظ مؤسسو جمبك أن التجار السودانيين يعانون من مشكلة واحدة كبيرة — لا توجد شركة شحن تعمل بكفاءة وشفافية وبأسعار معقولة. كان التاجر يشحن ولا يعرف متى تصل البضاعة، والعميل لا يتتبع طلبه، والأموال تتأخر أسابيع.</p>
+    <p>قررنا أن نغيّر هذا الواقع. بنينا جمبك من الصفر بتقنية حديثة وفريق سوداني متخصص، مع تركيز كامل على تجربة التاجر والعميل معاً. اليوم نخدم مئات التجار في كل الولايات السودانية.</p>
+    <div class="story-checks">
+      <div class="story-check">
+        <div class="dot"><svg><use href="#ic-check"/></svg></div>
+        تأسسنا في الخرطوم بفريق 100% سوداني
+      </div>
+      <div class="story-check">
+        <div class="dot"><svg><use href="#ic-check"/></svg></div>
+        نعمل في 18 ولاية سودانية حالياً
+      </div>
+      <div class="story-check">
+        <div class="dot"><svg><use href="#ic-check"/></svg></div>
+        أكثر من 50,000 شحنة ناجحة حتى الآن
+      </div>
+    </div>
+  </div>
+  <div class="story-visual">
+    <div class="story-img-frame">
+      <div class="si-inner">
+        <!-- Sudan map simplified SVG -->
+        <svg viewBox="0 0 200 240" width="200" opacity=".25" xmlns="http://www.w3.org/2000/svg">
+          <path d="M60,20 L140,20 L160,60 L170,120 L150,180 L120,220 L100,230 L80,220 L50,180 L30,120 L40,60 Z" fill="#3D007A" stroke="#5a0db5" stroke-width="3"/>
+          <circle cx="100" cy="100" r="12" fill="#FF4500" opacity=".8"/>
+          <circle cx="100" cy="100" r="22" fill="none" stroke="#FF4500" stroke-width="2" opacity=".4"/>
+          <circle cx="100" cy="100" r="34" fill="none" stroke="#FF4500" stroke-width="1.5" opacity=".2"/>
+        </svg>
+      </div>
+    </div>
+    <div class="year-badge">
+      <div class="yb-big">2022</div>
+      <div class="yb-small">سنة التأسيس</div>
+    </div>
+    <div class="float-card">
+      <div class="fc-icon" style="background:var(--purple-light)">
+        <svg style="width:18px;height:18px;color:var(--purple)"><use href="#ic-truck"/></svg>
+      </div>
+      <div>
+        <strong>+50K</strong>
+        <span>شحنة ناجحة</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-section">
+  <div class="about-stat">
+    <div class="as-val">50<span>K+</span></div>
+    <div class="as-lbl">شحنة تمّت بنجاح</div>
+  </div>
+  <div class="about-stat">
+    <div class="as-val">18<span>+</span></div>
+    <div class="as-lbl">ولاية سودانية مُغطّاة</div>
+  </div>
+  <div class="about-stat">
+    <div class="as-val">98<span>%</span></div>
+    <div class="as-lbl">معدل رضا التجار</div>
+  </div>
+  <div class="about-stat">
+    <div class="as-val">24<span>h</span></div>
+    <div class="as-lbl">متوسط وقت التسليم</div>
+  </div>
+</div>
+
+<!-- VALUES -->
+<section class="section bg-gray">
+  <div class="sec-header center">
+    <div class="sec-tag purple">قيمنا</div>
+    <h2 class="sec-title">القيم التي تحرّكنا كل يوم</h2>
+    <p class="sec-sub">هذه المبادئ ليست شعارات على الحائط — هي الطريقة التي نفكر ونعمل بها داخل جمبك.</p>
+  </div>
+  <div class="values-grid">
+    <div class="value-card v1">
+      <div class="val-icon purple"><svg><use href="#ic-zap"/></svg></div>
+      <h3>السرعة أولاً</h3>
+      <p>كل قرار نأخذه نسأل: هل هذا يجعل التوصيل أسرع؟ السرعة ليست رفاهية — هي الوعد الأساسي لكل تاجر يثق بنا.</p>
+    </div>
+    <div class="value-card v2">
+      <div class="val-icon orange"><svg><use href="#ic-heart"/></svg></div>
+      <h3>التاجر هو أولويتنا</h3>
+      <p>نبني كل ميزة بسؤال واحد: هل تحل مشكلة حقيقية للتاجر السوداني؟ رأيك يشكّل منتجنا مباشرة.</p>
+    </div>
+    <div class="value-card v3">
+      <div class="val-icon yellow"><svg><use href="#ic-award"/></svg></div>
+      <h3>الشفافية الكاملة</h3>
+      <p>تعرف بالضبط أين شحنتك، وكم ستكسب، ومتى ستستلم أموالك. لا مفاجآت، لا رسوم خفية.</p>
+    </div>
+    <div class="value-card v4">
+      <div class="val-icon green"><svg><use href="#ic-users"/></svg></div>
+      <h3>فريق سوداني فخور</h3>
+      <p>فريقنا كله من السودان ويفهم السوق السوداني من الداخل. هذا يجعلنا نحل مشاكل لا يستطيع أي شركة أجنبية حلّها.</p>
+    </div>
+    <div class="value-card v5">
+      <div class="val-icon purple"><svg><use href="#ic-target"/></svg></div>
+      <h3>التحسين المستمر</h3>
+      <p>نطلق تحديثات أسبوعية بناء على ملاحظات التجار. المنتج اليوم أفضل مما كان عليه بالأمس.</p>
+    </div>
+    <div class="value-card v6">
+      <div class="val-icon orange"><svg><use href="#ic-globe"/></svg></div>
+      <h3>التوسع بمسؤولية</h3>
+      <p>نتوسع لأننا نضمن جودة الخدمة في كل منطقة نضيفها — ولسنا نتوسع فقط لزيادة الأرقام.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section">
+  <div class="sec-header center">
+    <div class="sec-tag orange">الفريق</div>
+    <h2 class="sec-title">الأشخاص الذين يبنون جمبك</h2>
+    <p class="sec-sub">فريق من المؤمنين بأن السودان يستحق أفضل خدمة شحن في المنطقة.</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar" style="background:linear-gradient(135deg,var(--purple),var(--purple-mid))">أ</div>
+      <div class="team-body">
+        <h4>أنس رمسيس</h4>
+        <div class="role">المؤسس</div>
+        <p>رائد أعمال سوداني آمن بأن التكنولوجيا تستطيع تحويل قطاع الشحن في السودان.</p>
+        <div class="team-social">
+          <a href="#"><svg><use href="#ic-linkedin"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar" style="background:linear-gradient(135deg,var(--orange),#ff7043)">م</div>
+      <div class="team-body">
+        <h4>محي الدين محمد محي الدين</h4>
+        <div class="role">مدير التشغيل</div>
+        <p>يشرف على العمليات اليومية وشبكة التوصيل في جميع الولايات السودانية.</p>
+        <div class="team-social">
+          <a href="#"><svg><use href="#ic-linkedin"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar" style="background:linear-gradient(135deg,#1565C0,#1e88e5)">م</div>
+      <div class="team-body">
+        <h4>محمد بابكر</h4>
+        <div class="role">مدير التقنية</div>
+        <p>بنى منظومة التتبع الآني والتكاملات مع منصات التجارة الإلكترونية من الصفر.</p>
+        <div class="team-social">
+          <a href="#"><svg><use href="#ic-linkedin"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar" style="background:linear-gradient(135deg,#6A1B9A,#ab47bc)">ش</div>
+      <div class="team-body">
+        <h4>شيماء</h4>
+        <div class="role">مدير خدمة العملاء</div>
+        <p>تقود فريق الدعم المتخصص وتحرص على أن يُحلّ كل استفسار في أقل وقت ممكن.</p>
+        <div class="team-social">
+          <a href="#"><svg><use href="#ic-linkedin"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar" style="background:linear-gradient(135deg,#b07800,var(--yellow))">د</div>
+      <div class="team-body">
+        <h4>دعاء فضل</h4>
+        <div class="role">مدير التسويق</div>
+        <p>تبني هوية جمبك وتنمّي قاعدة التجار عبر استراتيجيات تسويقية مبتكرة.</p>
+        <div class="team-social">
+          <a href="#"><svg><use href="#ic-linkedin"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY TIMELINE -->
+<section class="section bg-gray">
+  <div class="sec-header center">
+    <div class="sec-tag purple">رحلتنا</div>
+    <h2 class="sec-title">من الفكرة إلى الواقع</h2>
+  </div>
+  <div class="timeline">
+    <div class="tl-event">
+      <div class="tl-year" style="font-size:10px">2022</div>
+      <div class="tl-info">
+        <div class="tl-date">يناير 2022</div>
+        <h4>انطلاق الفكرة</h4>
+        <p>بدأ المؤسسون بتحليل مشاكل الشحن في السودان وصياغة حل تقني شامل بعد 6 أشهر من البحث الميداني.</p>
+      </div>
+    </div>
+    <div class="tl-event">
+      <div class="tl-year" style="font-size:10px">2022</div>
+      <div class="tl-info">
+        <div class="tl-date">أغسطس 2022</div>
+        <h4>أول شحنة في التاريخ</h4>
+        <p>أطلقنا خدمتنا رسمياً في الخرطوم مع 10 تجار. الشحنة الأولى كانت لمتجر ملابس في حي الرياض.</p>
+      </div>
+    </div>
+    <div class="tl-event">
+      <div class="tl-year" style="font-size:10px">2023</div>
+      <div class="tl-info">
+        <div class="tl-date">مارس 2023</div>
+        <h4>التوسع لـ 5 ولايات</h4>
+        <p>وسّعنا شبكتنا لتغطي أم درمان، بحري، مدني، وبورتسودان. رفعنا عدد التجار إلى 200+.</p>
+      </div>
+    </div>
+    <div class="tl-event">
+      <div class="tl-year" style="font-size:10px">2023</div>
+      <div class="tl-info">
+        <div class="tl-date">نوفمبر 2023</div>
+        <h4>إطلاق التكاملات</h4>
+        <p>أطلقنا ربط مباشر مع Shopify وWooCommerce وسلة. تضاعف عدد الشحنات اليومية ثلاث مرات خلال شهر واحد.</p>
+      </div>
+    </div>
+    <div class="tl-event">
+      <div class="tl-year" style="font-size:10px">2024</div>
+      <div class="tl-info">
+        <div class="tl-date">يوليو 2024</div>
+        <h4>خدمة التخزين الذكي</h4>
+        <p>افتتحنا مستودع الخرطوم الرئيسي بمساحة 30,000 م² وأطلقنا خدمة التخزين والإيفاء الكامل.</p>
+      </div>
+    </div>
+    <div class="tl-event">
+      <div class="tl-year" style="font-size:10px">2026</div>
+      <div class="tl-info">
+        <div class="tl-date">اليوم — 2026</div>
+        <h4>18 ولاية، 50K+ شحنة</h4>
+        <p>نغطي اليوم 18 ولاية سودانية، ونخطط للوصول إلى 25 ولاية بنهاية العام مع إطلاق تطبيق الجوال.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="about-cta">
+  <h2>كن جزءاً من قصة جمبك</h2>
+  <p>انضم لمئات التجار الذين يثقون بجمبك يومياً لتوصيل منتجاتهم</p>
+  <div class="about-cta-btns">
+    <a href="register.html" class="btn btn-white">ابدأ مجاناً اليوم</a>
+    <a href="contact.html"  class="btn btn-outline" style="color:rgba(255,255,255,.85);border-color:rgba(255,255,255,.4)">تواصل معنا</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="جمبك.jpg" alt="جمبك" class="footer-logo"/>
+      <p>أسرع شركة شحن في السودان. نوصّل لكل الولايات باليوم التالي.</p>
+    </div>
+    <div class="footer-col">
+      <h4>الشركة</h4>
+      <ul>
+        <li><a href="about.html">من نحن</a></li>
+        <li><a href="contact.html">تواصل معنا</a></li>
+        <li><a href="demo.html">ديمو التاجر</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>الخدمات</h4>
+      <ul>
+        <li><a href="index.html">الشحن السريع</a></li>
+        <li><a href="storage.html">التخزين</a></li>
+        <li><a href="integrations.html">التكاملات</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>الدعم</h4>
+      <ul>
+        <li><a href="tracking.html">تتبع شحنة</a></li>
+        <li><a href="pricing.html">التسعير</a></li>
+        <li><a href="login.html">تسجيل الدخول</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 جمبك. جميع الحقوق محفوظة.</span>
+  </div>
+</footer>
+
+</body>
+</html>

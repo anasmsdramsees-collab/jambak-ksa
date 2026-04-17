@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>تسجيل الدخول | جمبك</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="base.css"/>
+
+  <svg style="display:none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="ic-mail"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+      <symbol id="ic-lock"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+      <symbol id="ic-eye"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="ic-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></symbol>
+      <symbol id="ic-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></symbol>
+      <symbol id="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
+    </defs>
+  </svg>
+
+  <style>
+    body { background: var(--bg); min-height: 100vh; display: flex; flex-direction: column; }
+
+    /* ── LAYOUT ── */
+    .auth-wrapper {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: calc(100vh - 70px);
+    }
+
+    /* ── LEFT PANEL (decorative) ── */
+    .auth-left {
+      background: linear-gradient(160deg, var(--purple) 0%, var(--purple-mid) 60%, #7b2dff 100%);
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      padding: 64px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .auth-left::before {
+      content: '';
+      position: absolute; top: -120px; right: -80px;
+      width: 360px; height: 360px;
+      background: rgba(255,165,0,.12); border-radius: 50%;
+    }
+    .auth-left::after {
+      content: '';
+      position: absolute; bottom: -100px; left: -60px;
+      width: 280px; height: 280px;
+      background: rgba(255,69,0,.1); border-radius: 50%;
+    }
+    .auth-left-inner { position: relative; z-index: 1; }
+    .auth-left img { height: 56px; object-fit: contain; filter: brightness(10); margin-bottom: 36px; }
+    .auth-left h2 { font-size: 32px; font-weight: 900; color: var(--white); margin-bottom: 14px; line-height: 1.3; }
+    .auth-left p  { font-size: 16px; color: rgba(255,255,255,.72); line-height: 1.75; margin-bottom: 40px; max-width: 360px; }
+
+    .auth-perks { display: flex; flex-direction: column; gap: 14px; text-align: right; }
+    .auth-perk  { display: flex; align-items: center; gap: 12px; }
+    .perk-dot   { width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .perk-dot svg { width: 14px; height: 14px; color: var(--yellow); }
+    .auth-perk span { font-size: 14px; color: rgba(255,255,255,.85); font-weight: 600; }
+
+    /* truck illustration */
+    .truck-illustration {
+      margin-top: 48px;
+      display: flex; justify-content: center;
+    }
+    .truck-illustration svg { width: 200px; height: 90px; opacity: .35; }
+
+    /* ── RIGHT PANEL (form) ── */
+    .auth-right {
+      display: flex; align-items: center; justify-content: center;
+      padding: 64px;
+      background: var(--white);
+    }
+    .auth-form-box { width: 100%; max-width: 420px; }
+
+    .form-header { margin-bottom: 36px; }
+    .form-header h1 { font-size: 30px; font-weight: 900; color: var(--text); margin-bottom: 8px; }
+    .form-header p  { font-size: 15px; color: var(--text-mid); }
+    .form-header p a { color: var(--orange); font-weight: 700; }
+
+    /* form groups */
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .input-wrap { position: relative; }
+    .input-wrap svg.prefix { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; color: var(--text-light); pointer-events: none; }
+    .input-wrap input {
+      width: 100%; padding: 13px 44px 13px 44px;
+      border: 2px solid var(--gray-mid); border-radius: var(--radius-md);
+      font-family: 'Cairo', sans-serif; font-size: 14px; color: var(--text);
+      outline: none; transition: border-color var(--transition);
+      background: var(--bg);
+    }
+    .input-wrap input:focus { border-color: var(--purple); background: var(--white); }
+    .input-wrap input.error { border-color: #e53935; }
+    .input-wrap .toggle-pass {
+      position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+      background: none; border: none; cursor: pointer; padding: 0;
+      color: var(--text-light); transition: color var(--transition);
+    }
+    .input-wrap .toggle-pass:hover { color: var(--purple); }
+    .input-wrap .toggle-pass svg { width: 18px; height: 18px; }
+
+    .form-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+    .checkbox-wrap { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+    .checkbox-wrap input[type=checkbox] { width: 16px; height: 16px; accent-color: var(--purple); cursor: pointer; }
+    .checkbox-wrap span { font-size: 13px; color: var(--text-mid); }
+    .forgot-link { font-size: 13px; color: var(--orange); font-weight: 700; }
+
+    .btn-login {
+      width: 100%; padding: 15px;
+      background: var(--orange); color: var(--white);
+      border: none; border-radius: var(--radius-md);
+      font-family: 'Cairo', sans-serif; font-size: 16px; font-weight: 700;
+      cursor: pointer; transition: var(--transition);
+      box-shadow: 0 4px 18px rgba(255,69,0,.3);
+    }
+    .btn-login:hover { background: var(--orange-dim); transform: translateY(-1px); }
+    .btn-login:active { transform: translateY(0); }
+
+    .divider { display: flex; align-items: center; gap: 14px; margin: 24px 0; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--gray-mid); }
+    .divider span { font-size: 12px; color: var(--text-light); font-weight: 600; white-space: nowrap; }
+
+    .social-logins { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .social-login-btn {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 11px; border: 2px solid var(--gray-mid); border-radius: var(--radius-md);
+      background: var(--white); font-family: 'Cairo', sans-serif;
+      font-size: 13px; font-weight: 700; color: var(--text-mid);
+      cursor: pointer; transition: var(--transition);
+    }
+    .social-login-btn:hover { border-color: var(--purple); color: var(--purple); }
+    .social-login-btn svg { width: 18px; height: 18px; }
+
+    .register-link { text-align: center; margin-top: 24px; font-size: 14px; color: var(--text-mid); }
+    .register-link a { color: var(--orange); font-weight: 700; }
+
+    /* error message */
+    .error-msg { font-size: 12px; color: #e53935; margin-top: 6px; display: none; }
+    .error-msg.show { display: block; }
+
+    /* loading state */
+    .btn-login.loading { opacity: .7; cursor: not-allowed; pointer-events: none; }
+    .spinner { display: inline-block; width: 18px; height: 18px; border: 2px solid rgba(255,255,255,.4); border-top-color: var(--white); border-radius: 50%; animation: spin .7s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @media(max-width:900px){
+      .auth-wrapper { grid-template-columns: 1fr; }
+      .auth-left { display: none; }
+      .auth-right { padding: 48px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- MINI NAVBAR -->
+<nav class="nav" style="position:relative">
+  <div class="nav-logo"><img src="جمبك.jpg" alt="جمبك"/></div>
+  <ul class="nav-links">
+    <li><a href="index.html">الرئيسية</a></li>
+    <li><a href="pricing.html">التسعير</a></li>
+    <li><a href="tracking.html" class="highlight">تتبع شحنتك</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="register.html" class="btn btn-outline btn-sm">تسجيل جديد</a>
+  </div>
+</nav>
+
+<div class="auth-wrapper">
+
+  <!-- LEFT DECORATIVE -->
+  <div class="auth-left">
+    <div class="auth-left-inner">
+      <img src="جمبك.jpg" alt="جمبك"/>
+      <h2>مرحباً بك في<br/>عالم الشحن الذكي</h2>
+      <p>أدر شحناتك وتتبع طلباتك واستلم أموالك — كل ذلك من لوحة تحكم واحدة.</p>
+
+      <div class="auth-perks">
+        <div class="auth-perk">
+          <div class="perk-dot"><svg><use href="#ic-check"/></svg></div>
+          <span>توصيل في اليوم التالي لجميع الولايات</span>
+        </div>
+        <div class="auth-perk">
+          <div class="perk-dot"><svg><use href="#ic-check"/></svg></div>
+          <span>تحصيل الأموال في 24 ساعة</span>
+        </div>
+        <div class="auth-perk">
+          <div class="perk-dot"><svg><use href="#ic-check"/></svg></div>
+          <span>تتبع لحظي لكل شحنة</span>
+        </div>
+        <div class="auth-perk">
+          <div class="perk-dot"><svg><use href="#ic-check"/></svg></div>
+          <span>دعم متخصص على مدار الساعة</span>
+        </div>
+      </div>
+
+      <div class="truck-illustration">
+        <svg viewBox="0 0 300 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="10" y="20" width="130" height="54" rx="4"/>
+            <rect x="140" y="30" width="50" height="44" rx="4"/>
+            <circle cx="32" cy="74" r="10"/><circle cx="118" cy="74" r="10"/><circle cx="168" cy="74" r="10"/>
+            <line x1="140" y1="50" x2="190" y2="50"/>
+            <rect x="20" y="28" width="50" height="28" rx="3"/>
+          </g>
+          <g stroke="rgba(255,165,0,.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="210" y="34" width="70" height="40" rx="4"/>
+            <rect x="280" y="42" width="18" height="32" rx="3"/>
+            <circle cx="228" cy="74" r="8"/><circle cx="272" cy="74" r="8"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT FORM -->
+  <div class="auth-right">
+    <div class="auth-form-box">
+
+      <div class="form-header">
+        <h1>تسجيل الدخول</h1>
+        <p>ليس لديك حساب؟ <a href="register.html">سجّل مجاناً</a></p>
+      </div>
+
+      <form id="loginForm" onsubmit="handleLogin(event)">
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">البريد الإلكتروني</label>
+          <div class="input-wrap">
+            <svg class="prefix"><use href="#ic-mail"/></svg>
+            <input type="email" id="email" placeholder="example@gmail.com" autocomplete="email" required />
+          </div>
+          <p class="error-msg" id="emailErr">يرجى إدخال بريد إلكتروني صحيح</p>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="password">كلمة المرور</label>
+          <div class="input-wrap">
+            <svg class="prefix"><use href="#ic-lock"/></svg>
+            <input type="password" id="password" placeholder="أدخل كلمة المرور" autocomplete="current-password" required />
+            <button type="button" class="toggle-pass" id="togglePass" onclick="togglePassword()">
+              <svg id="eyeIcon"><use href="#ic-eye"/></svg>
+            </button>
+          </div>
+          <p class="error-msg" id="passErr">كلمة المرور يجب أن تكون 8 أحرف على الأقل</p>
+        </div>
+
+        <!-- Remember + Forgot -->
+        <div class="form-row">
+          <label class="checkbox-wrap">
+            <input type="checkbox" id="remember"/>
+            <span>تذكّرني</span>
+          </label>
+          <a href="#" class="forgot-link">نسيت كلمة المرور؟</a>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn-login" id="loginBtn">تسجيل الدخول</button>
+
+      </form>
+
+      <div class="divider"><span>أو سجّل الدخول بـ</span></div>
+
+      <div class="social-logins">
+        <button class="social-login-btn">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+          </svg>
+          Google
+        </button>
+        <button class="social-login-btn">
+          <svg viewBox="0 0 24 24" fill="#1877F2" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+          Facebook
+        </button>
+      </div>
+
+      <p class="register-link">
+        ليس لديك حساب بعد؟ <a href="register.html">سجّل الآن مجاناً</a>
+      </p>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function togglePassword() {
+    const inp = document.getElementById('password');
+    const ico = document.getElementById('eyeIcon');
+    if (inp.type === 'password') {
+      inp.type = 'text';
+      ico.innerHTML = '<use href="#ic-eye-off"/>';
+    } else {
+      inp.type = 'password';
+      ico.innerHTML = '<use href="#ic-eye"/>';
+    }
+  }
+
+  function handleLogin(e) {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const pass  = document.getElementById('password').value;
+    const btn   = document.getElementById('loginBtn');
+    let valid = true;
+
+    document.getElementById('emailErr').classList.remove('show');
+    document.getElementById('passErr').classList.remove('show');
+    document.getElementById('email').classList.remove('error');
+    document.getElementById('password').classList.remove('error');
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      document.getElementById('emailErr').classList.add('show');
+      document.getElementById('email').classList.add('error');
+      valid = false;
+    }
+    if (pass.length < 8) {
+      document.getElementById('passErr').classList.add('show');
+      document.getElementById('password').classList.add('error');
+      valid = false;
+    }
+    if (!valid) return;
+
+    btn.innerHTML = '<span class="spinner"></span>';
+    btn.classList.add('loading');
+
+    setTimeout(() => {
+      window.location.href = 'dashboard.html';
+    }, 1400);
+  }
+</script>
+</body>
+</html>
