@@ -500,7 +500,7 @@
         <div class="pc-feature yes"><svg><use href="#ic-check"/></svg> مدير حساب مخصص</div>
       </div>
       <div class="pc-cta">
-        <button class="btn-plan" onclick="contactSales()">تواصل مع المبيعات</button>
+        <button class="btn-plan" onclick="openCalendly()">تواصل مع المبيعات 📅</button>
       </div>
     </div>
   </div>
@@ -615,6 +615,12 @@
     document.body.appendChild(t);
     setTimeout(() => t.remove(), 3500);
   }
+</script>
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"/>
+<script src="https://assets.calendly.com/assets/external/widget.js"></script>
+<script>
+  var CALENDLY_URL = 'https://calendly.com/jambak';
+  function openCalendly() { Calendly.initPopupWidget({ url: CALENDLY_URL }); return false; }
 </script>
 <script src="nav.js"></script>
 </body>

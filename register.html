@@ -400,6 +400,12 @@
 <script>
   let accountType = 'sme';
 
+  /* Pre-select tab from ?type=sme|enterprise in URL */
+  document.addEventListener('DOMContentLoaded', function(){
+    const p = new URLSearchParams(window.location.search).get('type');
+    if(p === 'enterprise') setType('enterprise');
+  });
+
   function setType(type) {
     accountType = type;
     document.getElementById('tab-sme').classList.toggle('active', type === 'sme');

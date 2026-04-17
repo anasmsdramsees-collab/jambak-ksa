@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="base.css"/>
+  <!-- Calendly -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"/>
 
   <svg style="display:none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
     <defs>
@@ -165,7 +167,7 @@
       <div class="hv-feat"><svg><use href="#ic-check"/></svg>دعم مباشر عبر الواتساب</div>
       <div class="hv-feat"><svg><use href="#ic-check"/></svg>تتبع لحظي لكل شحنة</div>
     </div>
-    <a href="#" class="btn btn-primary btn-lg">ابدأ الآن مجاناً <svg><use href="#ic-arrow"/></svg></a>
+    <a href="register.html?type=sme" class="btn btn-primary btn-lg">ابدأ الآن مجاناً <svg><use href="#ic-arrow"/></svg></a>
   </div>
 
   <!-- Enterprise Panel -->
@@ -180,7 +182,7 @@
       <div class="hv-feat"><svg><use href="#ic-check"/></svg>تقارير تفصيلية يومية وأسبوعية</div>
       <div class="hv-feat"><svg><use href="#ic-check"/></svg>شحنات غير محدودة بأسعار مخصصة</div>
     </div>
-    <a href="#" class="btn btn-white btn-lg">تواصل مع المبيعات <svg><use href="#ic-arrow"/></svg></a>
+    <button onclick="openCalendly()" class="btn btn-white btn-lg">تواصل مع المبيعات <svg><use href="#ic-arrow"/></svg></button>
   </div>
 </div>
 
@@ -265,7 +267,7 @@
         <li class="cs-item"><svg><use href="#ic-check"/></svg>تحصيل يومي للأموال</li>
         <li class="cs-item"><svg><use href="#ic-check"/></svg>تقارير أسبوعية</li>
       </ul>
-      <a href="pricing.html" class="btn btn-primary btn-lg" style="width:100%;justify-content:center">ابدأ مجاناً</a>
+      <a href="register.html?type=sme" class="btn btn-primary btn-lg" style="width:100%;justify-content:center">ابدأ مجاناً</a>
     </div>
     <div class="cs-card ent">
       <h3>الأعمال الكبيرة</h3>
@@ -279,7 +281,7 @@
         <li class="cs-item"><svg><use href="#ic-check"/></svg>تقارير تفصيلية يومية</li>
         <li class="cs-item"><svg><use href="#ic-check"/></svg>دعم أولوية 24/7</li>
       </ul>
-      <a href="#" class="btn btn-white btn-lg" style="width:100%;justify-content:center">تواصل مع المبيعات</a>
+      <button onclick="openCalendly()" class="btn btn-white btn-lg" style="width:100%;justify-content:center">تواصل مع المبيعات 📅</button>
     </div>
   </div>
 </section>
@@ -352,8 +354,8 @@
     <p>انضم لأكثر من 20,000 تاجر يثقون في جمبك لشحن منتجاتهم في السودان</p>
   </div>
   <div style="display:flex;gap:12px;flex-wrap:wrap;flex-shrink:0">
-    <a href="pricing.html" class="btn btn-primary btn-lg btn-pill">ابدأ مجاناً</a>
-    <a href="#" class="btn btn-outline btn-lg btn-pill">تواصل مع المبيعات</a>
+    <a href="register.html?type=sme" class="btn btn-primary btn-lg btn-pill">ابدأ مجاناً</a>
+    <button onclick="openCalendly()" class="btn btn-outline btn-lg btn-pill">تواصل مع المبيعات 📅</button>
   </div>
 </div>
 
@@ -385,6 +387,16 @@ function switchType(type){
   document.getElementById('btn-sme').className = 'type-btn ' + (type==='sme'?'on':'off');
   document.getElementById('btn-ent').className = 'type-btn ' + (type==='ent'?'on':'off');
 }
+</script>
+<script src="https://assets.calendly.com/assets/external/widget.js"></script>
+<script>
+  /* ── Calendly — ضع رابط حسابك هنا ── */
+  var CALENDLY_URL = 'https://calendly.com/jambak';
+
+  function openCalendly() {
+    Calendly.initPopupWidget({ url: CALENDLY_URL });
+    return false;
+  }
 </script>
 <script src="nav.js"></script>
 </body>

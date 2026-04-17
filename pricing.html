@@ -234,7 +234,7 @@
       <li class="feat-row"><svg><use href="#ic-check"/></svg><span>تقارير تفصيلية يومية</span></li>
       <li class="feat-row"><svg><use href="#ic-check"/></svg><span>دعم أولوية 24/7</span></li>
     </ul>
-    <a href="#" class="btn btn-outline" style="text-align:center;justify-content:center">تواصل مع المبيعات</a>
+    <button onclick="openCalendly()" class="btn btn-outline" style="text-align:center;justify-content:center;width:100%">تواصل مع المبيعات 📅</button>
   </div>
 
 </div>
@@ -416,6 +416,12 @@ function toggleFaq(btn){
   document.querySelectorAll('.faq-q.open').forEach(b=>{ b.classList.remove('open'); b.nextElementSibling.classList.remove('open'); });
   if(!isOpen){ btn.classList.add('open'); ans.classList.add('open'); }
 }
+</script>
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"/>
+<script src="https://assets.calendly.com/assets/external/widget.js"></script>
+<script>
+  var CALENDLY_URL = 'https://calendly.com/jambak';
+  function openCalendly() { Calendly.initPopupWidget({ url: CALENDLY_URL }); return false; }
 </script>
 <script src="nav.js"></script>
 </body>
