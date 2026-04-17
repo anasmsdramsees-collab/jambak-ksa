@@ -64,8 +64,9 @@
       padding: 48px;
     }
 
-    /* warehouse illustration SVG */
-    .warehouse-svg { width: 100%; max-width: 420px; }
+    /* warehouse photo */
+    .warehouse-photo { width: 100%; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,.2); }
+    .warehouse-photo img { width: 100%; height: auto; display: block; }
 
     /* ── STATS STRIP ── */
     .stats-strip {
@@ -289,66 +290,9 @@
     </div>
   </div>
   <div class="hero-right">
-    <!-- Warehouse illustration -->
-    <svg class="warehouse-svg" viewBox="0 0 440 340" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- floor -->
-      <rect x="20" y="290" width="400" height="10" rx="4" fill="#e0e0ef"/>
-      <!-- building body -->
-      <rect x="60" y="120" width="320" height="170" rx="6" fill="#f3eaff"/>
-      <rect x="60" y="120" width="320" height="170" rx="6" stroke="#d0bff0" stroke-width="2"/>
-      <!-- roof -->
-      <polygon points="40,120 220,50 400,120" fill="#3D007A" opacity=".9"/>
-      <polygon points="40,120 220,50 400,120" stroke="#2A0055" stroke-width="2" fill="none"/>
-      <!-- roof line -->
-      <line x1="220" y1="50" x2="220" y2="120" stroke="rgba(255,165,0,.4)" stroke-width="2"/>
-      <!-- door -->
-      <rect x="175" y="200" width="90" height="90" rx="4" fill="#3D007A" opacity=".15"/>
-      <rect x="175" y="200" width="90" height="90" rx="4" stroke="#5a0db5" stroke-width="2"/>
-      <line x1="220" y1="200" x2="220" y2="290" stroke="#5a0db5" stroke-width="1.5" stroke-dasharray="4,4"/>
-      <circle cx="215" cy="248" r="4" fill="#5a0db5"/>
-      <!-- windows -->
-      <rect x="90"  y="155" width="55" height="42" rx="4" fill="white" stroke="#d0bff0" stroke-width="1.5"/>
-      <rect x="295" y="155" width="55" height="42" rx="4" fill="white" stroke="#d0bff0" stroke-width="1.5"/>
-      <line x1="117" y1="155" x2="117" y2="197" stroke="#d0bff0" stroke-width="1"/>
-      <line x1="322" y1="155" x2="322" y2="197" stroke="#d0bff0" stroke-width="1"/>
-      <!-- shelves inside -->
-      <rect x="95"  y="220" width="60" height="48" rx="3" fill="white" stroke="#d0bff0" stroke-width="1.5"/>
-      <line x1="95" y1="240" x2="155" y2="240" stroke="#d0bff0" stroke-width="1"/>
-      <line x1="95" y1="258" x2="155" y2="258" stroke="#d0bff0" stroke-width="1"/>
-      <!-- boxes on shelf left -->
-      <rect x="100" y="223" width="18" height="15" rx="2" fill="#FF4500" opacity=".7"/>
-      <rect x="121" y="223" width="14" height="15" rx="2" fill="#3D007A" opacity=".5"/>
-      <rect x="100" y="242" width="22" height="13" rx="2" fill="#FFA500" opacity=".7"/>
-      <!-- shelves right -->
-      <rect x="285" y="220" width="60" height="48" rx="3" fill="white" stroke="#d0bff0" stroke-width="1.5"/>
-      <line x1="285" y1="240" x2="345" y2="240" stroke="#d0bff0" stroke-width="1"/>
-      <line x1="285" y1="258" x2="345" y2="258" stroke="#d0bff0" stroke-width="1"/>
-      <rect x="290" y="223" width="16" height="15" rx="2" fill="#3D007A" opacity=".5"/>
-      <rect x="309" y="223" width="20" height="15" rx="2" fill="#FF4500" opacity=".7"/>
-      <rect x="290" y="242" width="24" height="13" rx="2" fill="#FFA500" opacity=".7"/>
-      <!-- truck -->
-      <rect x="340" y="248" width="80" height="40" rx="4" fill="#3D007A" opacity=".85"/>
-      <rect x="380" y="255" width="36" height="33" rx="3" fill="#5a0db5"/>
-      <circle cx="358" cy="291" r="8" fill="#1a1a2e" stroke="#555" stroke-width="2"/>
-      <circle cx="400" cy="291" r="8" fill="#1a1a2e" stroke="#555" stroke-width="2"/>
-      <rect x="380" y="264" width="30" height="18" rx="2" fill="rgba(255,255,255,.25)"/>
-      <!-- orange arrow -->
-      <path d="M310 268 L340 268" stroke="#FF4500" stroke-width="2.5" stroke-dasharray="5,3" marker-end="url(#arr)"/>
-      <defs>
-        <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-          <path d="M0,0 L6,3 L0,6" fill="none" stroke="#FF4500" stroke-width="1.5"/>
-        </marker>
-      </defs>
-      <!-- signal bars (top right) -->
-      <g transform="translate(370,72)">
-        <rect x="0"  y="14" width="6" height="8"  rx="1" fill="#3D007A" opacity=".3"/>
-        <rect x="9"  y="9"  width="6" height="13" rx="1" fill="#3D007A" opacity=".5"/>
-        <rect x="18" y="4"  width="6" height="18" rx="1" fill="#3D007A" opacity=".8"/>
-      </g>
-      <!-- label badge -->
-      <rect x="150" y="60" width="140" height="32" rx="16" fill="#FF4500"/>
-      <text x="220" y="81" text-anchor="middle" font-family="Cairo,sans-serif" font-size="13" font-weight="700" fill="white">مستودع جمبك</text>
-    </svg>
+    <div class="warehouse-photo">
+      <img src="warehouse.png" alt="مستودع جمبك - عربيات التوصيل"/>
+    </div>
   </div>
 </div>
 
@@ -672,5 +616,6 @@
     setTimeout(() => t.remove(), 3500);
   }
 </script>
+<script src="nav.js"></script>
 </body>
 </html>
