@@ -1,21 +1,37 @@
-# جمبك — Jambak 🚀
+# جمبك السعودية — Jambak KSA 🇸🇦
 
-> شركة الشحن الداخلي الأسرع والأكثر موثوقية في السودان
+> شركة الشحن الأسرع والأكثر موثوقية في المملكة العربية السعودية
 
-[![GitHub Pages](https://img.shields.io/badge/Live-GitHub%20Pages-brightgreen?style=flat-square&logo=github)](https://anasmsdramsees-collab.github.io/jambak-website/)
+[![GitHub Pages](https://img.shields.io/badge/Live-GitHub%20Pages-brightgreen?style=flat-square&logo=github)](https://anasmsdramsees-collab.github.io/jambak-ksa/)
+[![Branch](https://img.shields.io/badge/Branch-KSA-orange?style=flat-square)](https://github.com/anasmsdramsees-collab/jambak-ksa)
 
 ---
 
 ## 🌐 الموقع المباشر
 
-**https://anasmsdramsees-collab.github.io/jambak-website/**
+**https://anasmsdramsees-collab.github.io/jambak-ksa/**
+
+---
+
+## 🗺️ عن هذا الفرع
+
+هذا الريبو هو النسخة السعودية من موقع **جمبك** — مُعدَّل بالكامل لخدمة سوق المملكة العربية السعودية.
+
+| العنصر | فرع السودان 🇸🇩 | فرع السعودية 🇸🇦 |
+|--------|----------------|-----------------|
+| البلد | السودان | المملكة العربية السعودية |
+| العملة | جنيه سوداني (SDG) | ريال سعودي (SAR) |
+| المدن | الخرطوم، أم درمان، بحري | الرياض، جدة، الدمام، مكة |
+| التقسيم | 18 ولاية | 13 منطقة |
+| الهاتف | +249 | +966 |
+| سنة الانطلاق | 2022 | 2025 |
 
 ---
 
 ## 📁 هيكل الملفات
 
 ```
-jambk/
+jambak-ksa/
 ├── index.html          # الصفحة الرئيسية
 ├── merchant.html       # أنواع التجار (SME / Enterprise)
 ├── pricing.html        # التسعير والباقات
@@ -32,9 +48,22 @@ jambk/
 ├── dashboard.html      # لوحة تحكم التاجر
 ├── base.css            # الأنماط المشتركة
 ├── nav.js              # قائمة الموبايل (hamburger)
-├── hero-map.png        # صورة الخريطة (الهيرو)
+├── hero-map.png        # صورة الهيرو
 └── warehouse.png       # صورة المستودع
 ```
+
+---
+
+## 📊 أرقام السوق السعودي
+
+| المؤشر | القيمة |
+|--------|--------|
+| التجار النشطين | +200 تاجر |
+| المستودعات | 1 مستودع (الرياض) |
+| الشحنات المنجزة | +8,000 شحنة |
+| المناديب | +45 مندوب |
+| التغطية | 5 مناطق رئيسية |
+| نسبة التوصيل | 96% |
 
 ---
 
@@ -42,20 +71,20 @@ jambk/
 
 | الصفحة | الوصف |
 |--------|-------|
-| `index.html` | الرئيسية — hero، إحصائيات، التكاملات، testimonials |
-| `merchant.html` | خيار نوع التاجر مع Calendly للمؤسسات |
-| `pricing.html` | باقات التسعير مع Calendly للـ Enterprise |
-| `storage.html` | خدمة التخزين وأسعارها مع Calendly |
-| `tracking.html` | تتبع الشحنة برقم الـ ID |
-| `integrations.html` | التكاملات مع Salla, Zid, WooCommerce... |
+| `index.html` | الرئيسية — hero، خدمات، إحصائيات |
+| `merchant.html` | خيار نوع التاجر + Calendly للمؤسسات |
+| `pricing.html` | باقات التسعير بالريال السعودي |
+| `storage.html` | خدمة التخزين في مستودع الرياض |
+| `tracking.html` | تتبع الشحنة |
+| `integrations.html` | التكاملات مع Salla, Zid, WooCommerce |
 | `demo.html` | ديمو 4 خطوات تفاعلي |
-| `about.html` | قصة جمبك، الفريق، التايم لاين |
-| `contact.html` | نموذج تواصل مع خيارات الموضوع |
-| `app.html` | صفحة تطبيق جمبك مع شاشات حقيقية |
-| `blog.html` | مقالات مع فلتر بالتصنيف والبحث |
-| `login.html` | تسجيل دخول بالإيميل |
-| `register.html` | تسجيل — تاجر/متجر أو مؤسسة/شركة |
-| `dashboard.html` | لوحة تحكم كاملة (مثال: أنس رمسيس) |
+| `about.html` | قصة جمبك السعودية والفريق |
+| `contact.html` | تواصل معنا |
+| `app.html` | تطبيق جمبك |
+| `blog.html` | مقالات ونصائح التجارة الإلكترونية |
+| `login.html` | تسجيل الدخول |
+| `register.html` | إنشاء حساب (تاجر / مؤسسة) |
+| `dashboard.html` | لوحة تحكم التاجر |
 
 ---
 
@@ -89,9 +118,7 @@ jambk/
 - `pricing.html` — الباقة Enterprise
 - `storage.html` — باقة Enterprise للتخزين
 
-الرابط المُفعَّل: `https://calendly.com/anas-msd-ramsees/30min`
-
-لتغيير الرابط، ابحث عن `CALENDLY_URL` في الصفحات الثلاث.
+الرابط: `https://calendly.com/anas-msd-ramsees/30min`
 
 ---
 
@@ -103,7 +130,28 @@ jambk/
 
 ---
 
-## 🗂️ الفريق
+## 🔗 المستودعات
+
+| الفرع | الريبو | الموقع |
+|-------|--------|--------|
+| 🇸🇩 السودان | [jambak-website](https://github.com/anasmsdramsees-collab/jambak-website) | [رابط](https://anasmsdramsees-collab.github.io/jambak-website/) |
+| 🇸🇦 السعودية | [jambak-ksa](https://github.com/anasmsdramsees-collab/jambak-ksa) | [رابط](https://anasmsdramsees-collab.github.io/jambak-ksa/) |
+
+---
+
+## 🚀 النشر
+
+```bash
+git add .
+git commit -m "your message"
+git push
+```
+
+الموقع يُحدَّث تلقائياً على GitHub Pages بعد كل push.
+
+---
+
+## 👥 الفريق
 
 | الاسم | الدور |
 |-------|-------|
@@ -115,18 +163,6 @@ jambk/
 
 ---
 
-## 🚀 النشر
-
-الموقع يُنشر تلقائياً على **GitHub Pages** عند كل push على branch `main`.
-
-```bash
-git add .
-git commit -m "your message"
-git push
-```
-
----
-
 <div align="center">
-  صُنع بـ ❤️ في السودان — جمبك © 2026
+  صُنع بـ ❤️ — جمبك السعودية © 2025
 </div>
